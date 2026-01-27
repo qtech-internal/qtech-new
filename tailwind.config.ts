@@ -14,11 +14,7 @@ const config: Config = {
       fontSize: {
         '60': '60px',
         '80': '80px',
-<<<<<<< HEAD
-        'hero': 'clamp(40px, 6vw, 70px)',
-=======
         'hero': 'clamp(41px, 6vw, 70px)',
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
       },
       lineHeight: {
         '54': '54px',
@@ -33,11 +29,7 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'hero': 'url(/hero.png)',
-<<<<<<< HEAD
-        'globe': 'url(/globe.png)',
-=======
         'globe': 'url(/globe.gif)',
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
       },
       backgroundSize: {
         'contain': 'contain',
@@ -45,8 +37,6 @@ const config: Config = {
       },
       animation: {
         'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-<<<<<<< HEAD
-=======
         'scroll': 'scroll 20s linear infinite',
       },
       keyframes: {
@@ -54,16 +44,12 @@ const config: Config = {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
       },
       backdropBlur: {
         xs: '2px',
       }
     },
   },
-<<<<<<< HEAD
-  plugins: [],
-=======
    plugins: [
     function({ addUtilities }: { addUtilities: any }) {
       addUtilities({
@@ -78,6 +64,5 @@ const config: Config = {
     }
   ]
   
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
 }
 export default config

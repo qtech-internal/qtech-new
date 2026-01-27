@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-export default function ProcessSection() {
-=======
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -8,7 +5,6 @@ import { useState, useEffect } from 'react'
 export default function ProcessSection() {
   const [activeStep, setActiveStep] = useState(0)
 
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
   const steps = [
     {
       number: "1",
@@ -27,36 +23,6 @@ export default function ProcessSection() {
     }
   ]
 
-<<<<<<< HEAD
-  return (
-    <section className="px-6 py-20">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
-            How we work
-          </h2>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            At QuadB Tech, we follow a transparent, collaborative, and results-driven approach to deliver high-quality digital solutions. Our process ensures every project is executed efficiently while meeting your unique business goals.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-8">
-          {steps.map((step, index) => (
-            <div key={index} className="relative">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-                  {step.number}
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{step.description}</p>
-                </div>
-              </div>
-              
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-6 left-full w-full h-0.5 bg-gradient-to-r from-blue-600 to-transparent transform translate-x-4"></div>
-              )}
-=======
   // Auto-advance through steps
   useEffect(() => {
     const interval = setInterval(() => {
@@ -137,7 +103,6 @@ export default function ProcessSection() {
                   </p>
                 </div>
               </div>
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
             </div>
           ))}
         </div>

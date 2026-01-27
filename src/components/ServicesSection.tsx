@@ -1,33 +1,23 @@
-<<<<<<< HEAD
-=======
 'use client'
 
 import { useState } from 'react'
 import Image from 'next/image'
 
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
 export default function ServicesSection() {
   const services = [
     {
       title: "Mobile App Development",
       description: "Bring your ideas to life with high-performance, user-centric mobile applications designed for iOS, Android, and cross-platform ecosystems. At QuadB Tech, we combine cutting-edge technologies with intuitive design to create apps that engage users, drive growth, and deliver measurable results.",
-<<<<<<< HEAD
-      icon: "📱"
-=======
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <rect x="5" y="2" width="14" height="20" rx="2" strokeWidth="2"/>
           <line x1="12" y1="18" x2="12" y2="18" strokeWidth="2" strokeLinecap="round"/>
         </svg>
       )
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
     },
     {
       title: "Web App Development", 
       description: "Transform your business with custom web applications built for performance, scalability, and user experience.",
-<<<<<<< HEAD
-      icon: "🌐"
-=======
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <circle cx="12" cy="12" r="10" strokeWidth="2"/>
@@ -35,90 +25,46 @@ export default function ServicesSection() {
           <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" strokeWidth="2"/>
         </svg>
       )
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
     },
     {
       title: "Blockchain DApp Development",
       description: "Build decentralized applications that leverage blockchain technology for transparency, security, and innovation.",
-<<<<<<< HEAD
-      icon: "⛓️"
-=======
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       )
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
     },
     {
       title: "Game Development",
       description: "Create immersive gaming experiences with cutting-edge graphics, engaging gameplay, and cross-platform compatibility.",
-<<<<<<< HEAD
-      icon: "🎮"
-=======
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M6 11h4M8 9v4M15 10h.01M18 10h.01M6 15h12a4 4 0 004-4V9a4 4 0 00-4-4H6a4 4 0 00-4 4v2a4 4 0 004 4z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       )
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
     },
     {
       title: "ERP & SAAS Solutions",
       description: "Streamline your business operations with custom ERP systems and Software-as-a-Service solutions.",
-<<<<<<< HEAD
-      icon: "⚙️"
-=======
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M13 10V3L4 14h7v7l9-11h-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       )
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
     },
     {
       title: "Maintenance & Scalability",
       description: "Ensure your applications remain secure, updated, and scalable as your business grows.",
-<<<<<<< HEAD
-      icon: "🔧"
-=======
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       )
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
     },
     {
       title: "E-commerce Solutions",
       description: "Build powerful online stores and marketplaces that drive sales and enhance customer experience.",
-<<<<<<< HEAD
-      icon: "🛒"
-    }
-  ]
-
-  return (
-    <section className="px-6 py-20">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-blue-400 text-sm font-semibold tracking-wider uppercase mb-4 block">OUR SERVICES</span>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6">
-            <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-3xl p-8 backdrop-blur-sm border border-white/10 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10"></div>
-              <div className="relative z-10">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm mb-6 transition-colors">
-                  Learn more →
-                </button>
-                <div className="w-full h-48 bg-gradient-to-br from-blue-400/30 to-purple-600/30 rounded-2xl flex items-center justify-center mb-6">
-                  <div className="text-6xl">🤖</div>
-                </div>
-                <p className="text-white text-lg font-medium">
-                  Text Regarding Our AI services.
-                </p>
-=======
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -167,32 +113,10 @@ export default function ServicesSection() {
                     {selectedService.title}
                   </p>
                 </div>
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
               </div>
             </div>
           </div>
 
-<<<<<<< HEAD
-          <div className="space-y-4">
-            {services.map((service, index) => (
-              <div key={index} className="flex items-center justify-between p-4 rounded-xl hover:bg-white/5 transition-colors group cursor-pointer">
-                <div className="flex items-center space-x-4">
-                  <span className="text-2xl">{service.icon}</span>
-                  <div>
-                    <h3 className="text-white font-semibold group-hover:text-blue-300 transition-colors">
-                      {service.title}
-                    </h3>
-                    {index === 0 && (
-                      <p className="text-gray-400 text-sm mt-1 max-w-md">
-                        {service.description}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <svg className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-=======
           {/* Right side - Service list */}
           <div className="space-y-0">
             {services.map((service, index) => (
@@ -234,7 +158,6 @@ export default function ServicesSection() {
                     </p>
                   </div>
                 )}
->>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
               </div>
             ))}
           </div>

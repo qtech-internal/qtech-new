@@ -19,14 +19,19 @@ export default function Home() {
     <>
       <JsonLd data={organizationSchema} />
       <JsonLd data={websiteSchema} />
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
+      <div 
+        className="min-h-screen"
+        style={{
+          background: `linear-gradient(to bottom, transparent 0%, transparent 15%, #adb9f7 15%, #adb9f7 18%, #ffffff 25%)`
+        }}
+      >
         <Header />
         <HeroSection />
         <StatsSection />
         <AboutSection />
-        <ProcessSection />
         <ServicesSection />
         <WorkSection />
+        <ProcessSection />
         <Footer />
       </div>
     </>

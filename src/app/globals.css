@@ -14,6 +14,24 @@
   font-display: swap;
 }
 
+/* Enhanced filter to completely remove black background while preserving globe colors */
+.globe-filter-remove-black {
+  filter: brightness(1.4) contrast(1.2);
+  mix-blend-mode: screen;
+  background: transparent;
+}
+
+/* Alternative: More aggressive black removal */
+.globe-filter-no-black-strong {
+  filter: brightness(1.6) contrast(1.3) saturate(1.1);
+  mix-blend-mode: lighten;
+}
+
+/* Most natural: Only removes pure black pixels */
+.globe-filter-natural {
+  mix-blend-mode: screen;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

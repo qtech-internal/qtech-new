@@ -7,12 +7,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="relative z-50 backdrop-blur-sm" style={{
-      backgroundImage: 'linear-gradient(to right, rgba(20, 27, 70, 0.6), rgba(2, 2, 7, 0.6)), url(/hero.png)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat'
-    }}>
+    <header className="relative  overflow-hidden bg-hero bg-cover bg-center bg-no-repeat">
       {/* Navigation */}
       <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 py-4">
         <Link href="/" className="text-white text-2xl font-bold">

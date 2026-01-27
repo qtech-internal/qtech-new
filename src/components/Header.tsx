@@ -7,12 +7,16 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
+<<<<<<< HEAD
     <header className="relative z-50 backdrop-blur-sm" style={{
       backgroundImage: 'linear-gradient(to right, rgba(20, 27, 70, 0.6), rgba(2, 2, 7, 0.6)), url(/hero.png)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
     }}>
+=======
+    <header className="relative  overflow-hidden bg-hero bg-cover bg-center bg-no-repeat">
+>>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
       {/* Navigation */}
       <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 py-4">
         <Link href="/" className="text-white text-2xl font-bold">
@@ -26,12 +30,21 @@ export default function Header() {
           <Link href="/services" className="text-gray-300 hover:text-white transition-colors font-medium">
             Services
           </Link>
+<<<<<<< HEAD
           <Link href="/profile" className="text-gray-300 hover:text-white transition-colors font-medium">
             Profile
           </Link>
           <Link href="/contact" className="bg-white text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100 transition-all duration-300 font-medium text-sm">
             Start a Project →
           </Link>
+=======
+          <Link href="/how-we-work" className="text-gray-300 hover:text-white transition-colors font-medium">
+            How we work
+          </Link>
+          <button className="bg-white text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100 transition-all duration-300 font-medium text-sm">
+            Start a Project →
+          </button>
+>>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
         </div>
 
         <button 
@@ -54,12 +67,21 @@ export default function Header() {
             <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
               Services
             </Link>
+<<<<<<< HEAD
             <Link href="/profile" className="text-gray-300 hover:text-white transition-colors">
               Profile
             </Link>
             <Link href="/contact" className="bg-white text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100 transition-all duration-300 w-fit text-sm">
               Start a Project →
             </Link>
+=======
+            <Link href="/how-we-work" className="text-gray-300 hover:text-white transition-colors">
+              How we work
+            </Link>
+            <button className="bg-white text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100 transition-all duration-300 w-fit text-sm">
+              Start a Project →
+            </button>
+>>>>>>> 09ff300413203e0271401640dbdb5d3d3415655f
           </div>
         </div>
       )}

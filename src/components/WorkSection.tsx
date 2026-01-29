@@ -1,38 +1,60 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
 export default function WorkSection() {
   const [activeTab, setActiveTab] = useState('Web2')
+  const router = useRouter()
 
-  const projects = [
-    {
-      title: "Project 1",
-      description: "We start by understanding your vision, business needs, and target audience. Through research and consultation, we define project scope, goals, and a roadmap for success.",
-      image: "/project1.png"
-    },
-    {
-      title: "Project 2", 
-      description: "We start by understanding your vision, business needs, and target audience. Through research and consultation, we define project scope, goals, and a roadmap for success.",
-      image: "/project2.png"
-    },
-    {
-      title: "Project 3",
-      description: "We start by understanding your vision, business needs, and target audience. Through research and consultation, we define project scope, goals, and a roadmap for success.",
-      image: "/project3.png"
-    },
-    {
-      title: "Project 4",
-      description: "We start by understanding your vision, business needs, and target audience. Through research and consultation, we define project scope, goals, and a roadmap for success.",
-      image: "/project4.png"
-    },
-    {
-      title: "Project 5",
-      description: "We start by understanding your vision, business needs, and target audience. Through research and consultation, we define project scope, goals, and a roadmap for success.",
-      image: "/project4.png"
-    }
-  ]
+  const handleViewMore = () => {
+    router.push('/profile')
+  }
+
+ const web2Projects = [
+  {
+    title: "SigLab",
+    description: "Interactive and modern landing page with smooth animations and responsive design.",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=400&fit=crop"
+  },
+  {
+    title: "Xpedition",
+    description: "Task and rewards platform with verified workflows, admin dashboards, and real payouts.",
+    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=400&fit=crop"
+  },
+  {
+    title: "Blockseblock",
+    description: "Complete hackathon platform with submissions, judging dashboards, and secure payments.",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=400&fit=crop"
+  }
+];
+
+const web3Projects = [
+  {
+    title: "Olympus",
+    description: "Decentralized platform connecting startups with VCs and mentors using smart matching.",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=400&fit=crop"
+  },
+  {
+    title: "Dfinance",
+    description: "DeFi platform enabling lending, borrowing, swaps, and transparent on-chain tracking.",
+    image: "https://images.unsplash.com/photo-1640161704729-cbe966a08476?w=800&h=400&fit=crop"
+  },
+  {
+    title: "MAHAKA",
+    description: "NFT-based ticketing platform with secure minting and ownership verification.",
+    image: "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&h=400&fit=crop"
+  },
+  {
+    title: "LiftCash",
+    description: "Decentralized voting system with transparent governance and token-based rewards.",
+    image: "https://images.unsplash.com/photo-1600267165477-6d4cc741b379?w=800&h=400&fit=crop"
+  }
+];
+
+
+  const currentProjects = activeTab === 'Web2' ? web2Projects : web3Projects
 
   return (
     <section className="px-6 py-20 -mt-20">
@@ -67,7 +89,10 @@ export default function WorkSection() {
             </button>
           </div>
 
-          <button className="text-[#615FFF] hover:text-white hover:bg-[#615FFF] transition-colors font-medium text-sm flex items-center space-x-2 px-6 py-2.5 border border-[#615FFF] rounded-full">
+          <button 
+            onClick={handleViewMore}
+            className="text-[#615FFF] hover:text-white hover:bg-[#615FFF] transition-colors font-medium text-sm flex items-center space-x-2 px-6 py-2.5 border border-[#615FFF] rounded-full"
+          >
             <span>View more</span>
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path d="M7 17L17 7M17 7H7M17 7V17" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -77,32 +102,55 @@ export default function WorkSection() {
 
         {/* Projects Horizontal Scroll */}
         <div className="overflow-x-auto overflow-y-hidden scrollbar-hide -mx-6 px-6">
-          <div className="flex gap-6 pb-4 min-w-max">
-            {projects.map((project, index) => (
-              <div 
-                key={index} 
-                className="bg-white rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer flex-shrink-0 w-[320px]"
-              >
-                {/* Project Image */}
-                <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
+          {currentProjects.length > 0 ? (
+            <div className="flex gap-6 pb-4 min-w-max">
+              {currentProjects.map((project, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer flex-shrink-0 w-[320px]"
+                >
+                  {/* Project Image */}
+                  <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
 
-                {/* Project Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{project.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
+                  {/* Project Content */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{project.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
                 </div>
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center py-20 text-center">
+              <div className="w-24 h-24 mb-6 text-gray-300">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-full h-full">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <circle cx="9" cy="9" r="2"/>
+                  <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                </svg>
               </div>
-            ))}
-          </div>
+              <h3 className="text-2xl font-semibold text-gray-700 mb-2">No {activeTab} Projects</h3>
+              <p className="text-gray-500 max-w-md">
+                We don't have any {activeTab} projects to showcase at the moment. 
+                Check back soon or explore the other category.
+              </p>
+              <button 
+                onClick={() => setActiveTab(activeTab === 'Web2' ? 'Web3' : 'Web2')}
+                className="mt-6 px-6 py-2 bg-[#615FFF] text-white rounded-full hover:bg-[#615FFF]/90 transition-colors font-medium text-sm"
+              >
+                View {activeTab === 'Web2' ? 'Web3' : 'Web2'} Projects
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>

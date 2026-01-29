@@ -1,7 +1,18 @@
 export default function AboutSection() {
   return (
-    <section className="px-6 py-20 -mt-10">
-      <div className="max-w-7xl mx-auto text-center">
+    <section className="px-6 py-20 -mt-10 relative">
+      {/* Background overlay image */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+        <div className="relative w-full max-w-4xl h-[1400px] mt-60 ">
+          <img
+            src="/homepage.png"
+            alt="Homepage background"
+            className="w-full h-full object-contain"
+          />
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto text-center relative z-10">
         <div className="mb-8">
           <span className="text-[#615FFF] text-sm font-semibold tracking-wider uppercase">ABOUT</span>
         </div>

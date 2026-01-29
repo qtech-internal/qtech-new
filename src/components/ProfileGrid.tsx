@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ArrowRight, ExternalLink } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 interface Project {
   id: string
@@ -10,200 +11,352 @@ interface Project {
   description: string
   tags: string[]
   link?: string
+  problems: string[]
+  solution: string
+  image: string
 }
 
 const projects: Project[] = [
   {
-    id: 'clone-branding-1',
-    title: 'Clans | Branding + UX/UI | 0→1',
-    category: 'Branding',
-    description: 'We start by understanding your vision, business needs, and target audience. Through research and consultation, we define project scope, goals, and a roadmap for success.',
-    tags: ['Branding', 'UI/UX', 'Design'],
-    link: '#'
+    id: 'siglab',
+    title: 'SigLab | Interactive Landing Page',
+    category: 'Web2',
+    description:
+      'SigLab is a modern, high-performance landing page designed to create a strong first impression for a tech-focused brand. The project focuses on delivering a visually engaging experience through smooth animations, interactive UI elements, and a responsive layout. The goal was to clearly communicate the brand’s vision, improve user engagement, and ensure consistent performance across all devices.',
+    tags: ['Web2', 'UI/UX', 'Next.js', 'Framer Motion'],
+    link: 'https://siglabs.xyz/',
+    image:
+      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=400&fit=crop',
+    problems: [
+      'Existing landing pages were static and visually outdated, leading to poor user engagement',
+      'Lack of smooth animations and micro-interactions reduced the perceived quality of the brand',
+      'Inconsistent responsiveness caused layout issues on mobile and tablet devices'
+    ],
+    solution:
+      'We designed and developed a fast, responsive landing page using Next.js and Tailwind CSS, with Framer Motion handling smooth animations and transitions. The layout was optimized for all screen sizes, animations were carefully timed for performance, and the overall UI was aligned with modern design standards to enhance brand credibility and user engagement.'
   },
-  {
-    id: 'clone-branding-2',
-    title: 'Clans | Branding + UX/UI | 0→1',
-    category: 'Branding',
-    description: 'We start by understanding your vision, business needs, and target audience. Through research and consultation, we define project scope, goals, and a roadmap for success.',
-    tags: ['Branding', 'UI/UX', 'Design'],
-    link: '#'
-  },
-  {
-    id: 'clone-branding-3',
-    title: 'Clans | Branding + UX/UI | 0→1',
-    category: 'Development',
-    description: 'We start by understanding your vision, business needs, and target audience. Through research and consultation, we define project scope, goals, and a roadmap for success.',
-    tags: ['Development', 'Full-stack', 'React'],
-    link: '#'
-  },
-  {
-    id: 'clone-branding-4',
-    title: 'Clans | Branding + UX/UI | 0→1',
-    category: 'Mobile',
-    description: 'We start by understanding your vision, business needs, and target audience. Through research and consultation, we define project scope, goals, and a roadmap for success.',
-    tags: ['Mobile', 'React Native', 'iOS'],
-    link: '#'
-  }
-]
 
-const categories = ['All', 'Branding', 'Development', 'Mobile', 'Web', 'Blockchain']
+  {
+    id: 'xpedition',
+    title: 'Xpedition | Task & Rewards Platform',
+    category: 'Web2',
+    description:
+      'Xpedition is a micro-task and rewards platform where users complete verified tasks, track social engagement, and earn real monetary rewards. The platform was built with a strong emphasis on accuracy, transparency, and scalability, ensuring both users and admins have a reliable and trustworthy system.',
+    tags: ['Web2', 'Node.js', 'PostgreSQL', 'Docker', 'CI/CD'],
+    link: 'https://xpedition.club/',
+    image:
+      'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=400&fit=crop',
+    problems: [
+      'There was no reliable automated system to verify task completion',
+      'Manual task tracking led to fraud, delays, and inconsistencies',
+      'Admins lacked real-time visibility into user activity, rewards, and performance metrics'
+    ],
+    solution:
+      'We built the platform using an MVP-first approach to validate the concept before scaling. Automated task verification logic was implemented, along with detailed admin dashboards for monitoring users, tasks, and payouts. The system was containerized using Docker and integrated with CI/CD pipelines to ensure reliable deployments and long-term scalability.'
+  },
+
+  {
+    id: 'blockseblock',
+    title: 'Blockseblock | Hackathon Platform',
+    category: 'Web2',
+    description:
+      'Blockseblock is a comprehensive hackathon management platform that enables participants, organizers, and judges to collaborate seamlessly. The platform covers the entire hackathon lifecycle, from event discovery and registration to project submission, judging, and payments.',
+    tags: ['Web2', 'Full-stack', 'Security'],
+    link: 'https://blockseblock.com/',
+    image:
+      'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=400&fit=crop',
+    problems: [
+      'Hackathon workflows were fragmented across multiple tools',
+      'There was no single system for managing submissions, judging, and payments',
+      'Security risks existed around participant data and financial transactions'
+    ],
+    solution:
+      'We developed an end-to-end hackathon ecosystem with clearly defined roles for participants, judges, and organizers. Secure dashboards were created for each role, sensitive data was encrypted, and workflows were streamlined to provide a smooth, secure, and transparent hackathon experience.'
+  },
+
+  {
+    id: 'olympus',
+    title: 'Olympus | VC & Mentor Discovery Platform',
+    category: 'Web3',
+    description:
+      'Olympus is a decentralized networking platform that helps startups discover and connect with relevant venture capitalists and mentors. The platform introduces structured, preference-based matching to reduce the inefficiencies of traditional networking.',
+    tags: ['Web3', 'ICP', 'React', 'Rust'],
+    link: 'https://hptzq-yaaaa-aaaam-adb5a-cai.icp0.io/',
+    image:
+      'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=400&fit=crop',
+    problems: [
+      'Founders struggled to identify and connect with the right investors and mentors',
+      'Manual networking was time-consuming and unstructured',
+      'There was little transparency in how connections were formed'
+    ],
+    solution:
+      'We built a decentralized preference-based matching system using Rust smart contracts on the ICP blockchain. A React frontend provides a clean and intuitive interface, while the blockchain backend ensures secure, transparent, and tamper-proof data handling.'
+  },
+
+  {
+    id: 'dfinance',
+    title: 'Dfinance | DeFi Lending & Borrowing Platform',
+    category: 'Web3',
+    description:
+      'Dfinance is a decentralized finance platform that allows users to lend, borrow, and swap digital assets while tracking penalties and credit scores. The platform focuses on transparency, security, and simplifying complex DeFi workflows.',
+    tags: ['Web3', 'DeFi', 'ICP', 'Rust', 'React'],
+    link: 'https://cszmy-vyaaa-aaaak-quhea-cai.icp0.io/',
+    image:
+      'https://images.unsplash.com/photo-1640161704729-cbe966a08476?w=800&h=400&fit=crop',
+    problems: [
+      'There was no unified DeFi solution offering lending and borrowing on ICP',
+      'Existing platforms lacked transparency and real-time tracking',
+      'Complex DeFi user interfaces discouraged adoption'
+    ],
+    solution:
+      'We implemented secure Rust-based smart contracts on ICP to handle lending, borrowing, swaps, and scoring logic. A clean and user-friendly React interface was built to make complex DeFi interactions accessible and easy to understand.'
+  },
+
+  {
+    id: 'mahaka',
+    title: 'MAHAKA | NFT Ticketing Platform',
+    category: 'Web3',
+    description:
+      'MAHAKA is a blockchain-powered tourism and ticketing platform where event and venue tickets are issued, sold, and managed as NFTs. The platform ensures fraud prevention, transparent ownership, and secure ticket management.',
+    tags: ['Web3', 'NFT', 'ICP', 'EXTv2'],
+    link: 'https://3rwjt-vqaaa-aaaak-akusq-cai.icp0.io/',
+    image:
+      'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&h=400&fit=crop',
+    problems: [
+      'Traditional ticketing systems were prone to duplication and fraud',
+      'There was no clear ownership or resale transparency',
+      'Manual ticket tracking created operational inefficiencies'
+    ],
+    solution:
+      'We built an NFT-based ticketing system using EXTv2 smart contracts on ICP. Admin dashboards allow venues to mint, manage, and track tickets, while users benefit from verifiable and transparent ownership.'
+  },
+
+  {
+    id: 'liftcash',
+    title: 'LiftCash | Decentralized Voting System',
+    category: 'Web3',
+    description:
+      'LiftCash is a decentralized governance platform designed to enable secure, transparent voting while incentivizing community participation through token-based rewards.',
+    tags: ['Web3', 'Governance', 'ICP', 'Rust'],
+    link: 'https://rer3b-zaaaa-aaaao-a3wmq-cai.icp0.io/',
+    image:
+      'https://images.unsplash.com/photo-1600267165477-6d4cc741b379?w=800&h=400&fit=crop',
+    problems: [
+      'Centralized voting systems lacked transparency and trust',
+      'Low voter participation due to lack of incentives',
+      'Governance processes were opaque and difficult to audit'
+    ],
+    solution:
+      'We developed a blockchain-backed voting system using smart contracts on ICP. The platform enables secure voting, transparent governance, and rewards users with tokens based on their participation.'
+  }
+];
+const categories = ['All', 'Web2', 'Web3']
+
 
 export default function ProfileGrid() {
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [showAllProjects, setShowAllProjects] = useState(false)
+  const router = useRouter()
 
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
+  const filteredProjects = selectedCategory === 'All'
+    ? projects
     : projects.filter(project => project.category === selectedCategory)
+
+  // Show only first 4 projects initially, or all if showAllProjects is true
+  const displayedProjects = showAllProjects ? filteredProjects : filteredProjects.slice(0, 4)
+  const hasMoreProjects = filteredProjects.length > 4
+
+  const handleLearnMore = (projectId: string) => {
+    router.push(`/profile/${projectId}`)
+  }
+
+  const handleVisitProject = (url: string) => {
+    if (url && url !== '#' && url !== 'N/A') {
+      window.open(url, '_blank', 'noopener,noreferrer')
+    }
+  }
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category)
+    setShowAllProjects(false) // Reset to show first 4 when category changes
+  }
+
+  const handleToggleShowAll = () => {
+    setShowAllProjects(prev => !prev)
+  }
 
   if (selectedProject) {
     return (
-      <div className="animate-fade-in">
-        <button
-          onClick={() => setSelectedProject(null)}
-          className="mb-8 flex items-center gap-2 text-gray-800 hover:text-blue-600 transition-colors"
-        >
-          <ArrowRight className="rotate-180" size={20} />
-          Back to Profile
-        </button>
+      <div className="animate-fade-in min-h-screen bg-white relative">
+        <div
+          className="absolute -top-[24px] -left-[50vw] ml-[50%] w-screen h-44 pointer-events-none z-0"
+          style={{
+            background: `
+              linear-gradient(to bottom, rgba(173, 185, 247, 1) 0%, rgba(173, 185, 247, 0.8) 60%, rgba(255, 255, 255, 0.9) 90%, white 100%),
+              linear-gradient(to right, rgba(173, 185, 247, 0.05) 0%, rgba(173, 185, 247, 0.2) 30%, #737eb9 100%)
+            `
+          }}
+        />
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div>
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                {selectedProject.title}
-              </h1>
-              <p className="text-gray-600 text-sm mb-6 font-bold">
-                From concept to launch — design, development, AI, marketing and support all under one roof.
-              </p>
-            </div>
+        <div className="relative z-10">
+          <div className="flex justify-end mb-12">
+            <button 
+              onClick={() => handleVisitProject(selectedProject.link || '#')}
+              className="px-6 py-2 bg-transparent border border-white text-white rounded-full hover:bg-gray-800 transition-colors font-medium text-sm flex items-center gap-2"
+            >
+              Visit
+              <ExternalLink size={16} />
+            </button>
+          </div>
 
-            <div className="space-y-6">
-              <p className="text-gray-700 leading-relaxed text-lg">
-                {selectedProject.description}
-              </p>
+          {/* Project Title */}
+          <div className="mb-12 -mt-20">
+            <h1 className="text-6xl lg:text-7xl font-bold text-black mb-6 uppercase tracking-wide">
+              {selectedProject.title.split('|')[0].trim()}
+            </h1>
+            
+            {/* Back button positioned below the project name */}
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="flex items-center gap-2 text-gray-800 hover:text-blue-600 transition-colors"
+            >
+              <ArrowRight className="rotate-180" size={20} />
+              Back to Profile
+            </button>
+          </div>
 
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-900">Technologies Used:</h3>
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.tags.map((tag, index) => (
-                    <span key={index} className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
+          {/* About Section */}
+          <div className="mb-12">
+            <h2 className="text-xl font-semibold text-black mb-4">About {selectedProject.title.split('|')[0].trim()}</h2>
+            <p className="text-gray-700 leading-relaxed text-base max-w-4xl">
+              {selectedProject.description}
+            </p>
+          </div>
 
-              {selectedProject.link && (
-                <button className="inline-flex items-center gap-2 px-6 py-3 bg-transparent border-2 border-blue-500 text-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 font-medium">
-                  View Project
-                  <ExternalLink size={16} />
-                </button>
-              )}
+          {/* Project Image */}
+          <div className="mb-12">
+            <div className="relative w-full h-96 overflow-hidden">
+              <img
+                src={selectedProject.image}
+                alt={`${selectedProject.title} project preview`}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
 
-          <div className="relative">
-            <div className="bg-white border-2 border-gray-200 rounded-3xl p-8 shadow-lg">
-              <div className="relative w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center">
-                <div className="text-gray-400 text-center">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
-                    <ExternalLink size={32} />
-                  </div>
-                  <p className="text-sm">Project Preview</p>
-                </div>
-              </div>
+          {/* Problem Statement */}
+          <div className="mb-12">
+            <h2 className="text-xl font-semibold text-black mb-6">Problem Statement</h2>
+            <ul className="space-y-4 text-gray-700">
+              {selectedProject.problems.map((problem, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
+                  <span>{problem}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Solution */}
+          <div className="mb-12">
+            <h2 className="text-xl font-semibold text-black mb-6">Solution</h2>
+            <p className="text-gray-700 leading-relaxed text-base max-w-4xl mb-8">
+              {selectedProject.solution}
+            </p>
+
+            <div className="flex justify-center">
+              <button 
+                onClick={() => handleVisitProject(selectedProject.link || '#')}
+                className="px-8 py-3 bg-transparent border border-gray-300 text-gray-600 rounded-full hover:bg-gray-50 transition-colors font-medium text-sm flex items-center gap-2"
+              >
+                Visit
+                <ExternalLink size={16} />
+              </button>
             </div>
           </div>
+
+          {/* Technologies Used */}
         </div>
       </div>
     )
   }
 
   return (
-    <div className="animate-fade-in space-y-12">
-      <div className="text-left space-y-4">
-        <h1 className="text-4xl lg:text-6xl font-bold text-black">
+    <div className="animate-fade-in space-y-12 relative">
+      {/* Large Globe overlay - positioned to show full gradient including bluish tones */}
+      <div className="absolute -top-[120px] -left-20 sm:-left-40 lg:-left-60 -right-20 sm:-right-40 lg:-right-60 h-[400px] sm:h-[500px] lg:h-[600px] opacity-50 pointer-events-none overflow-hidden">
+        <div
+          className="w-full h-full relative"
+          style={{
+            maskImage: `
+              linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%),
+              linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,1) 60%)
+            `,
+            maskComposite: 'intersect',
+            WebkitMaskImage: `
+              linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%),
+              linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,1) 50%)
+            `,
+            WebkitMaskComposite: 'source-in'
+          }}
+        >
+          <img
+            src="/globe.png"
+            alt="Globe overlay"
+            className="w-full h-full object-cover scale-[2.5]"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+
+      <div className="relative text-left space-y-4 z-10">
+        <h1 className="text-4xl lg:text-6xl font-medium text-black">
           OUR PROFILE
         </h1>
-        <p className="text-black text-base max-w-xl font-bold">
-          From concept to launch — design, development, AI, marketing and support all under one roof.
+        <p className="text-black text-base max-w-xl font-bold leading-relaxed">
+          From concept to launch — design,<br />
+          development, AI, marketing and<br />
+          support all under one roof.
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-3 relative z-10">
         {categories.map((category) => (
           <button
             key={category}
-            onClick={() => setSelectedCategory(category)}
-            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-              selectedCategory === category
+            onClick={() => handleCategoryChange(category)}
+            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === category
                 ? 'bg-blue-500 text-white shadow-lg'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            }`}
+              }`}
           >
             {category}
           </button>
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
-        {filteredProjects.map((project, index) => (
+      <div className="grid md:grid-cols-2 gap-8 lg:gap-10 relative z-10">
+        {displayedProjects.map((project, index) => (
           <div
             key={project.id}
             onClick={() => setSelectedProject(project)}
-            className="group bg-white rounded-2xl lg:rounded-3xl border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-blue-500/30 flex flex-col min-h-[450px] hover:transform hover:scale-105 overflow-hidden"
+            className="group bg-white rounded-2xl lg:rounded-3xl border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-blue-500/30 flex flex-col min-h-[450px] hover:transform hover:scale-105 m-4"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <div className="relative w-full h-72 bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
-              <div className="absolute inset-0 opacity-20">
-                <div 
-                  className="absolute inset-0" 
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%),
-                      linear-gradient(-45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%)
-                    `,
-                    backgroundSize: '40px 40px'
-                  }}
-                />
-              </div>
-              
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                  <div className="w-32 h-32 border-2 border-white/60 rounded-full relative">
-                    <div className="absolute inset-4 border border-white/40 rounded-full">
-                      <div className="absolute inset-2 border border-white/30 rounded-full">
-                        <div className="absolute inset-2 border border-white/20 rounded-full" />
-                      </div>
-                    </div>
-                    
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-4 border-2 border-white/60 rounded-sm" />
-                    <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-3 h-3 border border-white/40 rounded-full" />
-                  </div>
-                  
-                  <div className="absolute inset-0 opacity-30">
-                    <div 
-                      className="w-full h-full" 
-                      style={{
-                        backgroundImage: `
-                          linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                          linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-                        `,
-                        backgroundSize: '20px 20px'
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-              
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
+            <div className="relative w-full h-72 overflow-hidden rounded-t-2xl lg:rounded-t-3xl">
+              <img
+                src={project.image}
+                alt={`${project.title} preview`}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
 
-           
-
-            <div className="p-6 lg:p-8 space-y-4 flex-1 flex flex-col bg-white">
+            <div className="p-6 lg:p-8 space-y-4 flex-1 flex flex-col bg-white rounded-b-2xl lg:rounded-b-3xl">
               <div>
                 <h3 className="text-xl lg:text-2xl font-bold text-black group-hover:text-blue-600 transition-colors mb-2">
                   {project.title}
@@ -218,11 +371,17 @@ export default function ProfileGrid() {
         ))}
       </div>
 
-      <div className="flex justify-center pt-8">
-        <button className="px-8 py-3 bg-transparent border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-sm">
-          View more
-        </button>
-      </div>
+      {/* View More / View Less Button */}
+      {hasMoreProjects && (
+        <div className="flex justify-center pt-8 relative z-10">
+          <button 
+            onClick={handleToggleShowAll}
+            className="px-8 py-3 bg-transparent border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-sm"
+          >
+            {showAllProjects ? 'View less' : 'View more'}
+          </button>
+        </div>
+      )}
     </div>
   )
 }

@@ -22,7 +22,7 @@ export default function Home() {
       <div 
         className="min-h-screen"
         style={{
-          background: `linear-gradient(to bottom, transparent 0%, transparent 15%, #adb9f7 15%, #adb9f7 18%, #ffffff 25%)`
+          background: `linear-gradient(to bottom, transparent 0%, transparent 15%, #adb9f7 15%, #adb9f7 22%, #ffffff 25%)`
         }}
       >
         <Header />

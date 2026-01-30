@@ -12,8 +12,8 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
-      <main className="flex-1 px-4 sm:px-6 py-8 sm:py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto">
+      <main className=" px-2 sm:px-6   lg:pt-0 pb-0 ">
+        <div className="max-w-7xl mx-auto ">
           <ServicesGrid />
         </div>
       </main>

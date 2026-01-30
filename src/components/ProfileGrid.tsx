@@ -188,7 +188,7 @@ export default function ProfileGrid() {
 
   if (selectedProject) {
     return (
-      <div className="animate-fade-in min-h-screen bg-white relative">
+      <div className="animate-fade-in min-h-screen bg-white relative ml-6">
         <div
           className="absolute -top-[24px] -left-[50vw] ml-[50%] w-screen h-44 pointer-events-none z-0"
           style={{
@@ -211,7 +211,7 @@ export default function ProfileGrid() {
           </div>
 
           {/* Project Title */}
-          <div className="mb-12 -mt-20">
+          <div className="mb-12 -mt-20 -ml-0.5">
             <h1 className="text-6xl lg:text-7xl font-bold text-black mb-6 uppercase tracking-wide">
               {selectedProject.title.split('|')[0].trim()}
             </h1>
@@ -285,46 +285,41 @@ export default function ProfileGrid() {
   }
 
   return (
-    <div className="animate-fade-in space-y-12 relative">
+    <div className="animate-fade-in space-y-12 relative ml-[10px]">
       {/* Large Globe overlay - positioned to show full gradient including bluish tones */}
-      <div className="absolute -top-[120px] -left-20 sm:-left-40 lg:-left-60 -right-20 sm:-right-40 lg:-right-60 h-[400px] sm:h-[500px] lg:h-[600px] opacity-50 pointer-events-none overflow-hidden">
-        <div
-          className="w-full h-full relative"
-          style={{
-            maskImage: `
-              linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%),
-              linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,1) 60%)
-            `,
-            maskComposite: 'intersect',
-            WebkitMaskImage: `
-              linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%),
-              linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,1) 50%)
-            `,
-            WebkitMaskComposite: 'source-in'
-          }}
-        >
-          <img
-            src="/globe.png"
-            alt="Globe overlay"
-            className="w-full h-full object-cover scale-[2.5]"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
+      <div className="relative">
+          {/* Service background overlay - positioned top right */}
+          <div className="absolute -top-[56px] sm:-top-[65px] lg:-top-[72px] -right-10 lg:-right-40 w-[500px] sm:w-[900px] lg:w-[1780px] h-[300px] lg:h-[610px] opacity-30 pointer-events-none overflow-hidden">
+            <div className="w-full h-full relative">
+              <img
+                src="/servicebg.png"
+                alt="Service background"
+                className="w-full h-full object-cover object-left"
+                loading="lazy"
+                decoding="async"
+                style={{
+                  filter: 'brightness(1.2) contrast(1.1)'
+                }}
+              />
+            </div>
+          </div>
 
-      <div className="relative text-left space-y-4 z-10">
+          {/* Header */}
+          
+        </div>
+
+      <div className="relative text-left space-y-4 z-10 ml-[10px]">
         <h1 className="text-4xl lg:text-6xl font-medium text-black">
           OUR PROFILE
         </h1>
-        <p className="text-black text-base max-w-xl font-bold leading-relaxed">
+        <p className="text-black text-base max-w-xl font-bold leading-relaxed ml-[4px]">
           From concept to launch — design,<br />
           development, AI, marketing and<br />
           support all under one roof.
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-3 relative z-10">
+      <div className="flex flex-wrap gap-3 relative z-10 ml-[14px]">
         {categories.map((category) => (
           <button
             key={category}

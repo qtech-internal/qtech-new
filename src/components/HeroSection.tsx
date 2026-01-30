@@ -1,3 +1,4 @@
+import Image from 'next/image'
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-hero bg-cover bg-center bg-no-repeat pb-10  ">
@@ -27,7 +28,8 @@ export default function HeroSection() {
             </p>
 
             <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-blue-900 transition-all duration-300 font-medium">
-              Learn more →
+              Learn more 
+                <Image src="/arrow.png" alt="arrow" width={16} height={16} className="inline-block ml-2 filter invert brightness-150" />
             </button>
           </div>
 
@@ -43,12 +45,13 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              <div className="text-left">
-                <div className="text-6xl lg:text-7xl font-normal text-white mb-2 lg:mt-48 mt-0">200+</div>
-                <div className="text-white text-xl font-medium mb-1">projects delivered</div>
+              <div className="text-start">
+                <div className="text-6xl lg:text-7xl font-normal text-white  mb-2 lg:mt-48 mt-0 mr-6 ">200+</div>
+                <div className="text-white text-xl font-medium mb-1 ">projects delivered</div>
                 <div className="text-white opacity-80 text-sm">
-                  across Blockchain, AI, Web3,<br />
-                  and Mobile Development
+                  across Blockchain, AI,<br />
+                  Web3, and Mobile Develop<br />
+                  ment
                 </div>
               </div>
             </div>
@@ -60,7 +63,7 @@ export default function HeroSection() {
           <div className="flex items-center gap-6">
             <div className="text-white text-lg -mt-8">
               <div className="font-medium  opacity-80">We help many</div>
-              <div className="font-semibold flex">Companies <img src="/chevron.png" alt="Arrow" className="font-semibold h-4 w-4 opacity-80 mt-1" />
+              <div className="font-semibold flex">Companies <img src="/chevron.png" alt="Arrow" className="font-semibold h-6 w-6  mt-1" />
               </div>
             </div>
            

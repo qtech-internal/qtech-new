@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback, useMemo } from 'react'
+import { useState, useCallback } from 'react'
 import Image from 'next/image'
 
 interface FormData {
@@ -32,15 +32,11 @@ export default function ContactForm() {
     }))
   }, [])
 
-  const isFormValid = useMemo(() => {
-    return formData.name.trim() && formData.message.trim()
-  }, [formData.name, formData.message])
-
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault()
     
-    if (!isFormValid) {
-      setSubmitStatus('error')
+    // Only check if fields are not empty strings
+    if (!formData.name.trim() || !formData.message.trim()) {
       return
     }
 
@@ -95,7 +91,7 @@ export default function ContactForm() {
     }
     
     setIsSubmitting(false)
-  }, [formData, isFormValid])
+  }, [formData])
 
   return (
     <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start animate-fade-in">
@@ -139,35 +135,28 @@ export default function ContactForm() {
       {/* Right Side - Contact Form */}
       <div className="space-y-6 lg:space-y-8 order-1 lg:order-2 animate-fade-in" style={{ animationDelay: '0.4s' }}>
         <div className="text-center lg:text-left">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2 lg:mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white mb-2 lg:mb-4">
             GOT A PROJECT?
           </h1>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 lg:mb-8">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-6 lg:mb-8">
             DROP US A MESSAGE
           </h2>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6" noValidate>
+        <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
           <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <label htmlFor="name" className="sr-only">Name</label>
             <input
-              id="name"
               type="text"
               name="name"
               placeholder="Name"
               value={formData.name}
               onChange={handleInputChange}
-              required
-              aria-required="true"
-              aria-describedby={submitStatus === 'error' && !formData.name ? 'name-error' : undefined}
               className="w-full px-4 lg:px-6 py-3 lg:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 text-sm lg:text-base"
             />
           </div>
 
           <div className="animate-fade-in" style={{ animationDelay: '0.7s' }}>
-            <label htmlFor="companyName" className="sr-only">Company Name</label>
             <input
-              id="companyName"
               type="text"
               name="companyName"
               placeholder="Company Name"
@@ -178,9 +167,7 @@ export default function ContactForm() {
           </div>
 
           <div className="animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <label htmlFor="phoneNumber" className="sr-only">Phone Number</label>
             <input
-              id="phoneNumber"
               type="tel"
               name="phoneNumber"
               placeholder="Phone Number"
@@ -191,9 +178,7 @@ export default function ContactForm() {
           </div>
 
           <div className="animate-fade-in" style={{ animationDelay: '0.9s' }}>
-            <label htmlFor="city" className="sr-only">City</label>
             <input
-              id="city"
               type="text"
               name="city"
               placeholder="City"
@@ -204,17 +189,12 @@ export default function ContactForm() {
           </div>
 
           <div className="animate-fade-in" style={{ animationDelay: '1.0s' }}>
-            <label htmlFor="message" className="sr-only">Message</label>
             <textarea
-              id="message"
               name="message"
               placeholder="Tell us about your project..."
               value={formData.message}
               onChange={handleInputChange}
               rows={4}
-              required
-              aria-required="true"
-              aria-describedby={submitStatus === 'error' && !formData.message ? 'message-error' : undefined}
               className="w-full px-4 lg:px-6 py-3 lg:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 resize-none text-sm lg:text-base"
             />
           </div>
@@ -222,27 +202,24 @@ export default function ContactForm() {
           <div className="animate-fade-in" style={{ animationDelay: '1.1s' }}>
             <button
               type="submit"
-              disabled={isSubmitting || !isFormValid}
-              aria-describedby="submit-status"
+              disabled={isSubmitting}
               className="w-full bg-white text-gray-900 px-6 lg:px-8 py-3 lg:py-4 rounded-full hover:bg-gray-100 transition-all duration-300 font-semibold text-base lg:text-lg disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent"
             >
               {isSubmitting ? 'Sending message...' : 'Send message'}
             </button>
           </div>
 
-          <div id="submit-status" aria-live="polite" aria-atomic="true">
-            {submitStatus === 'success' && (
-              <div className="text-green-400 text-center p-3 lg:p-4 bg-green-400/10 rounded-lg border border-green-400/20 text-sm lg:text-base animate-fade-in" role="alert">
-                Message sent successfully! We'll get back to you soon.
-              </div>
-            )}
+          {submitStatus === 'success' && (
+            <div className="text-green-400 text-center p-3 lg:p-4 bg-green-400/10 rounded-lg border border-green-400/20 text-sm lg:text-base animate-fade-in">
+              Message sent successfully! We'll get back to you soon.
+            </div>
+          )}
 
-            {submitStatus === 'error' && (
-              <div className="text-red-400 text-center p-3 lg:p-4 bg-red-400/10 rounded-lg border border-red-400/20 text-sm lg:text-base animate-fade-in" role="alert">
-                Failed to send message. Please try again or contact us directly.
-              </div>
-            )}
-          </div>
+          {submitStatus === 'error' && (
+            <div className="text-red-400 text-center p-3 lg:p-4 bg-red-400/10 rounded-lg border border-red-400/20 text-sm lg:text-base animate-fade-in">
+              Failed to send message. Please try again or contact us directly.
+            </div>
+          )}
         </form>
       </div>
     </div>

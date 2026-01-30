@@ -27,7 +27,7 @@ export default function ProcessSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % steps.length)
-    }, 3000) // Change step every 3 seconds
+    }, 10000) // Change step every 3 seconds
 
     return () => clearInterval(interval)
   }, [steps.length])
@@ -90,13 +90,13 @@ export default function ProcessSection() {
                 }`}>
                   {step.number}
                 </div>
-                <div>
-                  <h3 className={`text-xl font-semibold mb-3 transition-colors duration-300 ${
+                <div className="flex-1 min-w-0">
+                  <h3 className={`text-2xl font-medium mb-3 transition-colors duration-300 ${
                     index === activeStep ? 'text-[#141414]' : 'text-black opacity-64'
                   }`}>
                     {step.title}
                   </h3>
-                  <p className={`leading-relaxed text-sm transition-colors duration-300 ${
+                  <p className={`leading-relaxed text-base lg:text-lg transition-colors duration-300 font-normal ${
                     index === activeStep ? 'text-[#141414]' : 'text-black opacity-64'
                   }`}>
                     {step.description}

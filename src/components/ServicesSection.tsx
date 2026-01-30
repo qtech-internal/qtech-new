@@ -8,6 +8,7 @@ export default function ServicesSection() {
     {
       title: "Mobile App Development",
       description: "Bring your ideas to life with high-performance, user-centric mobile applications designed for iOS, Android, and cross-platform ecosystems. At QuadB Tech, we combine cutting-edge technologies with intuitive design to create apps that engage users, drive growth, and deliver measurable results.",
+      image: "/mobileapp.png",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <rect x="5" y="2" width="14" height="20" rx="2" strokeWidth="2"/>
@@ -17,7 +18,8 @@ export default function ServicesSection() {
     },
     {
       title: "Web App Development", 
-      description: "Transform your business with custom web applications built for performance, scalability, and user experience.",
+      description: "Transform your business with custom web applications built for performance, scalability, and user experience. We create modern, responsive web solutions that drive results.",
+      image: "/webapp.jpeg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <circle cx="12" cy="12" r="10" strokeWidth="2"/>
@@ -28,7 +30,8 @@ export default function ServicesSection() {
     },
     {
       title: "Blockchain DApp Development",
-      description: "Build decentralized applications that leverage blockchain technology for transparency, security, and innovation.",
+      description: "Build decentralized applications that leverage blockchain technology for transparency, security, and innovation. Create the future of digital interactions.",
+      image: "/blockchain.jpg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -37,7 +40,8 @@ export default function ServicesSection() {
     },
     {
       title: "Game Development",
-      description: "Create immersive gaming experiences with cutting-edge graphics, engaging gameplay, and cross-platform compatibility.",
+      description: "Create immersive gaming experiences with cutting-edge graphics, engaging gameplay, and cross-platform compatibility. Bring your game ideas to life.",
+      image: "/game.png",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M6 11h4M8 9v4M15 10h.01M18 10h.01M6 15h12a4 4 0 004-4V9a4 4 0 00-4-4H6a4 4 0 00-4 4v2a4 4 0 004 4z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -46,7 +50,8 @@ export default function ServicesSection() {
     },
     {
       title: "ERP & SAAS Solutions",
-      description: "Streamline your business operations with custom ERP systems and Software-as-a-Service solutions.",
+      description: "Streamline your business operations with custom ERP systems and Software-as-a-Service solutions. Optimize your workflow and productivity.",
+      image: "/erp.png",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M13 10V3L4 14h7v7l9-11h-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -55,7 +60,8 @@ export default function ServicesSection() {
     },
     {
       title: "Maintenance & Scalability",
-      description: "Ensure your applications remain secure, updated, and scalable as your business grows.",
+      description: "Ensure your applications remain secure, updated, and scalable as your business grows. Keep your systems running smoothly.",
+      image: "/maintain.png",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -64,7 +70,8 @@ export default function ServicesSection() {
     },
     {
       title: "E-commerce Solutions",
-      description: "Build powerful online stores and marketplaces that drive sales and enhance customer experience.",
+      description: "Build powerful online stores and marketplaces that drive sales and enhance customer experience. Create seamless shopping experiences.",
+      image: "/ecommerse.jpeg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -83,15 +90,15 @@ export default function ServicesSection() {
           <span className="text-[#615FFF] text-xs sm:text-sm font-semibold tracking-wider uppercase mb-4 block">OUR SERVICES</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2  items-start">
           {/* Left side - Card */}
           <div className="flex justify-center lg:justify-start">
-            <div className="bg-gradient-to-br from-[#7B68EE] via-[#9370DB] to-[#BA55D3] rounded-[2rem] sm:rounded-[2.5rem] p-0 relative overflow-hidden w-full max-w-[500px] sm:max-w-[620px] h-[500px] sm:h-[600px] lg:h-[800px]">
+            <div className="bg-gradient-to-br from-[#7B68EE] via-[#9370DB] to-[#BA55D3] rounded-[2rem] sm:rounded-[2.5rem] p-0 relative overflow-hidden w-full max-w-[500px] sm:max-w-[420px] h-[300px] sm:h-[500px] lg:h-[800px]">
               <div className="relative h-full flex flex-col">
                 {/* Image container */}
                 <div className="flex-1 relative">
                   <Image
-                    src="/Rectangle.png"
+                    src={selectedService.image}
                     alt={selectedService.title}
                     fill
                     className="object-cover"
@@ -108,8 +115,8 @@ export default function ServicesSection() {
                 </div>
                 
                 {/* Text content at bottom */}
-                <div className="bg-gradient-to-b from-transparent via-purple-900/80 to-purple-900/95 backdrop-blur-sm p-4 sm:p-6 lg:p-8 absolute bottom-0 left-0 right-0">
-                  <p className="text-white/90 text-sm sm:text-base leading-relaxed font-medium">
+                <div className="bg-gradient-to-b from-transparent via-purple-900/80 to-purple-900/95 backdrop-blur-sm p-4 sm:p-6 lg:p-20 absolute bottom-0 left-0 right-0">
+                  <p className="text-white/90 text-lg sm:text-xl lg:text-3xl leading-relaxed font-semibold text-nowrap -ml-12">
                     {selectedService.title}
                   </p>
                 </div>
@@ -118,7 +125,7 @@ export default function ServicesSection() {
           </div>
 
           {/* Right side - Service list */}
-          <div className="space-y-0">
+          <div className="space-y-0 -ml-8 lg:-ml-32">
             {services.map((service, index) => (
               <div key={index}>
                 <div 
@@ -129,35 +136,35 @@ export default function ServicesSection() {
                   onMouseEnter={() => setHoveredService(service.title)}
                   onMouseLeave={() => setHoveredService(null)}
                 >
-                  <div className="flex-1 pr-4">
-                    <h3 className={`text-lg sm:text-xl lg:text-2xl font-normal transition-colors ${
+                  <div className={`pr-4 ${selectedService.title === service.title ? 'flex-shrink-0 w-1/3' : 'flex-1'}`}>
+                    <h3 className={`text-lg sm:text-xl lg:text-2xl font-medium transition-colors ${
                       selectedService.title === service.title 
-                        ? 'text-black' 
-                        : 'text-black'
+                        ? 'text-[#615FFF] font-semibold' 
+                        : 'text-black hover:text-[#615FFF]'
                     }`}>
                       {service.title}
                     </h3>
                   </div>
                   
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
-                    selectedService.title === service.title || hoveredService === service.title
-                      ? 'bg-gray-200' 
-                      : 'bg-transparent'
-                  }`}>
-                    <div className="text-black">
-                      {service.icon}
+                  {/* Show description if selected, otherwise show icon */}
+                  {selectedService.title === service.title ? (
+                    <div className="flex-1 w-2/3 pl-4">
+                      <p className="text-gray-600 text-normal sm:text-sm leading-relaxed">
+                        {service.description}
+                      </p>
                     </div>
-                  </div>
+                  ) : (
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
+                      hoveredService === service.title
+                        ? 'bg-gray-200' 
+                        : 'bg-transparent'
+                    }`}>
+                      <div className="text-black">
+                        {service.icon}
+                      </div>
+                    </div>
+                  )}
                 </div>
-                
-                {/* Expandable description */}
-                {selectedService.title === service.title && (
-                  <div className="pb-4 sm:pb-5 lg:pb-6 border-b border-gray-300">
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed pt-3 sm:pt-4">
-                      {service.description}
-                    </p>
-                  </div>
-                )}
               </div>
             ))}
           </div>

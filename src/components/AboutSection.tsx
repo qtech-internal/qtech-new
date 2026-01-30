@@ -45,7 +45,7 @@ export default function AboutSection() {
                 background: 'linear-gradient(180deg, #E9ECFF 0%, #F8F9FF 100%)'
               }}
             >
-              <img src="/icon.png" alt="Technology Icon" className="w-6 h-6" />
+              <img src="/icon2.png" alt="Technology Icon" className="w-6 h-6" />
             </div>
             <div className="text-left">
               <p className="text-black opacity-64 leading-relaxed">
@@ -56,7 +56,7 @@ export default function AboutSection() {
         </div>
 
         <div className="mt-16 max-w-6xl mx-auto">
-          <p className="text-black opacity-64 text-lg font-medium">
+          <p className="text-[#000000A3] opacity-64 text-2xl font-medium">
             Welcome to QuadB Tech where innovation meets execution, and the future gets built.
           </p>
         </div>

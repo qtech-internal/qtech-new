@@ -31,8 +31,8 @@ export default function StatsSection() {
   return (
     <>
       {/* Stats Card - positioned to overlap hero and gradient */}
-      <section className="relative -mt-10 px-6 z-30">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative -mt-6 px-6 z-30">
+        <div className="max-w-[77rem] mx-auto">
           <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {stats.map((stat, index) => (

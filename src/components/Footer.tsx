@@ -1,3 +1,4 @@
+import Image from 'next/image'
 export default function Footer() {
   return (
     <footer className="px-4 sm:px-6 pb-8 sm:pb-12">
@@ -11,7 +12,7 @@ export default function Footer() {
                 QuadB Tech is a boutique innovation studio crafting next-generation digital solutions powered by Blockchain, AI, Web3, and the Metaverse. We partner with visionary startups and forward-thinking enterprises to build secure, scalable, and future-ready products that push the boundaries of what's possible.
               </p>
             </div>
-            
+
             {/* Right Section - Navigation & CTA */}
             <div className="flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-end space-y-6 lg:space-y-0 lg:space-x-8">
               {/* Navigation */}
@@ -26,14 +27,15 @@ export default function Footer() {
                   Contact
                 </a>
               </nav>
-              
+
               {/* CTA Button */}
-              <button className="bg-transparent border border-white text-white px-4 sm:px-6 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300 text-sm sm:text-base">
-                Learn more →
+              <button className="bg-transparent border border-white text-white px-4 sm:px-6 py-2 rounded-full hover:bg-gray-800 hover:text-white transition-all duration-300 text-sm sm:text-base">
+                Learn more
+                <Image src="/arrow.png" alt="arrow" width={16} height={16} className="inline-block ml-2 filter invert brightness-150" />
               </button>
             </div>
           </div>
-          
+
           {/* Bottom Section - Legal Links */}
           <div className="border-t border-white/10 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-8">
             <a href="/privacy" className="text-white opacity-64 hover:text-white transition-colors text-xs sm:text-sm">

@@ -143,38 +143,27 @@ export default function ServicesGrid() {
 
   if (selectedService) {
     return (
-      <div className="animate-fade-in space-y-12">
+      <div className="animate-fade-in space-y-12 mt-16 mb-10">
         {/* Services Header Section - Same as main page */}
         <div className="relative">
-          {/* Globe overlay - mobile friendly */}
-         <div className="absolute -top-[50px] lg:-top-[100px] -left-20 sm:-left-40 lg:-left-60 -right-20 sm:-right-40 lg:-right-60 h-[200px] sm:h-[200px] lg:h-[400px] opacity-50 pointer-events-none overflow-hidden">
-        <div
-          className="w-full h-full relative"
-          style={{
-            maskImage: `
-              linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%),
-              linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,1) 60%)
-            `,
-            maskComposite: 'intersect',
-            WebkitMaskImage: `
-              linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%),
-              linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,1) 50%)
-            `,
-            WebkitMaskComposite: 'source-in'
-          }}
-        >
-          <img
-            src="/globe.png"
-            alt="Globe overlay"
-            className="w-full h-full object-cover scale-[2.5]"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
+          {/* Service background overlay - positioned top right */}
+          <div className="absolute -top-[34px] sm:-top-[50px] lg:-top-[65px] -right-10 lg:-right-40 w-[500px] sm:w-[900px] lg:w-[1480px] h-[300px] lg:h-[650px] opacity-40 pointer-events-none overflow-hidden">
+            <div className="w-full h-full relative">
+              <img
+                src="/servicebg.png"
+                alt="Service background"
+                className="w-full h-full object-cover object-left"
+                loading="lazy"
+                decoding="async"
+                style={{
+                  filter: 'brightness(1.2) contrast(1.1)'
+                }}
+              />
+            </div>
+          </div>
 
           {/* Header */}
-          <div className="relative text-left space-y-4 z-10">
+          <div className="relative text-left space-y-4 z-10 px-4 sm:px-0">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-medium text-black">
               OUR SERVICES
             </h1>
@@ -234,48 +223,41 @@ export default function ServicesGrid() {
   }
 
   return (
-    <div className="space-y-4 lg:space-y-6 -mt-8 overflow-hidden">
+   <div className="space-y-4 lg:space-y-8 overflow-hidden pb-32 lg:pb-0">
       {/* Header */}
-
-      <div className="absolute top-10 left-0 sm:-left-40 lg:-left-60 right-0 sm:-right-40 lg:-right-60 h-[400px] sm:h-[500px] lg:h-[500px] opacity-50 pointer-events-none overflow-hidden">
-        <div
-          className="w-full h-full relative"
-          style={{
-            maskImage: `
-              linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%),
-              linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,1) 60%)
-            `,
-            maskComposite: 'intersect',
-            WebkitMaskImage: `
-              linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%),
-              linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,1) 60%)
-            `,
-            WebkitMaskComposite: 'source-in'
-          }}
-        >
-          <img
-            src="/globe.png"
-            alt="Globe overlay"
-            className="w-full h-full object-cover scale-[2.5]"
-            loading="lazy"
-            decoding="async"
-          />
+      <div className="relative">
+        {/* Service background overlay - covering full right space */}
+        <div className="absolute -mt-10 sm:-top-[18px] lg:-top-[35px] -right-0 w-[500px] sm:w-[900px] lg:w-[100vw] h-[300px] lg:h-[520px] opacity-40 pointer-events-none overflow-hidden">
+          <div className="w-full h-full relative">
+            <img
+              src="/servicebg.png"
+              alt="Service background"
+              className="w-full h-full object-cover object-right"
+              loading="lazy"
+              decoding="async"
+              style={{
+                filter: 'brightness(1.2) contrast(1.1)'
+              }}
+            />
+          </div>
         </div>
-      </div>
-      <div className="relative text-left space-y-4 z-10 -mt-20 px-4 sm:px-0">
-        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-medium text-black">
-          OUR SERVICES
-        </h1>
-        <p className="text-black text-sm sm:text-base max-w-xl font-bold leading-relaxed">
-          From concept to launch — design,<br />
-          development, AI, marketing and<br />
-          support all under one roof.
-        </p>
+
+        {/* Header */}
+        <div className="relative text-left space-y-4 z-10 px-4 sm:px-0 ml-5 mt-10">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-medium text-black">
+            OUR SERVICES
+          </h1>
+          <p className="text-black text-sm sm:text-base max-w-xl font-bold leading-relaxed ml-1">
+            From concept to launch — design,<br />
+            development, AI, marketing and<br />
+            support all under one roof.
+          </p>
+        </div>
       </div>
 
       {/* Services Grid with VR Image on Right Side */}
-      <div className="relative">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mt-12 lg:mt-16 px-8 sm:px-6 py-8 pb-16">
+      <div className="relative min-h-[600px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mt-12 lg:mt-16 px-4 sm:px-6 py-8">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
@@ -324,7 +306,7 @@ export default function ServicesGrid() {
 
         {/* VR Image Section - positioned outside grid on the right */}
         <div className="hidden lg:block absolute bottom-0 right-0 w-full -mb-64 pointer-events-none">
-          <div className="relative w-full h-[800px]">
+          <div className="relative w-full h-[1000px]">
             <Image
               src="/service.png"
               alt="VR Experience"
@@ -335,7 +317,7 @@ export default function ServicesGrid() {
             />
 
             {/* View More Button positioned over the image */}
-            <div className="absolute bottom-80 left-1/2 transform -translate-x-1/4 z-10 pointer-events-auto">
+            <div className="absolute top-[720px] -mt-10 left-1/2 transform -translate-x-1/4 z-10 pointer-events-auto">
               <button className="px-6 lg:px-8 py-3 lg:py-3.5 bg-white/90 backdrop-blur-sm border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-sm lg:text-base shadow-lg">
                 View more
               </button>
@@ -356,7 +338,7 @@ export default function ServicesGrid() {
             />
 
             {/* View More Button positioned over the image */}
-            <div className="absolute bottom-4 right-1/2 transform -translate-x-1/8 z-10">
+            <div className="absolute -bottom-0 right-1/2 transform -translate-x-1/8 z-10">
               <button className="px-4 sm:px-6 py-2 sm:py-3 bg-white/90 backdrop-blur-sm border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-xs sm:text-sm shadow-lg">
                 View more
               </button>

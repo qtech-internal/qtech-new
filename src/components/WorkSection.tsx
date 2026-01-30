@@ -27,7 +27,13 @@ export default function WorkSection() {
     title: "Blockseblock",
     description: "Complete hackathon platform with submissions, judging dashboards, and secure payments.",
     image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=400&fit=crop"
-  }
+  },
+  {
+  title: "Heebee Coffee",
+  description: "Complete tech revamp for a coffee brand to enable faster order processing, smoother customer experience, and scalable franchise operations.",
+  image: "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&h=400&fit=crop"
+},
+
 ];
 
 const web3Projects = [

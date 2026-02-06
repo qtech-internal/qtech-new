@@ -1,6 +1,6 @@
 export default function AboutSection() {
   return (
-    <section className="px-6 py-20 -mt-10 relative">
+    <section className="px-6 py-12  relative">
       {/* Background overlay image */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
         <div className="relative w-full max-w-4xl h-[1400px] mt-60 ">
@@ -21,7 +21,7 @@ export default function AboutSection() {
           QuadB Tech is a boutique innovation studio crafting next-generation digital solutions powered by Blockchain, AI, Web3, and the Metaverse. We partner with visionary startups and forward-thinking enterprises to build secure, scalable, and future-ready products that push the boundaries of what&apos;s possible.
         </h2>
 
-        <div className="grid lg:grid-cols-2 gap-12 mt-16 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 mt-8 max-w-6xl mx-auto">
           <div className="flex items-start space-x-4">
             <div
               className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"
@@ -55,7 +55,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        <div className="mt-16 max-w-6xl mx-auto">
+        <div className="mt-8 max-w-6xl mx-auto">
           <p className="text-[#000000A3] opacity-64 text-2xl font-medium">
             Welcome to QuadB Tech where innovation meets execution, and the future gets built.
           </p>

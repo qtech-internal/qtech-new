@@ -63,11 +63,11 @@ const web3Projects = [
   const currentProjects = activeTab === 'Web2' ? web2Projects : web3Projects
 
   return (
-    <section className="px-6 py-20 -mt-20">
+    <section className="px-6 py-12 -mt-10">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="text-[#615FFF] text-sm font-semibold tracking-wider uppercase mb-8 block">OUR WORK</span>
+          <span className="text-[#615FFF] text-sm font-semibold tracking-wider uppercase mb-8 block -mt-8">OUR WORK</span>
         </div>
 
         {/* Tab buttons and View more */}

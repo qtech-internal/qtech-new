@@ -46,8 +46,7 @@ export default function HeroSection() {
                 <div className="text-white text-lg sm:text-xl font-medium mb-1">years of experience</div>
                 <div className="text-white opacity-80 text-sm">
                   across Blockchain, AI,<br />
-                  Web3, and Mobile Develop<br />
-                  ment
+                  Web3, and Mobile Development
                 </div>
               </div>
 

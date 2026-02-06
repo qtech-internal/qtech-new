@@ -209,7 +209,7 @@ export default function ProfileGrid() {
     return (
       <div className="animate-fade-in min-h-screen bg-white relative ml-6">
         <div
-          className="absolute -top-[24px] -left-[50vw]  ml-[49%] w-screen h-44 pointer-events-none z-0"
+          className="absolute -top-[8px] lg:-top-[24px] -left-[50vw] ml-[46.12%] lg:ml-[49%] w-screen h-44 pointer-events-none z-0"
           style={{
             background: `
               linear-gradient(to bottom, rgba(173, 185, 247, 1) 0%, rgba(173, 185, 247, 0.8) 60%, rgba(255, 255, 255, 0.9) 90%, white 100%),
@@ -231,7 +231,7 @@ export default function ProfileGrid() {
 
           {/* Project Title */}
           <div className="mb-12 -mt-20 -ml-0.5">
-            <h1 className="text-6xl lg:text-7xl font-bold text-black mb-6 uppercase tracking-wide">
+            <h1 className="text-lg lg:text-7xl font-bold text-black mb-6 uppercase tracking-wide">
               {selectedProject.title.split('|')[0].trim()}
             </h1>
             
@@ -308,7 +308,7 @@ export default function ProfileGrid() {
       {/* Large Globe overlay - positioned to show full gradient including bluish tones */}
       <div className="relative">
           {/* Service background overlay - positioned top right */}
-          <div className="absolute -top-[56px] sm:-top-[65px] lg:-top-[72px] -left-[155px] lg:-right-40 w-[500px] sm:w-[900px] lg:w-[1780px] h-[300px] lg:h-[610px] opacity-30 pointer-events-none overflow-hidden">
+          <div className="absolute -top-[58px] sm:-top-[65px] lg:-top-[72px] -right-4  w-[500px] sm:w-[900px] lg:w-[1780px] h-[300px] lg:h-[410px] opacity-30 pointer-events-none overflow-hidden">
             <div className="w-full h-full relative">
               <img
                 src="/servicebg.png"

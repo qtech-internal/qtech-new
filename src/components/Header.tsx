@@ -32,49 +32,49 @@ export default function Header() {
     <header className="relative overflow-hidden bg-hero bg-cover bg-center bg-no-repeat">
       {/* Navigation */}
       <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 py-6 relative z-50">
-        <Link href="/" className="text-white text-2xl font-bold">
+        <Link href="/" className="text-white text-2xl font-bold hover:text-gray-200 transition-colors duration-300">
           QuadB Tech
         </Link>
         
         <div className="hidden md:flex items-center space-x-8">
           <Link 
             href="/" 
-            className={`transition-colors font-medium px-4 py-2 rounded-full ${
+            className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
               pathname === '/' 
                 ? 'text-white bg-[#141415]' 
-                : 'text-gray-300 hover:text-white'
+                : 'text-gray-300 hover:text-white hover:bg-white/10'
             }`}
           >
             Home
           </Link>
           <Link 
             href="/services" 
-            className={`transition-colors font-medium px-4 py-2 rounded-full ${
+            className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
               pathname === '/services' 
                 ? 'text-white bg-[#141415]' 
-                : 'text-gray-300 hover:text-white'
+                : 'text-gray-300 hover:text-white hover:bg-white/10'
             }`}
           >
             Services
           </Link>
           <Link 
-            href="/profile" 
-            className={`transition-colors font-medium px-4 py-2 rounded-full ${
-              pathname === '/profile' 
+            href="/how-we-work" 
+            className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
+              pathname === '/how-we-work' 
                 ? 'text-white bg-[#141415]' 
-                : 'text-gray-300 hover:text-white'
+                : 'text-gray-300 hover:text-white hover:bg-white/10'
             }`}
           >
             How we work
           </Link>
-          <Link href="/contact" className="bg-white text-gray-900 px-4 py-2 rounded-full hover:bg-gray-100 transition-all duration-300 font-semibold text-sm">
+          <Link href="/contact" className="bg-white text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white transition-all duration-300 font-semibold text-sm shadow-md hover:shadow-lg transform hover:scale-105">
             Start a Project
             <Image src="/arrow.png" alt="arrow" width={16} height={16} className="inline-block ml-2" />
           </Link>
         </div>
 
         <button 
-          className="md:hidden text-white z-50 relative"
+          className="md:hidden text-white z-50 relative hover:text-gray-300 transition-colors duration-300"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -111,12 +111,12 @@ export default function Header() {
         <div className="flex flex-col h-full relative z-10">
           {/* Sidebar Header */}
           <div className="flex items-center justify-between p-6 border-b border-white/20">
-            <Link href="/" className="text-white text-xl font-bold">
+            <Link href="/" className="text-white text-xl font-bold hover:text-gray-200 transition-colors duration-300">
               QuadB Tech
             </Link>
             <button 
               onClick={() => setIsMenuOpen(false)}
-              className="text-white hover:text-gray-300 transition-colors p-1"
+              className="text-white hover:text-red-400 transition-colors duration-300 p-1 hover:bg-white/10 rounded-lg"
               aria-label="Close menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,7 +132,7 @@ export default function Header() {
               className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200 ${
                 pathname === '/' 
                   ? 'text-white bg-white/20 shadow-lg backdrop-blur-sm' 
-                  : 'text-gray-200 hover:text-white hover:bg-white/10'
+                  : 'text-gray-200 hover:text-white hover:bg-white/10 hover:shadow-md hover:translate-x-1'
               }`}
             >
               <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +146,7 @@ export default function Header() {
               className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200 ${
                 pathname === '/services' 
                   ? 'text-white bg-white/20 shadow-lg backdrop-blur-sm' 
-                  : 'text-gray-200 hover:text-white hover:bg-white/10'
+                  : 'text-gray-200 hover:text-white hover:bg-white/10 hover:shadow-md hover:translate-x-1'
               }`}
             >
               <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,11 +156,11 @@ export default function Header() {
             </Link>
             
             <Link 
-              href="/profile" 
+              href="/how-we-work" 
               className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200 ${
-                pathname === '/profile' 
+                pathname === '/how-we-work' 
                   ? 'text-white bg-white/20 shadow-lg backdrop-blur-sm' 
-                  : 'text-gray-200 hover:text-white hover:bg-white/10'
+                  : 'text-gray-200 hover:text-white hover:bg-white/10 hover:shadow-md hover:translate-x-1'
               }`}
             >
               <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,7 +175,7 @@ export default function Header() {
             {/* Additional Links */}
             <Link 
               href="/privacy" 
-              className="flex items-center px-4 py-3 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-200"
+              className="flex items-center px-4 py-3 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-200 hover:shadow-md hover:translate-x-1"
             >
               <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -185,7 +185,7 @@ export default function Header() {
 
             <Link 
               href="/terms" 
-              className="flex items-center px-4 py-3 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-200"
+              className="flex items-center px-4 py-3 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-200 hover:shadow-md hover:translate-x-1"
             >
               <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -198,7 +198,7 @@ export default function Header() {
           <div className="p-6 border-t border-white/20">
             <Link 
               href="/contact" 
-              className="flex items-center justify-center w-full bg-gradient-to-r from-white to-gray-100 text-blue-900 px-6 py-3 rounded-xl hover:from-gray-100 hover:to-white transition-all duration-300 font-semibold shadow-lg"
+              className="flex items-center justify-center w-full bg-gradient-to-r from-white to-gray-100 text-blue-900 px-6 py-3 rounded-xl hover:from-blue-600 hover:to-blue-700 hover:text-white transition-all duration-300 font-semibold shadow-lg hover:shadow-2xl transform hover:scale-105"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />

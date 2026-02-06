@@ -17,14 +17,14 @@ export default function Footer() {
             <div className="flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-end space-y-6 lg:space-y-0 lg:space-x-8">
               {/* Navigation */}
               <nav className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
+                <a href="/" className="text-white opacity-80 hover:text-white transition-colors text-sm sm:text-base">
+                 Home
+                </a>
                 <a href="/services" className="text-white opacity-80 hover:text-white transition-colors text-sm sm:text-base">
-                  Services
+                  Service
                 </a>
-                <a href="/profile" className="text-white opacity-80 hover:text-white transition-colors text-sm sm:text-base">
+                <a href="/how-we-work" className="text-white opacity-80 hover:text-white transition-colors text-sm sm:text-base">
                   How we work
-                </a>
-                <a href="/contact" className="text-white opacity-80 hover:text-white transition-colors text-sm sm:text-base">
-                  Contact
                 </a>
               </nav>
 

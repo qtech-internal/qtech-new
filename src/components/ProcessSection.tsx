@@ -33,11 +33,11 @@ export default function ProcessSection() {
   }, [steps.length])
 
   return (
-    <section className="px-4 sm:px-6 py-12 sm:py-16 lg:py-20 -mt-10 sm:-mt-20">
+    <section className="px-4 sm:px-6 py-12 sm:py-16 lg:py-20 -mt-20 sm:-mt-20">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-black mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-black mb-4 sm:mb-6 -mt-8">
             How we work
           </h2>
           <p className="text-[#141414] opacity-64 text-sm sm:text-base lg:text-lg max-w-4xl mx-auto leading-relaxed px-2">

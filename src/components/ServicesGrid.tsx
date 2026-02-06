@@ -149,7 +149,7 @@ export default function ServicesGrid() {
         {/* Services Header Section - Same as main page */}
         <div className="relative">
           {/* Service background overlay - positioned top right */}
-          <div className="absolute -top-[34px] sm:-top-[50px] lg:-top-[65px] -right-10 lg:-right-40 w-[500px] sm:w-[900px] lg:w-[1480px] h-[300px] lg:h-[650px] opacity-40 pointer-events-none overflow-hidden">
+          <div className="absolute -top-[66px] sm:-top-[65px] lg:-top-[66px] -right-0  w-[500px] sm:w-[900px] lg:w-[1780px] h-[300px] lg:h-[410px] opacity-30 pointer-events-none overflow-hidden">
             <div className="w-full h-full relative">
               <img
                 src="/servicebg.png"
@@ -165,7 +165,7 @@ export default function ServicesGrid() {
           </div>
 
           {/* Header */}
-          <div className="relative text-left space-y-4 z-10 px-4 sm:px-0">
+          <div className="relative text-left space-y-4 z-10 px-4 sm:px-0 sm:ml-6">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-medium text-black">
               OUR SERVICES
             </h1>
@@ -173,7 +173,7 @@ export default function ServicesGrid() {
         </div>
 
         {/* Selected Service Detail Content */}
-        <div className="px-4 sm:px-0">
+        <div className="px-4 sm:px-0 sm:ml-6">
           {/* Back Button */}
           <button
             onClick={() => setSelectedService(null)}
@@ -184,29 +184,29 @@ export default function ServicesGrid() {
           </button>
 
           {/* Service Detail View */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             {/* Left Side - Content */}
-            <div className="space-y-6 lg:space-y-8">
+            <div className="space-y-4 sm:space-y-6 lg:space-y-8">
               <div>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
+                <h1 className="text-2xl xs:text-2.5xl sm:text-4xl lg:text-5xl font-medium text-gray-900 mb-3 sm:mb-4">
                   {selectedService.title} {selectedService.subtitle}
                 </h1>
-                <p className="text-gray-900 text-sm mb-6 font-bold">
+                <p className="text-gray-900 text-xs xs:text-sm sm:text-sm mb-4 sm:mb-6 font-bold leading-relaxed">
                   From concept to launch — design, development, AI, marketing and support all under one roof.
                 </p>
               </div>
 
-              <div className="space-y-6">
-                <p className="text-gray-700 leading-relaxed text-base lg:text-lg mt-8 lg:mt-20">
+              <div className="space-y-4 sm:space-y-6">
+                <p className="text-gray-700 leading-relaxed text-sm xs:text-sm sm:text-base lg:text-lg mt-6 sm:mt-8 lg:mt-20">
                   {selectedService.detailedDescription}
                 </p>
               </div>
             </div>
 
             {/* Right Side - Image */}
-            <div className="relative">
+            <div className="relative pr-4 sm:pr-8 lg:pr-12">
               <div className="rounded-3xl  ">
-                <div className="w-full h-64 lg:h-96 flex items-center justify-center relative overflow-hidden rounded-2xl">
+                <div className="w-full h-48 xs:h-56 sm:h-64 lg:h-96 flex items-center justify-center relative overflow-hidden rounded-2xl">
                   <Image
                     src={selectedService.image}
                     alt={`${selectedService.title} ${selectedService.subtitle}`}
@@ -229,23 +229,23 @@ export default function ServicesGrid() {
       {/* Header */}
       <div className="relative">
         {/* Service background overlay - covering full right space */}
-        <div className="absolute -mt-10 sm:-top-[18px] lg:-top-[35px] -right-0 w-[500px] sm:w-[900px] lg:w-[100vw] h-[300px] lg:h-[520px] opacity-40 pointer-events-none overflow-hidden">
-          <div className="w-full h-full relative">
-            <img
-              src="/servicebg.png"
-              alt="Service background"
-              className="w-full h-full object-cover object-right"
-              loading="lazy"
-              decoding="async"
-              style={{
-                filter: 'brightness(1.2) contrast(1.1)'
-              }}
-            />
+        <div className="absolute -top-[66px] sm:-top-[65px] lg:-top-[66px] -right-0  w-[500px] sm:w-[900px] lg:w-[1780px] h-[300px] lg:h-[410px] opacity-30 pointer-events-none overflow-hidden">
+            <div className="w-full h-full relative">
+              <img
+                src="/servicebg.png"
+                alt="Service background"
+                className="w-full h-full object-cover object-left"
+                loading="lazy"
+                decoding="async"
+                style={{
+                  filter: 'brightness(1.2) contrast(1.1)'
+                }}
+              />
+            </div>
           </div>
-        </div>
 
         {/* Header */}
-        <div className="relative text-left space-y-4 z-10 px-4 sm:px-0 ml-5 mt-10">
+        <div className="relative text-left space-y-4 z-10 px-4 sm:px-0 lg:ml-5 mt-10">
           <h1 className="text-3xl sm:text-4xl lg:text-6xl font-medium text-black">
             OUR SERVICES
           </h1>
@@ -259,7 +259,7 @@ export default function ServicesGrid() {
 
       {/* Services Grid with VR Image on Right Side */}
       <div className="relative min-h-[600px]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mt-12 lg:mt-16 px-4 sm:px-6 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 xs:gap-4 sm:gap-6 sm:gap-8 lg:gap-10 mt-8 sm:mt-12 lg:mt-16 px-2 xs:px-3 sm:px-6 py-4 xs:py-6 sm:py-8">
           {services
             .slice(0, showAllServices ? services.length : INITIAL_VISIBLE_COUNT)
             .map((service, index) => {
@@ -267,40 +267,40 @@ export default function ServicesGrid() {
             return (
               <div
                 key={service.id}
-                className="group bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-8 border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-blue-500/30 flex flex-col min-h-[350px] hover:transform hover:scale-105"
+                onClick={() => setSelectedService(service)}
+                className="group bg-white rounded-xl xs:rounded-2xl lg:rounded-3xl p-4 xs:p-5 sm:p-6 lg:p-8 border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-blue-500/30 flex flex-col min-h-[300px] xs:min-h-[330px] sm:min-h-[350px] hover:transform hover:scale-105"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Header with Title and Icon */}
-                <div className="flex items-start justify-between mb-6">
+                <div className="flex items-start justify-between mb-4 xs:mb-5 sm:mb-6">
                   <div className="flex-1">
-                    <h3 className="text-xl lg:text-3xl font-medium text-black leading-tight mb-1">
+                    <h3 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-medium text-black leading-tight mb-1">
                       {service.title}
                     </h3>
-                    <h4 className="text-xl lg:text-2xl font-bold text-black leading-tight">
+                    <h4 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-medium text-black leading-tight">
                       {service.subtitle}
                     </h4>
                   </div>
 
                   {/* Icon on the right */}
-                  <div className="ml-4 flex-shrink-0">
-                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                      <Icon size={24} className="text-blue-500 lg:w-7 lg:h-7" />
+                  <div className="ml-2 xs:ml-3 sm:ml-4 flex-shrink-0">
+                    <div className="w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                      <Icon size={20} className="text-blue-500 xs:w-5 xs:h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
                     </div>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="space-y-6 flex-1 flex flex-col">
-                  <p className="text-gray-700 text-sm lg:text-base font-normal leading-relaxed flex-1">
+                <div className="space-y-3 xs:space-y-4 sm:space-y-6 flex-1 flex flex-col">
+                  <p className="text-gray-700 text-xs xs:text-sm sm:text-sm lg:text-base font-normal leading-relaxed flex-1">
                     {service.description}
                   </p>
 
                   <button
-                    onClick={() => setSelectedService(service)}
-                    className="inline-flex items-center gap-2 px-6 lg:px-7 py-3 lg:py-3.5 bg-transparent border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 text-sm lg:text-lg font-medium self-start mt-auto"
+                    className="inline-flex items-center gap-1.5 xs:gap-2 px-4 xs:px-5 sm:px-6 lg:px-7 py-2 xs:py-2.5 sm:py-3 lg:py-3.5 bg-transparent border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 text-xs xs:text-sm sm:text-sm lg:text-lg font-medium self-start mt-auto"
                   >
                     Learn more
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform lg:w-5 lg:h-5" />
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform xs:w-4 xs:h-4 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
                   </button>
                 </div>
               </div>
@@ -310,10 +310,10 @@ export default function ServicesGrid() {
 
         {/* Show View More/Less button when there are more services than initial count */}
         {services.length > INITIAL_VISIBLE_COUNT && (
-          <div className="flex justify-center mt-10 lg:mt-16 mb-1">
+          <div className="flex justify-center mt-6 xs:mt-8 sm:mt-10 lg:mt-16 mb-1">
             <button
               onClick={() => setShowAllServices(!showAllServices)}
-              className="px-8 py-3 lg:py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-base lg:text-lg shadow-lg hover:shadow-xl"
+              className="px-6 xs:px-7 sm:px-8 py-2.5 xs:py-3 sm:py-3 lg:py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-sm xs:text-base sm:text-base lg:text-lg shadow-lg hover:shadow-xl"
             >
               {showAllServices ? 'View less' : 'View more'}
             </button>
@@ -338,8 +338,8 @@ export default function ServicesGrid() {
 
         {/* VR Image for mobile/tablet - appears after all cards when expanded */}
         {showAllServices && (
-          <div className="lg:hidden relative w-full px-0 mt-6 mb-0">
-            <div className="relative w-full h-[200px] sm:h-[250px] mx-4 sm:mx-0">
+          <div className="lg:hidden relative w-full px-0 mt-4 xs:mt-5 sm:mt-6 mb-0">
+            <div className="relative w-full h-[150px] xs:h-[180px] sm:h-[250px] mx-2 xs:mx-3 sm:mx-0">
               <Image
                 src="/service.png"
                 alt="VR Experience"

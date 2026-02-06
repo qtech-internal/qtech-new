@@ -84,10 +84,10 @@ export default function ServicesSection() {
   const [hoveredService, setHoveredService] = useState<string | null>(null)
 
   return (
-    <section className="px-4 sm:px-6 py-12 sm:py-16 lg:py-20 -mt-20">
+    <section className="px-4 sm:px-6 py-8 sm:py-12 lg:py-16 -mt-10">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <span className="text-[#615FFF] text-xs sm:text-sm font-semibold tracking-wider uppercase mb-4 block">OUR SERVICES</span>
+          <span className="text-[#615FFF] text-xs sm:text-sm font-semibold tracking-wider uppercase mb-4 block -mt-7">OUR SERVICES</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2  items-start">

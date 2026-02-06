@@ -4,8 +4,10 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 
 export const metadata = generateSEO({
-  title: 'Terms and Conditions - Quadb Tech',
-  description: 'Terms and Conditions for Quadb Tech - Learn about our service terms, user responsibilities, and legal agreements.',
+  title: 'Terms & Conditions',
+  description: 'Terms and Conditions for QuadB Tech services. Please review our comprehensive terms governing Web3 development, blockchain solutions, cloud services, and all digital services we provide.',
+  keywords: ['Terms and Conditions', 'Service Agreement', 'Legal Terms', 'Web3 Services'],
+  noIndex: false,
 })
 
 export default function TermsPage() {
@@ -37,15 +39,15 @@ export default function TermsPage() {
                 <p className="text-lg leading-relaxed">
                   These Terms and Conditions govern the use of services provided by Quadb Tech, including Web2 and Web3 development services, 
                   cloud solutions, blockchain integration, smart contract development, decentralized applications (dApps), and related digital services. 
-                  By engaging with Quadb Tech's services, clients agree to comply with these terms.
+                  By engaging with Quadb Tech&apos;s services, clients agree to comply with these terms.
                 </p>
               </div>
 
               <section>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Introduction</h2>
                 <p>
-                  By engaging with Quadb Tech's services or visiting our website, you agree to comply with these terms. 
-                  If you don't agree with any part of these terms, please don't use our services. We're here to help, 
+                  By engaging with Quadb Tech&apos;s services or visiting our website, you agree to comply with these terms. 
+                  If you don&apos;t agree with any part of these terms, please don&apos;t use our services. We&apos;re here to help, 
                   so feel free to contact us if you have any questions about these terms or our services.
                 </p>
               </section>
@@ -141,17 +143,17 @@ export default function TermsPage() {
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Intellectual Property</h2>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-xl font-medium text-gray-800 mb-2">5.1 Quadb Tech's Intellectual Property</h3>
+                    <h3 className="text-xl font-medium text-gray-800 mb-2">5.1 Quadb Tech&apos;s Intellectual Property</h3>
                     <p>Unless otherwise agreed in writing, all proprietary tools, frameworks, libraries, and methodologies developed by Quadb Tech remain the intellectual property of the Company.</p>
                   </div>
                   
                   <div>
-                    <h3 className="text-xl font-medium text-gray-800 mb-2">5.2 Client's Intellectual Property</h3>
+                    <h3 className="text-xl font-medium text-gray-800 mb-2">5.2 Client&apos;s Intellectual Property</h3>
                     <p>Custom deliverables created specifically for the client will be owned by the client upon full payment, subject to:</p>
                     <ul className="list-disc list-inside mt-2 space-y-1">
                       <li>Completion of all payment obligations</li>
                       <li>Third-party licenses and dependencies used in development</li>
-                      <li>Quadb Tech's retained rights to proprietary tools and methodologies</li>
+                      <li>Quadb Tech&apos;s retained rights to proprietary tools and methodologies</li>
                     </ul>
                   </div>
                 </div>
@@ -202,7 +204,7 @@ export default function TermsPage() {
               <section>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Disclaimer</h2>
                 <p>
-                  The information on this website is provided on an "as is" basis. To the fullest extent permitted by law, 
+                  The information on this website is provided on an &quot;as is&quot; basis. To the fullest extent permitted by law, 
                   this Company excludes all representations, warranties, conditions and terms whether express or implied, 
                   statutory or otherwise.
                 </p>
@@ -232,7 +234,7 @@ export default function TermsPage() {
                   <p>Email: support@quadbtech.com</p>
                   <p>Website: <Link href="/" className="text-blue-600 hover:text-blue-800">quadbtech.com</Link></p>
                   <p className="mt-2 text-sm text-gray-600">
-                    We're here to help and will respond to your questions as quickly as possible.
+                    We&apos;re here to help and will respond to your questions as quickly as possible.
                   </p>
                 </div>
               </section>

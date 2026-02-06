@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="text-center lg:text-left">
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">QuadB Tech</h2>
               <p className="text-white opacity-80 leading-relaxed text-sm sm:text-base max-w-md mx-auto lg:mx-0">
-                QuadB Tech is a boutique innovation studio crafting next-generation digital solutions powered by Blockchain, AI, Web3, and the Metaverse. We partner with visionary startups and forward-thinking enterprises to build secure, scalable, and future-ready products that push the boundaries of what's possible.
+                QuadB Tech is a boutique innovation studio crafting next-generation digital solutions powered by Blockchain, AI, Web3, and the Metaverse. We partner with visionary startups and forward-thinking enterprises to build secure, scalable, and future-ready products that push the boundaries of what&apos;s possible.
               </p>
             </div>
 

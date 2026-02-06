@@ -4,8 +4,10 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 
 export const metadata = generateSEO({
-  title: 'Privacy Policy - Quadb Tech',
-  description: 'Privacy Policy for Quadb Tech - Learn how we collect, use, and protect your personal information.',
+  title: 'Privacy Policy',
+  description: 'Privacy Policy for QuadB Tech. Learn how we collect, use, and protect your personal information and data. We are committed to protecting your privacy and ensuring transparency in all our operations.',
+  keywords: ['Privacy Policy', 'Data Protection', 'GDPR', 'Data Security'],
+  noIndex: false,
 })
 
 export default function PrivacyPage() {
@@ -166,7 +168,7 @@ export default function PrivacyPage() {
               <section>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">Web3 & Blockchain Data</h2>
                 <p>
-                  For blockchain-related services, it's important to understand:
+                  For blockchain-related services, it&apos;s important to understand:
                 </p>
                 <ul className="list-disc list-inside mt-2 space-y-2">
                   <li>Certain transaction data may be publicly visible on decentralized networks</li>
@@ -205,12 +207,12 @@ export default function PrivacyPage() {
                   <li>Restriction: Ask us to limit how we use your information</li>
                 </ul>
                 <p className="mt-4">
-                  To exercise any of these rights, simply contact us using the information below. We'll respond within 30 days.
+                  To exercise any of these rights, simply contact us using the information below. We&apos;ll respond within 30 days.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Children's Privacy</h2>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Children&apos;s Privacy</h2>
                 <p>
                   Our website and services are intended for businesses and adults. We do not knowingly collect 
                   information from children under 13. If you believe we have collected information from a child, 
@@ -219,7 +221,7 @@ export default function PrivacyPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Children's Privacy</h2>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Children&apos;s Privacy</h2>
                 <p>
                   Our services are not intended for children under 13 years of age. We do not knowingly collect 
                   personal information from children under 13.
@@ -242,7 +244,7 @@ export default function PrivacyPage() {
                   <p>Email: support@quadbtech.com</p>
                   <p>Website: <Link href="/" className="text-blue-600 hover:text-blue-800">quadbtech.com</Link></p>
                   <p className="mt-2 text-sm text-gray-600">
-                    We're committed to protecting your privacy and will respond to your inquiries promptly.
+                    We&apos;re committed to protecting your privacy and will respond to your inquiries promptly.
                   </p>
                 </div>
               </section>

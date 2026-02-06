@@ -4,8 +4,9 @@ import Footer from '@/components/Footer'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata = generateSEO({
-  title: 'Contact Us - QuadB Tech',
-  description: 'Get in touch with QuadB Tech. Drop us a message and let\'s discuss your next project.',
+  title: 'Contact Us',
+  description: 'Get in touch with QuadB Tech. We\'d love to hear about your project and discuss how we can help bring your vision to life. Contact us today for a free consultation.',
+  keywords: ['Contact', 'Get in Touch', 'Project Consultation', 'Web Development', 'Blockchain Solutions'],
 })
 
 export default function ContactPage() {

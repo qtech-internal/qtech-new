@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import { generateSEO } from '@/lib/seo'
+import { organizationSchema } from '@/lib/schema'
 import './globals.css'
 
 const inter = Inter({ 
@@ -10,9 +12,10 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = generateSEO({
-  title: 'Home',
-  description: 'Welcome to our Next.js application - fast, modern, and SEO-optimized',
-  keywords: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'SEO'],
+  title: 'QuadB Tech - Next-Generation Digital Solutions',
+  description: 'QuadB Tech is a boutique innovation studio crafting next-generation digital solutions powered by Blockchain, AI, Web3, and the Metaverse. Expert Web3 DApp development, smart contracts, mobile apps, and cloud solutions.',
+  keywords: ['Blockchain DApp Development', 'Web3', 'Smart Contracts', 'Mobile App Development', 'Web Development', 'Cloud Solutions', 'AI Solutions', 'Metaverse Development'],
+  url: 'https://qtech-new.vercel.app',
 })
 
 export const viewport: Viewport = {
@@ -40,6 +43,26 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        
+        {/* Schema.org Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX');
+          `}
+        </Script>
       </head>
       <body className={`${inter.className} antialiased`}>
         {children}

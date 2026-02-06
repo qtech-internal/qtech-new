@@ -18,7 +18,7 @@ export default function AboutSection() {
         </div>
 
         <h2 className="text-lg lg:text-[30px] font-medium text-[#141414] mb-8 max-w-6xl mx-auto leading-tight">
-          QuadB Tech is a boutique innovation studio crafting next-generation digital solutions powered by Blockchain, AI, Web3, and the Metaverse. We partner with visionary startups and forward-thinking enterprises to build secure, scalable, and future-ready products that push the boundaries of what's possible.
+          QuadB Tech is a boutique innovation studio crafting next-generation digital solutions powered by Blockchain, AI, Web3, and the Metaverse. We partner with visionary startups and forward-thinking enterprises to build secure, scalable, and future-ready products that push the boundaries of what&apos;s possible.
         </h2>
 
         <div className="grid lg:grid-cols-2 gap-12 mt-16 max-w-6xl mx-auto">
@@ -33,7 +33,7 @@ export default function AboutSection() {
             </div>
             <div className="text-left">
               <p className="text-black opacity-64 leading-relaxed">
-                We don't just write code; we engineer digital ecosystems. From decentralized applications and custom blockchain infrastructures to intelligent systems and immersive experiences, our team blends deep technical mastery with creative problem-solving to deliver products that are built to last.
+                We don&apos;t just write code; we engineer digital ecosystems. From decentralized applications and custom blockchain infrastructures to intelligent systems and immersive experiences, our team blends deep technical mastery with creative problem-solving to deliver products that are built to last.
               </p>
             </div>
           </div>
@@ -49,7 +49,7 @@ export default function AboutSection() {
             </div>
             <div className="text-left">
               <p className="text-black opacity-64 leading-relaxed">
-                At our core, we believe technology should empower. That's why every solution we build is designed to enhance efficiency, accelerate digital transformation, and unlock new opportunities in an increasingly decentralized world. With transparency, precision, and a partnership-first approach, we help businesses turn bold ideas into powerful realities.
+                At our core, we believe technology should empower. That&apos;s why every solution we build is designed to enhance efficiency, accelerate digital transformation, and unlock new opportunities in an increasingly decentralized world. With transparency, precision, and a partnership-first approach, we help businesses turn bold ideas into powerful realities.
               </p>
             </div>
           </div>

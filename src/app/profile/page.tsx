@@ -4,8 +4,9 @@ import Footer from '@/components/Footer'
 import ProfileGrid from '@/components/ProfileGrid'
 
 export const metadata = generateSEO({
-  title: 'Our Profile - QuadB Tech',
-  description: 'From concept to launch - design, development, AI, marketing and support all under one roof.',
+  title: 'How We Work',
+  description: 'Learn about QuadB Tech\'s development process and methodology. We combine innovation, expertise, and partnership to deliver exceptional digital solutions.',
+  keywords: ['Development Process', 'Methodology', 'Web3 Development', 'Blockchain Development', 'Software Development'],
 })
 
 export default function ProfilePage() {

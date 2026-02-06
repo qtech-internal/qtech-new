@@ -4,8 +4,9 @@ import Footer from '@/components/Footer'
 import ServicesGrid from '@/components/ServicesGrid'
 
 export const metadata = generateSEO({
-  title: 'Our Services - QuadB Tech',
-  description: 'From concept to launch - design, development, AI, marketing and support all under one roof.',
+  title: 'Services',
+  description: 'Explore QuadB Tech\'s comprehensive services including Mobile App Development, Web App Development, Blockchain DApps, Smart Contracts, Game Development, ERP & SaaS Solutions, Maintenance & Scalability, and E-commerce Solutions.',
+  keywords: ['Mobile App Development', 'Web App Development', 'Blockchain DApp', 'Smart Contract Development', 'Game Development', 'ERP Solutions', 'SaaS Solutions', 'E-commerce Solutions'],
 })
 
 export default function ServicesPage() {

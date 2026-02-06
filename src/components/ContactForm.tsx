@@ -44,7 +44,7 @@ export default function ContactForm() {
     setSubmitStatus('idle')
 
     try {
-      // EmailJS configuration - using your exact keys
+     
       const serviceId = 'service_38pd38l'
       const templateId = 'template_ps76yo5'
       const publicKey = '543dCM6EejEi_ZpAm'
@@ -52,7 +52,7 @@ export default function ContactForm() {
       // Prepare template parameters
       const templateParams = {
         from_name: formData.name,
-        from_email: formData.companyName, // Using company name field as email if needed
+        from_email: formData.companyName, 
         phone_number: formData.phoneNumber || 'Not provided',
         city: formData.city || 'Not provided',
         message: formData.message,
@@ -211,7 +211,7 @@ export default function ContactForm() {
 
           {submitStatus === 'success' && (
             <div className="text-green-400 text-center p-3 lg:p-4 bg-green-400/10 rounded-lg border border-green-400/20 text-sm lg:text-base animate-fade-in">
-              Message sent successfully! We'll get back to you soon.
+              Message sent successfully! We&apos;ll get back to you soon.
             </div>
           )}
 

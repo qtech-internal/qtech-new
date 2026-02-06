@@ -24,7 +24,7 @@ const projects: Project[] = [
     description:
       'Heebee Coffee is a comprehensive management system designed to streamline all coffee shop operations. The platform includes admin dashboards for business oversight, POS system for sales management, inventory tracking, user-side web platform for customer engagement, and dedicated iOS & Android applications to manage all Heebee operations seamlessly.',
     tags: ['Web2', 'Full-stack', 'Mobile Apps', 'POS System', 'Inventory Management'],
-    link: '#',
+    link: 'https://heebee.in/',
     image:
       'https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&h=400&fit=crop',
     problems: [
@@ -209,7 +209,7 @@ export default function ProfileGrid() {
     return (
       <div className="animate-fade-in min-h-screen bg-white relative ml-6">
         <div
-          className="absolute -top-[24px] -left-[50vw] ml-[50%] w-screen h-44 pointer-events-none z-0"
+          className="absolute -top-[24px] -left-[50vw]  ml-[49%] w-screen h-44 pointer-events-none z-0"
           style={{
             background: `
               linear-gradient(to bottom, rgba(173, 185, 247, 1) 0%, rgba(173, 185, 247, 0.8) 60%, rgba(255, 255, 255, 0.9) 90%, white 100%),

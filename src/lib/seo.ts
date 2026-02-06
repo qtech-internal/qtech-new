@@ -6,16 +6,16 @@ interface SEOProps {
   keywords?: string[]
   image?: string
   url?: string
-  type?: 'website' | 'article' | 'product'
+  type?: 'website' | 'article'
   noIndex?: boolean
 }
 
 const defaultSEO = {
-  title: 'Next.js App',
-  description: 'A modern Next.js application built with TypeScript and Tailwind CSS',
-  keywords: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+  title: 'QuadB Tech',
+  description: 'QuadB Tech is a boutique innovation studio crafting next-generation digital solutions powered by Blockchain, AI, Web3, and the Metaverse. We partner with visionary startups and forward-thinking enterprises.',
+  keywords: ['Blockchain', 'AI', 'Web3', 'DApp Development', 'Smart Contracts', 'Mobile App Development', 'Web Development', 'Cloud Solutions', 'Metaverse'],
   image: '/og-image.jpg',
-  url: 'https://yoursite.com',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://qtech-new.vercel.app',
   type: 'website' as const,
 }
 
@@ -41,9 +41,9 @@ export function generateSEO({
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords.join(', '),
-    authors: [{ name: 'Your Name' }],
-    creator: 'Your Name',
-    publisher: 'Your Company',
+    authors: [{ name: 'QuadB Tech' }],
+    creator: 'QuadB Tech',
+    publisher: 'QuadB Tech',
     robots: noIndex ? 'noindex, nofollow' : 'index, follow',
     openGraph: {
       type: seo.type,
@@ -65,7 +65,7 @@ export function generateSEO({
       title: seo.title,
       description: seo.description,
       images: [seo.image],
-      creator: '@yourusername',
+      creator: '@QuadBTech',
     },
     alternates: {
       canonical: seo.url,

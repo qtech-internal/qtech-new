@@ -146,7 +146,7 @@ const web3Projects = [
               </div>
               <h3 className="text-2xl font-semibold text-gray-700 mb-2">No {activeTab} Projects</h3>
               <p className="text-gray-500 max-w-md">
-                We don't have any {activeTab} projects to showcase at the moment. 
+                We don&apos;t have any {activeTab} projects to showcase at the moment. 
                 Check back soon or explore the other category.
               </p>
               <button 

@@ -17,6 +17,25 @@ interface Project {
 }
 
 const projects: Project[] = [
+   {
+    id: 'heebee-coffee',
+    title: 'Heebee Coffee | Complete Management System',
+    category: 'Web2',
+    description:
+      'Heebee Coffee is a comprehensive management system designed to streamline all coffee shop operations. The platform includes admin dashboards for business oversight, POS system for sales management, inventory tracking, user-side web platform for customer engagement, and dedicated iOS & Android applications to manage all Heebee operations seamlessly.',
+    tags: ['Web2', 'Full-stack', 'Mobile Apps', 'POS System', 'Inventory Management'],
+    link: '#',
+    image:
+      'https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&h=400&fit=crop',
+    problems: [
+      'Coffee shop operations were fragmented across multiple disconnected systems',
+      'Manual inventory tracking led to stock shortages and waste',
+      'Lack of integrated POS and customer management system reduced operational efficiency',
+      'No unified platform for managing multiple locations and staff'
+    ],
+    solution:
+      'We developed a complete management ecosystem with role-based dashboards for admins, staff, and customers. The system includes a modern POS interface, real-time inventory tracking, customer loyalty programs, and mobile applications for both iOS and Android. All components are integrated to provide seamless data flow and comprehensive business insights.'
+  },
   {
     id: 'siglab',
     title: 'SigLab | Interactive Landing Page',

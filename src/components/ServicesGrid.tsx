@@ -140,6 +140,8 @@ const services: Service[] = [
 
 export default function ServicesGrid() {
   const [selectedService, setSelectedService] = useState<Service | null>(null)
+  const [showAllServices, setShowAllServices] = useState(false)
+  const INITIAL_VISIBLE_COUNT = 3
 
   if (selectedService) {
     return (
@@ -258,7 +260,9 @@ export default function ServicesGrid() {
       {/* Services Grid with VR Image on Right Side */}
       <div className="relative min-h-[600px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mt-12 lg:mt-16 px-4 sm:px-6 py-8">
-          {services.map((service, index) => {
+          {services
+            .slice(0, showAllServices ? services.length : INITIAL_VISIBLE_COUNT)
+            .map((service, index) => {
             const Icon = service.icon
             return (
               <div
@@ -304,47 +308,49 @@ export default function ServicesGrid() {
           })}
         </div>
 
+        {/* Show View More/Less button when there are more services than initial count */}
+        {services.length > INITIAL_VISIBLE_COUNT && (
+          <div className="flex justify-center mt-10 lg:mt-16 mb-1">
+            <button
+              onClick={() => setShowAllServices(!showAllServices)}
+              className="px-8 py-3 lg:py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-base lg:text-lg shadow-lg hover:shadow-xl"
+            >
+              {showAllServices ? 'View less' : 'View more'}
+            </button>
+          </div>
+        )}
+
         {/* VR Image Section - positioned outside grid on the right */}
-        <div className="hidden lg:block absolute bottom-0 right-0 w-full -mb-64 pointer-events-none">
-          <div className="relative w-full h-[1000px]">
-            <Image
-              src="/service.png"
-              alt="VR Experience"
-              fill
-              className="object-contain object-right-bottom mix-blend-multiply"
-              loading="lazy"
-              sizes="66vw"
-            />
-
-            {/* View More Button positioned over the image */}
-            <div className="absolute top-[720px] -mt-10 left-1/2 transform -translate-x-1/4 z-10 pointer-events-auto">
-              <button className="px-6 lg:px-8 py-3 lg:py-3.5 bg-white/90 backdrop-blur-sm border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-sm lg:text-base shadow-lg">
-                View more
-              </button>
+        {showAllServices && (
+          <div className="hidden lg:block absolute bottom-0 right-0 w-full -mb-64 pointer-events-none">
+            <div className="relative w-full h-[1000px]">
+              <Image
+                src="/service.png"
+                alt="VR Experience"
+                fill
+                className="object-contain object-right-bottom mix-blend-multiply"
+                loading="lazy"
+                sizes="66vw"
+              />
             </div>
           </div>
-        </div>
+        )}
 
-        {/* VR Image for mobile/tablet - appears after all cards */}
-        <div className="lg:hidden relative w-full px-0 mt-6 mb-0">
-          <div className="relative w-full h-[200px] sm:h-[250px] mx-4 sm:mx-0">
-            <Image
-              src="/service.png"
-              alt="VR Experience"
-              fill
-              className="object-contain object-center mix-blend-multiply"
-              loading="lazy"
-              sizes="100vw"
-            />
-
-            {/* View More Button positioned over the image */}
-            <div className="absolute -bottom-0 right-1/2 transform -translate-x-1/8 z-10">
-              <button className="px-4 sm:px-6 py-2 sm:py-3 bg-white/90 backdrop-blur-sm border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-xs sm:text-sm shadow-lg">
-                View more
-              </button>
+        {/* VR Image for mobile/tablet - appears after all cards when expanded */}
+        {showAllServices && (
+          <div className="lg:hidden relative w-full px-0 mt-6 mb-0">
+            <div className="relative w-full h-[200px] sm:h-[250px] mx-4 sm:mx-0">
+              <Image
+                src="/service.png"
+                alt="VR Experience"
+                fill
+                className="object-contain object-center mix-blend-multiply"
+                loading="lazy"
+                sizes="100vw"
+              />
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

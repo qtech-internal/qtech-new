@@ -29,10 +29,7 @@ export default function Footer() {
               </nav>
 
               {/* CTA Button */}
-              <button className="bg-transparent border border-white text-white px-4 sm:px-6 py-2 rounded-full hover:bg-gray-800 hover:text-white transition-all duration-300 text-sm sm:text-base">
-                Learn more
-                <Image src="/arrow.png" alt="arrow" width={16} height={16} className="inline-block ml-2 filter invert brightness-150" />
-              </button>
+             
             </div>
           </div>
 

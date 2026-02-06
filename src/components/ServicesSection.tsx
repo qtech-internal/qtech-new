@@ -116,7 +116,7 @@ export default function ServicesSection() {
                 
                 {/* Text content at bottom */}
                 <div className="bg-gradient-to-b from-transparent via-purple-900/80 to-purple-900/95 backdrop-blur-sm p-4 sm:p-6 lg:p-20 absolute bottom-0 left-0 right-0">
-                  <p className="text-white/90 text-lg sm:text-xl lg:text-3xl leading-relaxed font-semibold text-nowrap -ml-12">
+                  <p className="text-white/90 text-lg sm:text-xl lg:text-3xl leading-relaxed font-semibold text-nowrap lg:-ml-12">
                     {selectedService.title}
                   </p>
                 </div>
@@ -125,43 +125,55 @@ export default function ServicesSection() {
           </div>
 
           {/* Right side - Service list */}
-          <div className="space-y-0 -ml-8 lg:-ml-32">
+          <div className="space-y-0  lg:-ml-32">
             {services.map((service, index) => (
               <div key={index}>
                 <div 
-                  className={`flex items-center justify-between py-4 sm:py-5 lg:py-6 transition-colors group cursor-pointer ${
+                  className={`transition-colors group cursor-pointer ${
                     index !== services.length - 1 ? 'border-b border-gray-300' : ''
-                  }`}
+                  } ${selectedService.title === service.title ? 'pb-4 sm:pb-5 lg:pb-6' : ''}`}
                   onClick={() => setSelectedService(service)}
                   onMouseEnter={() => setHoveredService(service.title)}
                   onMouseLeave={() => setHoveredService(null)}
                 >
-                  <div className={`pr-4 ${selectedService.title === service.title ? 'flex-shrink-0 w-1/3' : 'flex-1'}`}>
-                    <h3 className={`text-lg sm:text-xl lg:text-2xl font-medium transition-colors ${
-                      selectedService.title === service.title 
-                        ? 'text-[#615FFF] font-semibold' 
-                        : 'text-black hover:text-[#615FFF]'
-                    }`}>
-                      {service.title}
-                    </h3>
+                  {/* Title and Icon Row */}
+                  <div className="flex items-center justify-between py-4 sm:py-5 lg:py-6">
+                    <div className={`pr-4 ${selectedService.title === service.title ? 'flex-shrink-0 lg:w-1/3' : 'flex-1'}`}>
+                      <h3 className={`text-lg sm:text-xl lg:text-2xl font-medium transition-colors ${
+                        selectedService.title === service.title 
+                          ? 'text-[#615FFF] font-semibold' 
+                          : 'text-black hover:text-[#615FFF]'
+                      }`}>
+                        {service.title}
+                      </h3>
+                    </div>
+                    
+                    {/* Show description on right for desktop, icon for non-selected */}
+                    {selectedService.title === service.title ? (
+                      <div className="hidden lg:flex flex-1 w-2/3 pl-4">
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                    ) : (
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
+                        hoveredService === service.title
+                          ? 'bg-gray-200' 
+                          : 'bg-transparent'
+                      }`}>
+                        <div className="text-black">
+                          {service.icon}
+                        </div>
+                      </div>
+                    )}
                   </div>
                   
-                  {/* Show description if selected, otherwise show icon */}
-                  {selectedService.title === service.title ? (
-                    <div className="flex-1 w-2/3 pl-4">
-                      <p className="text-gray-600 text-normal sm:text-sm leading-relaxed">
+                  {/* Description below title for mobile */}
+                  {selectedService.title === service.title && (
+                    <div className="lg:hidden pb-4 px-4">
+                      <p className="text-gray-600 text-sm leading-relaxed">
                         {service.description}
                       </p>
-                    </div>
-                  ) : (
-                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
-                      hoveredService === service.title
-                        ? 'bg-gray-200' 
-                        : 'bg-transparent'
-                    }`}>
-                      <div className="text-black">
-                        {service.icon}
-                      </div>
                     </div>
                   )}
                 </div>

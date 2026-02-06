@@ -71,11 +71,11 @@ const web3Projects = [
         </div>
 
         {/* Tab buttons and View more */}
-        <div className="flex items-center justify-between mb-12">
-          <div className="flex items-center space-x-3">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mb-8 sm:mb-12">
+          <div className="flex items-center space-x-2 sm:space-x-3">
             <button 
               onClick={() => setActiveTab('Web2')}
-              className={`px-8 py-2.5 rounded-full font-medium text-sm transition-all ${
+              className={`px-6 sm:px-8 py-2 sm:py-2.5 rounded-full font-medium text-xs sm:text-sm transition-all ${
                 activeTab === 'Web2' 
                   ? 'bg-[#615FFF] text-white' 
                   : 'bg-transparent text-[#615FFF] border border-[#615FFF] hover:bg-[#615FFF]/10'
@@ -85,7 +85,7 @@ const web3Projects = [
             </button>
             <button 
               onClick={() => setActiveTab('Web3')}
-              className={`px-8 py-2.5 rounded-full font-medium text-sm transition-all ${
+              className={`px-6 sm:px-8 py-2 sm:py-2.5 rounded-full font-medium text-xs sm:text-sm transition-all ${
                 activeTab === 'Web3' 
                   ? 'bg-[#615FFF] text-white' 
                   : 'bg-transparent text-[#615FFF] border border-[#615FFF] hover:bg-[#615FFF]/10'
@@ -97,10 +97,10 @@ const web3Projects = [
 
           <button 
             onClick={handleViewMore}
-            className="text-[#615FFF] hover:text-white hover:bg-[#615FFF] transition-colors font-medium text-sm flex items-center space-x-2 px-6 py-2.5 border border-[#615FFF] rounded-full"
+            className="text-[#615FFF] hover:text-white hover:bg-[#615FFF] transition-colors font-medium text-xs sm:text-sm flex items-center space-x-2 px-5 sm:px-6 py-2 sm:py-2.5 border border-[#615FFF] rounded-full"
           >
             <span>View more</span>
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <svg className="w-3 h-3 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path d="M7 17L17 7M17 7H7M17 7V17" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>

@@ -308,7 +308,7 @@ export default function ProfileGrid() {
       {/* Large Globe overlay - positioned to show full gradient including bluish tones */}
       <div className="relative">
           {/* Service background overlay - positioned top right */}
-          <div className="absolute -top-[56px] sm:-top-[65px] lg:-top-[72px] -right-10 lg:-right-40 w-[500px] sm:w-[900px] lg:w-[1780px] h-[300px] lg:h-[610px] opacity-30 pointer-events-none overflow-hidden">
+          <div className="absolute -top-[56px] sm:-top-[65px] lg:-top-[72px] -left-[155px] lg:-right-40 w-[500px] sm:w-[900px] lg:w-[1780px] h-[300px] lg:h-[610px] opacity-30 pointer-events-none overflow-hidden">
             <div className="w-full h-full relative">
               <img
                 src="/servicebg.png"

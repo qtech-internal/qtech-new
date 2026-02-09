@@ -6,11 +6,17 @@ export default function HeroSection() {
     <section className="relative overflow-hidden bg-hero bg-cover bg-center bg-no-repeat pb-6 sm:pb-10">
       {/* Globe positioned to start below "PEOPLE LOVE" text */}
       <div className="absolute inset-0 flex items-center justify-center top-[60%] sm:top-[75%] -mt-6 sm:-mt-12 ml-6 sm:ml-12">
-        <img
-          src="/globe.gif"
-          alt="Globe"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-[800px] h-[800px] sm:w-[800px] sm:h-[800px] lg:w-[1100px] lg:h-[1100px] object-contain globe-filter-natural opacity-40"
-        />
+          aria-label="Globe animation"
+        >
+          <source src="/globe.webm" type="video/webm" />
+          <source src="/globe.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* Main Content */}
@@ -30,11 +36,13 @@ export default function HeroSection() {
               <span className="block"><b>AI, marketing</b> and support all under one roof.</span>
             </p>
 
-            <Link href="/services">
-              <button className="group bg-transparent border-2 border-white text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-white hover:text-blue-900 transition-all duration-300 font-medium text-sm sm:text-base cursor-pointer">
-                Learn more 
-                  <Image src="/arrow.png" alt="arrow" width={16} height={16} className="inline-block ml-2 filter invert brightness-150 group-hover:invert-0 group-hover:brightness-100 transition-all duration-300" />
-              </button>
+            <Link 
+              href="/services"
+              className="group bg-transparent border-2 border-white text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-white hover:text-blue-900 transition-all duration-300 font-medium text-sm sm:text-base cursor-pointer inline-flex items-center"
+              aria-label="Learn more about our services"
+            >
+              Explore our services
+              <Image src="/arrow.png" alt="" width={16} height={16} loading="lazy" draggable={false} className="inline-block ml-2 filter invert brightness-150 group-hover:invert-0 group-hover:brightness-100 transition-all duration-300" />
             </Link>
           </div>
 
@@ -69,24 +77,24 @@ export default function HeroSection() {
               <div className="font-medium opacity-80">We help many</div>
               <div className="font-semibold flex items-center justify-center sm:justify-start">
                 Companies 
-                <img src="/chevron.png" alt="Arrow" className="h-5 w-5 sm:h-6 sm:w-6 ml-1 mt-0.5" />
+                <Image src="/chevron.png" alt="Arrow" width={24} height={24} loading="lazy" draggable={false} className="h-5 w-5 sm:h-6 sm:w-6 ml-1 mt-0.5" />
               </div>
             </div>
            
             <div className="overflow-hidden flex-1 w-full">
               <div className="flex items-center gap-6 sm:gap-8 opacity-70 animate-scroll whitespace-nowrap">
-                <img src="/Niscala.png" alt="Niscala.io" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
-                <img src="/Samtiv.png" alt="SAMTIV" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
-                <img src="/lea.png" alt="IEA" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
-                <img src="/Slavica.png" alt="SLAVA" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
-                <img src="/Unica.png" alt="UNICA" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
-                <img src="/Vector.png" alt="BOXING" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
-                <img src="/Niscala.png" alt="Niscala.io" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
-                <img src="/Samtiv.png" alt="SAMTIV" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
-                <img src="/lea.png" alt="IEA" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
-                <img src="/Slavica.png" alt="SLAVA" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
-                <img src="/Unica.png" alt="UNICA" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
-                <img src="/Vector.png" alt="BOXING" className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+                <Image src="/Niscala.png" alt="Niscala.io" width={89} height={16} loading="lazy" draggable={false} className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+                <Image src="/Samtiv.png" alt="SAMTIV" width={88} height={16} loading="lazy" draggable={false} className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+                <Image src="/lea.png" alt="IEA" width={89} height={16} loading="lazy" draggable={false} className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+                <Image src="/Slavica.png" alt="SLAVA" width={60} height={16} loading="lazy" draggable={false} className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+                <Image src="/Unica.png" alt="UNICA" width={89} height={16} loading="lazy" draggable={false} className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+                <Image src="/Vector.png" alt="BOXING" width={89} height={16} loading="lazy" draggable={false} className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+                <Image src="/Niscala.png" alt="Niscala.io" width={89} height={16} loading="lazy" draggable={false} className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+                <Image src="/Samtiv.png" alt="SAMTIV" width={88} height={16} loading="lazy" draggable={false} className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+                <Image src="/lea.png" alt="IEA" width={89} height={16} loading="lazy" draggable={false} className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+                <Image src="/Slavica.png" alt="SLAVA" width={60} height={16} loading="lazy" draggable={false} className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+                <Image src="/Unica.png" alt="UNICA" width={89} height={16} loading="lazy" draggable={false} className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
+                <Image src="/Vector.png" alt="BOXING" width={89} height={16} loading="lazy" draggable={false} className="h-4 sm:h-5 lg:h-6 w-auto object-contain" />
               </div>
             </div>
           </div>

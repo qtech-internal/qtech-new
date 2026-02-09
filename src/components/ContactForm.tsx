@@ -103,6 +103,7 @@ export default function ContactForm() {
             src="/mobile.gif"
             alt="AI Head Wireframe"
             fill
+            draggable={false}
             className="object-cover w-full h-full"
             loading="lazy"
             placeholder="blur"

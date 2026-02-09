@@ -1,13 +1,21 @@
+import Image from 'next/image'
+
 export default function AboutSection() {
   return (
     <section className="px-6 py-12  relative">
       {/* Background overlay image */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
         <div className="relative w-full max-w-4xl h-[1400px] mt-60 ">
-          <img
+          <Image
             src="/homepage.png"
             alt="Homepage background"
+            width={412}
+            height={313}
+            loading="lazy"
+            draggable={false}
             className="w-full h-full object-contain"
+            quality={75}
+            sizes="(max-width: 768px) 100vw, 896px"
           />
         </div>
       </div>
@@ -29,7 +37,7 @@ export default function AboutSection() {
                 background: 'linear-gradient(180deg, #E9ECFF 0%, #F8F9FF 100%)'
               }}
             >
-              <img src="/icon.png" alt="Code Icon" className="w-6 h-6" />
+              <Image src="/icon.png" alt="Code Icon" width={24} height={24} loading="lazy" draggable={false} className="w-6 h-6" />
             </div>
             <div className="text-left">
               <p className="text-black opacity-64 leading-relaxed">
@@ -45,7 +53,7 @@ export default function AboutSection() {
                 background: 'linear-gradient(180deg, #E9ECFF 0%, #F8F9FF 100%)'
               }}
             >
-              <img src="/icon2.png" alt="Technology Icon" className="w-6 h-6" />
+              <Image src="/icon2.png" alt="Technology Icon" width={24} height={24} loading="lazy" draggable={false} className="w-6 h-6" />
             </div>
             <div className="text-left">
               <p className="text-black opacity-64 leading-relaxed">

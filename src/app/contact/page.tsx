@@ -14,7 +14,7 @@ export default function ContactPage() {
     <div 
       className="min-h-screen"
       style={{
-        backgroundImage: 'url(/hero.png)',
+        backgroundImage: 'url(/hero.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

@@ -5,8 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/private/', '/admin/'],
     },
-    sitemap: 'https://yoursite.com/sitemap.xml',
+    sitemap: 'https://qtech-new.vercel.app/sitemap.xml',
   }
 }

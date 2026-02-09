@@ -45,6 +45,8 @@ export default function StatsSection() {
                         alt={`${stat.label} icon`}
                         width={48}
                         height={48}
+                        loading="lazy"
+                        draggable={false}
                         className="object-contain"
                       />
                     </div>

@@ -121,6 +121,8 @@ const web3Projects = [
                       src={project.image}
                       alt={project.title}
                       fill
+                      loading="lazy"
+                      draggable={false}
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>

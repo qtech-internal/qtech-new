@@ -26,12 +26,14 @@ export default function Home() {
         }}
       >
         <Header />
-        <HeroSection />
-        <StatsSection />
-        <AboutSection />
-        <ServicesSection />
-        <WorkSection />
-        <ProcessSection />
+        <main>
+          <HeroSection />
+          <StatsSection />
+          <AboutSection />
+          <ServicesSection />
+          <WorkSection />
+          <ProcessSection />
+        </main>
         <Footer />
       </div>
     </>

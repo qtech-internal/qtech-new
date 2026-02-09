@@ -62,6 +62,7 @@ export default function ProcessSection() {
               <button
                 key={index}
                 onClick={() => setActiveStep(index)}
+                aria-label={`Go to step ${index + 1}: ${step.title}`}
                 className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full transition-all duration-500 z-10 ${
                   index <= activeStep 
                     ? 'bg-[#615FFF] scale-110' 
@@ -111,10 +112,11 @@ export default function ProcessSection() {
 
         {/* Mobile Step Indicators */}
         <div className="flex justify-center space-x-2 mt-6 sm:hidden">
-          {steps.map((_, index) => (
+          {steps.map((step, index) => (
             <button
               key={index}
               onClick={() => setActiveStep(index)}
+              aria-label={`Go to step ${index + 1}: ${step.title}`}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === activeStep ? 'bg-[#615FFF] w-6' : 'bg-gray-300'
               }`}

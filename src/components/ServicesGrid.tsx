@@ -205,13 +205,14 @@ export default function ServicesGrid() {
 
             {/* Right Side - Image */}
             <div className="relative pr-4 sm:pr-8 lg:pr-12">
-              <div className="rounded-3xl  ">
-                <div className="w-full h-48 xs:h-56 sm:h-64 lg:h-96 flex items-center justify-center relative overflow-hidden rounded-2xl">
+              <div className="rounded-3xl">
+                <div className="w-full h-48 xs:h-56 sm:h-64 lg:h-96 flex items-center justify-center relative overflow-hidden rounded-2xl select-none">
                   <Image
                     src={selectedService.image}
                     alt={`${selectedService.title} ${selectedService.subtitle}`}
                     fill
-                    className="object-contain"
+                    draggable={false}
+                    className="object-contain pointer-events-none"
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
@@ -298,8 +299,9 @@ export default function ServicesGrid() {
 
                   <button
                     className="inline-flex items-center gap-1.5 xs:gap-2 px-4 xs:px-5 sm:px-6 lg:px-7 py-2 xs:py-2.5 sm:py-3 lg:py-3.5 bg-transparent border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 text-xs xs:text-sm sm:text-sm lg:text-lg font-medium self-start mt-auto"
+                    aria-label={`Learn more about ${service.title} ${service.subtitle}`}
                   >
-                    Learn more
+                    View {service.title} details
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform xs:w-4 xs:h-4 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
                   </button>
                 </div>
@@ -328,6 +330,7 @@ export default function ServicesGrid() {
                 src="/service.png"
                 alt="VR Experience"
                 fill
+                draggable={false}
                 className="object-contain object-right-bottom mix-blend-multiply"
                 loading="lazy"
                 sizes="66vw"
@@ -344,6 +347,7 @@ export default function ServicesGrid() {
                 src="/service.png"
                 alt="VR Experience"
                 fill
+                draggable={false}
                 className="object-contain object-center mix-blend-multiply"
                 loading="lazy"
                 sizes="100vw"

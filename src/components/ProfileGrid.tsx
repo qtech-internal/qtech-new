@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
@@ -255,13 +256,16 @@ export default function ProfileGrid() {
 
           {/* Project Image */}
           <div className="mb-12">
-            <div className="relative w-full h-96 overflow-hidden">
-              <img
+            <div className="relative w-full h-96 overflow-hidden select-none">
+              <Image
                 src={selectedProject.image}
                 alt={`${selectedProject.title} project preview`}
-                className="w-full h-full object-cover"
+                width={800}
+                height={400}
+                draggable={false}
+                className="w-full h-full object-cover pointer-events-none"
                 loading="lazy"
-                decoding="async"
+                sizes="(max-width: 768px) 100vw, 85vw"
               />
             </div>
           </div>
@@ -361,11 +365,16 @@ export default function ProfileGrid() {
             className="group bg-white rounded-2xl lg:rounded-3xl border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-blue-500/30 flex flex-col min-h-[450px] hover:transform hover:scale-105 m-4"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <div className="relative w-full h-72 overflow-hidden rounded-t-2xl lg:rounded-t-3xl">
-              <img
+            <div className="relative w-full h-72 overflow-hidden rounded-t-2xl lg:rounded-t-3xl select-none">
+              <Image
                 src={project.image}
                 alt={`${project.title} preview`}
-                className="w-full h-full object-cover"
+                width={600}
+                height={400}
+                draggable={false}
+                className="w-full h-full object-cover pointer-events-none"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>

@@ -90,23 +90,28 @@ export default function ServicesSection() {
           <span className="text-[#615FFF] text-xs sm:text-sm font-semibold tracking-wider uppercase mb-4 block -mt-7">OUR SERVICES</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2  items-start">
+        <div className="grid grid-cols-1 xl:grid-cols-2  items-start">
           {/* Left side - Card */}
-          <div className="flex justify-center lg:justify-start">
-            <div className="bg-gradient-to-br from-[#7B68EE] via-[#9370DB] to-[#BA55D3] rounded-[2rem] sm:rounded-[2.5rem] p-0 relative overflow-hidden w-full max-w-[500px] sm:max-w-[420px] h-[300px] sm:h-[500px] lg:h-[800px]">
+          <div className="flex justify-center xl:justify-start">
+            <div className="bg-gradient-to-br from-[#7B68EE] via-[#9370DB] to-[#BA55D3] rounded-[2rem] sm:rounded-[2.5rem] p-0 relative overflow-hidden w-full max-w-[800px] lg:max-w-[800px] xl:max-w-[450px] h-[250px] lg:h-[450px] xl:h-[650px]">
               <div className="relative h-full flex flex-col">
                 {/* Image container */}
-                <div className="flex-1 relative">
+                <div className="flex-1 relative select-none">
                   <Image
                     src={selectedService.image}
                     alt={selectedService.title}
                     fill
-                    className="object-cover"
+                    loading="lazy"
+                    draggable={false}
+                    className="object-cover pointer-events-none"
                   />
                   {/* Learn more button */}
                   <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
-                    <button className="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm transition-all border border-white/30 font-medium flex items-center space-x-2">
-                      <span>Learn more</span>
+                    <button 
+                      className="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm transition-all border border-white/30 font-medium flex items-center space-x-2"
+                      aria-label={`Learn more about ${selectedService.title}`}
+                    >
+                      <span>View details</span>
                       <svg className="w-3 h-3 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                         <path d="M7 17L17 7M17 7H7M17 7V17" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
@@ -115,8 +120,8 @@ export default function ServicesSection() {
                 </div>
                 
                 {/* Text content at bottom */}
-                <div className="bg-gradient-to-b from-transparent via-purple-900/80 to-purple-900/95 backdrop-blur-sm p-4 sm:p-6 lg:p-20 absolute bottom-0 left-0 right-0">
-                  <p className="text-white/90 text-lg sm:text-xl lg:text-3xl leading-relaxed font-semibold text-nowrap lg:-ml-12">
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 bg-white/10 backdrop-blur-md border-t border-white/20 shadow-lg">
+                  <p className="text-white text-lg sm:text-xl lg:text-2xl leading-relaxed font-semibold">
                     {selectedService.title}
                   </p>
                 </div>
@@ -125,7 +130,7 @@ export default function ServicesSection() {
           </div>
 
           {/* Right side - Service list */}
-          <div className="space-y-0  lg:-ml-32">
+          <div className="space-y-0  xl:-ml-32">
             {services.map((service, index) => (
               <div key={index}>
                 <div 

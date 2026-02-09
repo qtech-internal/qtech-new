@@ -12,6 +12,8 @@ export default function Header() {
   // Close menu when route changes
   useEffect(() => {
     setIsMenuOpen(false)
+    // Reset body scroll style on navigation
+    document.body.style.overflow = 'unset'
   }, [pathname])
 
   // Prevent body scroll when menu is open
@@ -69,7 +71,7 @@ export default function Header() {
           </Link>
           <Link href="/contact" className="bg-white text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white transition-all duration-300 font-semibold text-sm shadow-md hover:shadow-lg transform hover:scale-105">
             Start a Project
-            <Image src="/arrow.png" alt="arrow" width={16} height={16} className="inline-block ml-2" />
+            <Image src="/arrow.png" alt="arrow" width={16} height={16} loading="lazy" draggable={false} className="inline-block ml-2" />
           </Link>
         </div>
 

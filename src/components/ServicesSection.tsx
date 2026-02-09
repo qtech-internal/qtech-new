@@ -9,6 +9,7 @@ export default function ServicesSection() {
       title: "Mobile App Development",
       description: "Bring your ideas to life with high-performance, user-centric mobile applications designed for iOS, Android, and cross-platform ecosystems. At QuadB Tech, we combine cutting-edge technologies with intuitive design to create apps that engage users, drive growth, and deliver measurable results.",
       image: "/mobileapp.png",
+      desktopImage: "/appdesktop.jpg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <rect x="5" y="2" width="14" height="20" rx="2" strokeWidth="2"/>
@@ -20,6 +21,7 @@ export default function ServicesSection() {
       title: "Web App Development", 
       description: "Transform your business with custom web applications built for performance, scalability, and user experience. We create modern, responsive web solutions that drive results.",
       image: "/webapp.jpeg",
+      desktopImage: "/webappdesktop.jpg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <circle cx="12" cy="12" r="10" strokeWidth="2"/>
@@ -32,6 +34,7 @@ export default function ServicesSection() {
       title: "Blockchain DApp Development",
       description: "Build decentralized applications that leverage blockchain technology for transparency, security, and innovation. Create the future of digital interactions.",
       image: "/blockchain.jpg",
+      desktopImage: "/blockchaindesktop.jpg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -42,6 +45,7 @@ export default function ServicesSection() {
       title: "Game Development",
       description: "Create immersive gaming experiences with cutting-edge graphics, engaging gameplay, and cross-platform compatibility. Bring your game ideas to life.",
       image: "/game.png",
+      desktopImage: "/gamedesktop.jpg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M6 11h4M8 9v4M15 10h.01M18 10h.01M6 15h12a4 4 0 004-4V9a4 4 0 00-4-4H6a4 4 0 00-4 4v2a4 4 0 004 4z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -52,6 +56,7 @@ export default function ServicesSection() {
       title: "ERP & SAAS Solutions",
       description: "Streamline your business operations with custom ERP systems and Software-as-a-Service solutions. Optimize your workflow and productivity.",
       image: "/erp.png",
+      desktopImage: "/erpdesktop.jpg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M13 10V3L4 14h7v7l9-11h-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -62,6 +67,7 @@ export default function ServicesSection() {
       title: "Maintenance & Scalability",
       description: "Ensure your applications remain secure, updated, and scalable as your business grows. Keep your systems running smoothly.",
       image: "/maintain.png",
+      desktopImage: "/maintaindesktop.jpg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -72,6 +78,7 @@ export default function ServicesSection() {
       title: "E-commerce Solutions",
       description: "Build powerful online stores and marketplaces that drive sales and enhance customer experience. Create seamless shopping experiences.",
       image: "/ecommerse.jpeg",
+      desktopImage: "/ecommersedesktop.jpg",
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -93,17 +100,29 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 xl:grid-cols-2  items-start">
           {/* Left side - Card */}
           <div className="flex justify-center xl:justify-start">
-            <div className="bg-gradient-to-br from-[#7B68EE] via-[#9370DB] to-[#BA55D3] rounded-[2rem] sm:rounded-[2.5rem] p-0 relative overflow-hidden w-full max-w-[800px] lg:max-w-[800px] xl:max-w-[450px] h-[250px] lg:h-[450px] xl:h-[650px]">
+            <div className="bg-gradient-to-br from-[#7B68EE] via-[#9370DB] to-[#BA55D3] rounded-[2rem] lg:rounded-[2.5rem] p-0 relative overflow-hidden w-full max-w-[800px] lg:max-w-[800px] xl:max-w-[450px] h-[250px] lg:h-[450px] xl:h-[650px]">
               <div className="relative h-full flex flex-col">
                 {/* Image container */}
                 <div className="flex-1 relative select-none">
+                  {/* Desktop Image - hidden on mobile */}
+                  <Image
+                    src={selectedService.desktopImage}
+                    alt={selectedService.title}
+                    fill
+                    draggable={false}
+                    className="hidden xl:block object-cover pointer-events-none"
+                    sizes="450px"
+                    quality={85}
+                  />
+                  {/* Mobile Image - hidden on desktop */}
                   <Image
                     src={selectedService.image}
                     alt={selectedService.title}
                     fill
-                    loading="lazy"
                     draggable={false}
-                    className="object-cover pointer-events-none"
+                    className="xl:hidden object-cover pointer-events-none"
+                    sizes="(max-width: 1280px) 100vw, 450px"
+                    quality={85}
                   />
                   {/* Learn more button */}
                   <div className="absolute top-4 right-4 sm:top-6 sm:right-6">

@@ -14,19 +14,33 @@ export default function Header() {
     setIsMenuOpen(false)
     // Reset body scroll style on navigation
     document.body.style.overflow = 'unset'
+    document.documentElement.style.overflow = 'unset'
+    document.body.style.position = 'static'
+    document.body.style.width = 'auto'
   }, [pathname])
 
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
+      // Prevent scrolling on both body and html
       document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+      // Prevent scroll on mobile devices
+      document.body.style.position = 'fixed'
+      document.body.style.width = '100%'
     } else {
       document.body.style.overflow = 'unset'
+      document.documentElement.style.overflow = 'unset'
+      document.body.style.position = 'static'
+      document.body.style.width = 'auto'
     }
     
     // Cleanup on unmount
     return () => {
       document.body.style.overflow = 'unset'
+      document.documentElement.style.overflow = 'unset'
+      document.body.style.position = 'static'
+      document.body.style.width = 'auto'
     }
   }, [isMenuOpen])
 

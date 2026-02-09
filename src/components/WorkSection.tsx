@@ -1,15 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
 export default function WorkSection() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [currentSlide, setCurrentSlide] = useState(0)
   const [activeTab, setActiveTab] = useState('Web2')
   const router = useRouter()
 
   const handleViewMore = () => {
-    router.push('/profile')
+    router.push('/how-we-work')
   }
 
  const web2Projects = [
@@ -62,6 +64,41 @@ const web3Projects = [
 
   const currentProjects = activeTab === 'Web2' ? web2Projects : web3Projects
 
+  // Handle scroll to update current slide indicator
+  useEffect(() => {
+    const container = scrollContainerRef.current
+    if (!container) return
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft
+      const itemWidth = 320 + 24 // card width + gap
+      const index = Math.round(scrollLeft / itemWidth)
+      setCurrentSlide(index)
+    }
+
+    container.addEventListener('scroll', handleScroll)
+    return () => container.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Reset slide when tab changes
+  useEffect(() => {
+    setCurrentSlide(0)
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' })
+    }
+  }, [activeTab])
+
+  const scrollToSlide = (index: number) => {
+    const container = scrollContainerRef.current
+    if (!container) return
+    
+    const itemWidth = 320 + 24 // card width + gap
+    container.scrollTo({
+      left: itemWidth * index,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <section className="px-6 py-12 -mt-10">
       <div className="max-w-7xl mx-auto">
@@ -109,11 +146,19 @@ const web3Projects = [
         {/* Projects Horizontal Scroll */}
         <div className="overflow-x-auto overflow-y-hidden scrollbar-hide -mx-6 px-6">
           {currentProjects.length > 0 ? (
-            <div className="flex gap-6 pb-4 min-w-max">
+            <div 
+              ref={scrollContainerRef}
+              className="flex gap-6 pb-4 min-w-max snap-x snap-mandatory"
+              style={{ 
+                scrollbarWidth: 'none', 
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch'
+              }}
+            >
               {currentProjects.map((project, index) => (
                 <div 
                   key={index} 
-                  className="bg-white rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer flex-shrink-0 w-[320px]"
+                  className="bg-white rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer flex-shrink-0 w-[320px] snap-center"
                 >
                   {/* Project Image */}
                   <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
@@ -121,9 +166,10 @@ const web3Projects = [
                       src={project.image}
                       alt={project.title}
                       fill
-                      loading="lazy"
                       draggable={false}
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="320px"
+                      quality={85}
                     />
                   </div>
 
@@ -159,6 +205,22 @@ const web3Projects = [
               </button>
             </div>
           )}
+        </div>
+
+        {/* Slider dots indicator - visible on all screens */}
+        <div className="flex justify-center gap-2 mt-2 mb-3 py-4 bg-gray-50 rounded-lg xl:hidden">
+          {currentProjects.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollToSlide(index)}
+              className={`transition-all rounded-full ${
+                currentSlide === index 
+                  ? 'w-8 h-2 bg-[#615FFF]' 
+                  : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Go to project ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

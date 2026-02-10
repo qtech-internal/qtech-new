@@ -18,22 +18,22 @@ export default function WorkSection() {
   {
     title: "SigLab",
     description: "Interactive and modern landing page with smooth animations and responsive design.",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=400&fit=crop"
+    image: "/siglab.png"
   },
   {
     title: "Xpedition",
     description: "Task and rewards platform with verified workflows, admin dashboards, and real payouts.",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=400&fit=crop"
+    image: "/xpedition.png"
   },
   {
     title: "Blockseblock",
     description: "Complete hackathon platform with submissions, judging dashboards, and secure payments.",
-    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=400&fit=crop"
+    image: "/blockseblock.png"
   },
   {
   title: "Heebee Coffee",
   description: "Complete tech revamp for a coffee brand to enable faster order processing, smoother customer experience, and scalable franchise operations.",
-  image: "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&h=400&fit=crop"
+  image: "/heebe.png"
 },
 
 ];
@@ -47,17 +47,17 @@ const web3Projects = [
   {
     title: "Dfinance",
     description: "DeFi platform enabling lending, borrowing, swaps, and transparent on-chain tracking.",
-    image: "https://images.unsplash.com/photo-1640161704729-cbe966a08476?w=800&h=400&fit=crop"
+    image: "/dfinance.png"
   },
   {
     title: "MAHAKA",
     description: "NFT-based ticketing platform with secure minting and ownership verification.",
-    image: "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&h=400&fit=crop"
+    image: "/mahaka.png"
   },
   {
     title: "LiftCash",
     description: "Decentralized voting system with transparent governance and token-based rewards.",
-    image: "https://images.unsplash.com/photo-1600267165477-6d4cc741b379?w=800&h=400&fit=crop"
+    image: "/liftcash.png"
   }
 ];
 

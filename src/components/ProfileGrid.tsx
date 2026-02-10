@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import { useRouter } from 'next/navigation'
@@ -26,8 +26,7 @@ const projects: Project[] = [
       'Heebee Coffee is a comprehensive management system designed to streamline all coffee shop operations. The platform includes admin dashboards for business oversight, POS system for sales management, inventory tracking, user-side web platform for customer engagement, and dedicated iOS & Android applications to manage all Heebee operations seamlessly.',
     tags: ['Web2', 'Full-stack', 'Mobile Apps', 'POS System', 'Inventory Management'],
     link: 'https://heebee.in/',
-    image:
-      'https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&h=400&fit=crop',
+    image: '/heebe.png',
     problems: [
       'Coffee shop operations were fragmented across multiple disconnected systems',
       'Manual inventory tracking led to stock shortages and waste',
@@ -45,8 +44,7 @@ const projects: Project[] = [
       'SigLab is a modern, high-performance landing page designed to create a strong first impression for a tech-focused brand. The project focuses on delivering a visually engaging experience through smooth animations, interactive UI elements, and a responsive layout. The goal was to clearly communicate the brand’s vision, improve user engagement, and ensure consistent performance across all devices.',
     tags: ['Web2', 'UI/UX', 'Next.js', 'Framer Motion'],
     link: 'https://siglabs.xyz/',
-    image:
-      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=400&fit=crop',
+    image: '/siglab.png',
     problems: [
       'Existing landing pages were static and visually outdated, leading to poor user engagement',
       'Lack of smooth animations and micro-interactions reduced the perceived quality of the brand',
@@ -64,8 +62,7 @@ const projects: Project[] = [
       'Xpedition is a micro-task and rewards platform where users complete verified tasks, track social engagement, and earn real monetary rewards. The platform was built with a strong emphasis on accuracy, transparency, and scalability, ensuring both users and admins have a reliable and trustworthy system.',
     tags: ['Web2', 'Node.js', 'PostgreSQL', 'Docker', 'CI/CD'],
     link: 'https://xpedition.club/',
-    image:
-      'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=400&fit=crop',
+    image: '/xpedition.png',
     problems: [
       'There was no reliable automated system to verify task completion',
       'Manual task tracking led to fraud, delays, and inconsistencies',
@@ -83,8 +80,7 @@ const projects: Project[] = [
       'Blockseblock is a comprehensive hackathon management platform that enables participants, organizers, and judges to collaborate seamlessly. The platform covers the entire hackathon lifecycle, from event discovery and registration to project submission, judging, and payments.',
     tags: ['Web2', 'Full-stack', 'Security'],
     link: 'https://blockseblock.com/',
-    image:
-      'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=400&fit=crop',
+    image: '/blockseblock.png',
     problems: [
       'Hackathon workflows were fragmented across multiple tools',
       'There was no single system for managing submissions, judging, and payments',
@@ -121,8 +117,7 @@ const projects: Project[] = [
       'Dfinance is a decentralized finance platform that allows users to lend, borrow, and swap digital assets while tracking penalties and credit scores. The platform focuses on transparency, security, and simplifying complex DeFi workflows.',
     tags: ['Web3', 'DeFi', 'ICP', 'Rust', 'React'],
     link: 'https://cszmy-vyaaa-aaaak-quhea-cai.icp0.io/',
-    image:
-      'https://images.unsplash.com/photo-1640161704729-cbe966a08476?w=800&h=400&fit=crop',
+    image: '/dfinance.png',
     problems: [
       'There was no unified DeFi solution offering lending and borrowing on ICP',
       'Existing platforms lacked transparency and real-time tracking',
@@ -140,8 +135,7 @@ const projects: Project[] = [
       'MAHAKA is a blockchain-powered tourism and ticketing platform where event and venue tickets are issued, sold, and managed as NFTs. The platform ensures fraud prevention, transparent ownership, and secure ticket management.',
     tags: ['Web3', 'NFT', 'ICP', 'EXTv2'],
     link: 'https://3rwjt-vqaaa-aaaak-akusq-cai.icp0.io/',
-    image:
-      'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&h=400&fit=crop',
+    image: '/mahaka.png',
     problems: [
       'Traditional ticketing systems were prone to duplication and fraud',
       'There was no clear ownership or resale transparency',
@@ -159,8 +153,7 @@ const projects: Project[] = [
       'LiftCash is a decentralized governance platform designed to enable secure, transparent voting while incentivizing community participation through token-based rewards.',
     tags: ['Web3', 'Governance', 'ICP', 'Rust'],
     link: 'https://rer3b-zaaaa-aaaao-a3wmq-cai.icp0.io/',
-    image:
-      'https://images.unsplash.com/photo-1600267165477-6d4cc741b379?w=800&h=400&fit=crop',
+    image: '/liftcash.png',
     problems: [
       'Centralized voting systems lacked transparency and trust',
       'Low voter participation due to lack of incentives',
@@ -174,6 +167,8 @@ const categories = ['All', 'Web2', 'Web3']
 
 
 export default function ProfileGrid() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [currentSlide, setCurrentSlide] = useState(0)
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [showAllProjects, setShowAllProjects] = useState(false)
@@ -186,6 +181,41 @@ export default function ProfileGrid() {
   // Show only first 4 projects initially, or all if showAllProjects is true
   const displayedProjects = showAllProjects ? filteredProjects : filteredProjects.slice(0, 4)
   const hasMoreProjects = filteredProjects.length > 4
+
+  // Handle scroll to update current slide indicator
+  useEffect(() => {
+    const container = scrollContainerRef.current
+    if (!container) return
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft
+      const itemWidth = container.offsetWidth
+      const index = Math.round(scrollLeft / itemWidth)
+      setCurrentSlide(index)
+    }
+
+    container.addEventListener('scroll', handleScroll)
+    return () => container.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Reset slide when category changes
+  useEffect(() => {
+    setCurrentSlide(0)
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' })
+    }
+  }, [selectedCategory])
+
+  const scrollToSlide = (index: number) => {
+    const container = scrollContainerRef.current
+    if (!container) return
+    
+    const itemWidth = container.offsetWidth
+    container.scrollTo({
+      left: itemWidth * index,
+      behavior: 'smooth'
+    })
+  }
 
   const handleLearnMore = (projectId: string) => {
     router.push(`/profile/${projectId}`)
@@ -357,7 +387,78 @@ export default function ProfileGrid() {
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 lg:gap-10 relative z-10">
+      {/* Mobile Slider - visible only on mobile */}
+      <div className="md:hidden relative z-10">
+        <div 
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pb-4 px-1"
+          style={{ 
+            scrollbarWidth: 'none', 
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch'
+          }}
+        >
+          {displayedProjects.map((project, index) => (
+            <div 
+              key={project.id}
+              className="flex-shrink-0 w-full snap-center"
+            >
+              <div
+                onClick={() => setSelectedProject(project)}
+                className="group bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-blue-500/30 flex flex-col min-h-[450px]"
+              >
+                <div className="relative w-full h-72 overflow-hidden rounded-t-2xl select-none">
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    width={600}
+                    height={400}
+                    draggable={false}
+                    className="w-full h-full object-cover pointer-events-none"
+                    sizes="100vw"
+                    priority={index < 2}
+                    quality={85}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+
+                <div className="p-6 space-y-4 flex-1 flex flex-col bg-white rounded-b-2xl">
+                  <div>
+                    <h3 className="text-xl font-bold text-black group-hover:text-blue-600 transition-colors mb-2">
+                      {project.title}
+                    </h3>
+                  </div>
+
+                  <p className="text-gray-600 text-sm leading-relaxed flex-1 line-clamp-4">
+                    {project.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Slider dots indicator */}
+        {displayedProjects.length > 1 && (
+          <div className="flex justify-center gap-2 mt-4 mb-6">
+            {displayedProjects.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToSlide(index)}
+                className={`transition-all rounded-full ${
+                  currentSlide === index 
+                    ? 'w-8 h-2 bg-blue-500' 
+                    : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to project ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Desktop Grid - hidden on mobile */}
+      <div className="hidden md:grid md:grid-cols-2 gap-8 lg:gap-10 relative z-10">
         {displayedProjects.map((project, index) => (
           <div
             key={project.id}
@@ -374,7 +475,8 @@ export default function ProfileGrid() {
                 draggable={false}
                 className="w-full h-full object-cover pointer-events-none"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                loading="lazy"
+                priority={index < 2}
+                quality={85}
               />
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>

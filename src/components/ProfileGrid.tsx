@@ -362,10 +362,10 @@ export default function ProfileGrid() {
         </div>
 
       <div className="relative text-left space-y-4 z-10 ml-[10px]">
-        <h1 className="text-4xl lg:text-6xl font-medium text-black text-[80px]">
+        <h1 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-medium text-black leading-[84px] uppercase tracking-tight">
           OUR PROFILE
         </h1>
-        <p className="text-black text-base max-w-xl font-bold leading-relaxed ml-[4px] text-[24px]">
+        <p className="text-black text-sm sm:text-base lg:text-lg xl:text-[20px] max-w-xl font-medium leading-relaxed ml-[4px]">
           From concept to launch — design,<br />
           development, AI, marketing and<br />
           support all under one roof.
@@ -377,10 +377,11 @@ export default function ProfileGrid() {
           <button
             key={category}
             onClick={() => handleCategoryChange(category)}
-            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === category
-                ? 'bg-blue-500 text-white shadow-lg'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
+            className={`px-8 py-3 rounded-full text-base font-medium transition-all duration-300 ${
+              selectedCategory === category
+                ? 'bg-[#615FFF] text-white shadow-lg'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
           >
             {category}
           </button>

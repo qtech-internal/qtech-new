@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'pp-neue': ['PP Neue Montreal', 'Inter', 'sans-serif'],
+        'neue': ['Neue Montreal', 'sans-serif'],
+        'sans': ['Neue Montreal', 'sans-serif'],
       },
       fontSize: {
         '60': '60px',

@@ -13,28 +13,28 @@ export default function StatsSection() {
       suffix: "+",
       label: "blockchain projects",
       description: "Smart Contracts, NFTs, DeFi, and Web3 Integrations",
-      icon: "/beta.png"
+      icon: "/images/bitcoin.png"
     },
     {
       number: 75,
       suffix: "+",
       label: "mobile apps",
       description: "iOS, Android, and Cross-Platform Solutions",
-      icon: "/phone.png"
+      icon: "/images/electric.png"
     },
     {
       number: 15,
       suffix: "+",
       label: "AI & ML projects",
       description: "Recommendation Engines, Predictive Analytics, and Automation",
-      icon: "/setting.png"
+      icon: "/images/mind.png"
     },
     {
       number: 50,
       suffix: "+",
       label: "web platforms",
       description: "from SaaS to E-Commerce and Enterprise Systems",
-      icon: "/webdev.png"
+      icon: "/images/correct.png"
     }
   ]
 
@@ -121,23 +121,23 @@ function StatCard({ stat, isVisible, delay }: { stat: any, isVisible: boolean, d
   return (
     <div className="text-left">
       <div className="flex items-center space-x-4 mb-3">
-        <span className="text-5xl lg:text-6xl font-bold text-gray-900">
+        <span className="text-[64px] lg:text-[80px] font-normal text-gray-900 leading-none">
           {count}{stat.suffix}
         </span>
-        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+        <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
           <Image
             src={stat.icon}
             alt={`${stat.label} icon`}
-            width={48}
-            height={48}
+            width={20}
+            height={20}
             draggable={false}
-            className="object-contain"
-            quality={85}
+            className="object-contain w-8 h-8"
+            quality={100}
           />
         </div>
       </div>
-      <div className="text-gray-900 font-semibold text-lg mb-2">{stat.label}</div>
-      <div className="text-gray-600 text-sm leading-relaxed">{stat.description}</div>
+      <div className="text-gray-900 font-medium text-[24px] mb-2">{stat.label}</div>
+      <div className="text-gray-600 text-xl font-normal leading-relaxed">{stat.description}</div>
     </div>
   )
 }

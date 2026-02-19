@@ -24,14 +24,14 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center min-h-[50vh] sm:min-h-[60vh]">
           {/* Left Content */}
           <div className="lg:col-span-5 text-center lg:text-left lg:mt-0 mt-20">
-            <h1 className="font-pp-neue font-medium text-3xl sm:text-4xl md:text-5xl lg:text-hero leading-tight tracking-tight-1 uppercase text-white mb-6 sm:mb-8">
+            <h1 className="font-neue font-medium text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] leading-[1.1] tracking-tight-1 uppercase text-white mb-6 sm:mb-8">
                <span className="block lg:whitespace-nowrap">BUILD YOUR VISION</span>
               <span className="block lg:whitespace-nowrap">INTO A PRODUCT</span>
               <span className="block lg:whitespace-nowrap">PEOPLE LOVE</span>
             
             </h1>
 
-            <p className="text-gray-200 text-base sm:text-lg lg:text-[16px] max-w-lg mx-auto lg:mx-0 mb-8 sm:mb-12 leading-relaxed">
+            <p className="text-gray-200 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] max-w-lg mx-auto lg:mx-0 mb-8 sm:mb-12 leading-relaxed">
               <span className="block">From concept to launch — <b>design, development</b>,</span>
               <span className="block"><b>AI, marketing</b> and support all under one roof.</span>
             </p>
@@ -52,7 +52,7 @@ export default function HeroSection() {
               <div>
                 <div className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-normal text-white mb-2 lg:mt-48">10+</div>
                 <div className="text-white text-lg sm:text-xl font-medium mb-1">years of experience</div>
-                <div className="text-white opacity-80 text-sm">
+                <div className="text-white opacity-80 text-[14px] sm:text-[16px] lg:text-[18px]">
                   across Blockchain, AI,<br />
                   Web3, and Mobile Development
                 </div>
@@ -61,7 +61,7 @@ export default function HeroSection() {
               <div>
                 <div className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-normal text-white mb-2 lg:mt-48">200+</div>
                 <div className="text-white text-lg sm:text-xl font-medium mb-1">projects delivered</div>
-                <div className="text-white opacity-80 text-sm">
+                <div className="text-white opacity-80 text-[14px] sm:text-[16px] lg:text-[18px]">
                   across Blockchain, AI,<br />
                   Web3, and Mobile Development
                 </div>

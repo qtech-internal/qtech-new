@@ -1,14 +1,55 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import Script from 'next/script'
 import { generateSEO } from '@/lib/seo'
 import { organizationSchema } from '@/lib/schema'
 import './globals.css'
 
-const inter = Inter({ 
-  subsets: ['latin'],
+const neueMontreal = localFont({
+  src: [
+    {
+      path: '../../public/neue-montreal-font-family/neuemontreal-light.otf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../../public/neue-montreal-font-family/neuemontreal-lightitalic.otf',
+      weight: '300',
+      style: 'italic',
+    },
+    {
+      path: '../../public/neue-montreal-font-family/neuemontreal-regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/neue-montreal-font-family/neuemontreal-italic.otf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '../../public/neue-montreal-font-family/neuemontreal-medium.otf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/neue-montreal-font-family/neuemontreal-mediumitalic.otf',
+      weight: '500',
+      style: 'italic',
+    },
+    {
+      path: '../../public/neue-montreal-font-family/neuemontreal-bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/neue-montreal-font-family/neuemontreal-bolditalic.otf',
+      weight: '700',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-neue-montreal',
   display: 'swap',
-  variable: '--font-inter',
 })
 
 export const metadata: Metadata = generateSEO({
@@ -34,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html lang="en" className={neueMontreal.variable} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -47,7 +88,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${neueMontreal.className} antialiased`}>
         {children}
         
       </body>

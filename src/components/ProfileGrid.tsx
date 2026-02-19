@@ -377,10 +377,10 @@ export default function ProfileGrid() {
           <button
             key={category}
             onClick={() => handleCategoryChange(category)}
-            className={`px-8 py-3 rounded-full text-base font-medium transition-all duration-300 ${
+            className={`px-8 py-3 rounded-full text-base font-medium transition-all duration-300 select-none outline-none focus:outline-none ${
               selectedCategory === category
                 ? 'bg-[#615FFF] text-white shadow-lg'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
             {category}

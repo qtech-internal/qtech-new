@@ -118,7 +118,7 @@ export default function ContactForm() {
         <div className="absolute inset-0 z-10 p-6 lg:p-12 flex flex-col justify-between">
           {/* Top Text */}
           <div className="flex-shrink-0">
-            <p className="text-white text-base lg:text-lg leading-relaxed font-medium">
+            <p className="text-white text-base lg:text-lg leading-relaxed text-[20px]">
               From concept to launch - <span className="font-semibold">design, development, AI, marketing</span> and support all under one roof.
             </p>
           </div>
@@ -126,7 +126,7 @@ export default function ContactForm() {
           {/* Bottom Text - Positioned at very bottom */}
           <div className="flex-shrink-0 space-y-2">
             <p className="text-gray-300 text-sm">Some Details to be given here.</p>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-gray-300 leading-relaxed text-[18px]">
               From concept to launch - design, development, AI, marketing and support all under one roof.
             </p>
           </div>

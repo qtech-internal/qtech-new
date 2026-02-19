@@ -112,20 +112,20 @@ const web3Projects = [
           <div className="flex items-center space-x-3">
             <button 
               onClick={() => setActiveTab('Web2')}
-              className={`px-8 py-3 rounded-full font-medium text-base transition-all ${
+              className={`px-8 py-3 rounded-full font-medium text-base transition-all select-none outline-none focus:outline-none ${
                 activeTab === 'Web2' 
                   ? 'bg-[#615FFF] text-white shadow-lg' 
-                  : 'bg-transparent text-[#615FFF] border-2 border-[#615FFF] hover:bg-[#615FFF]/10'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
               Web2
             </button>
             <button 
               onClick={() => setActiveTab('Web3')}
-              className={`px-8 py-3 rounded-full font-medium text-base transition-all ${
+              className={`px-8 py-3 rounded-full font-medium text-base transition-all select-none outline-none focus:outline-none ${
                 activeTab === 'Web3' 
                   ? 'bg-[#615FFF] text-white shadow-lg' 
-                  : 'bg-transparent text-[#615FFF] border-2 border-[#615FFF] hover:bg-[#615FFF]/10'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
               Web3

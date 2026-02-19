@@ -8,6 +8,7 @@ import WorkSection from '@/components/WorkSection'
 import StatsSection from '@/components/StatsSection'
 import AboutSection from '@/components/AboutSection'
 import Footer from '@/components/Footer'
+import AiDriven from '@/components/AiDriven'
 
 export const metadata = generateSEO({
   title: 'QuadB Tech - Innovation Studio',
@@ -28,7 +29,7 @@ export default function AI() {
         <Header />
         <main>
           <AiHeroSection />
-          <AboutSection />
+          <AiDriven />
           <ServicesSection />
           <WorkSection />
           <ProcessSection />

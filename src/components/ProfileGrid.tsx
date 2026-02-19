@@ -362,10 +362,10 @@ export default function ProfileGrid() {
         </div>
 
       <div className="relative text-left space-y-4 z-10 ml-[10px]">
-        <h1 className="text-4xl lg:text-6xl font-medium text-black">
+        <h1 className="text-4xl lg:text-6xl font-medium text-black text-[80px]">
           OUR PROFILE
         </h1>
-        <p className="text-black text-base max-w-xl font-bold leading-relaxed ml-[4px]">
+        <p className="text-black text-base max-w-xl font-bold leading-relaxed ml-[4px] text-[24px]">
           From concept to launch — design,<br />
           development, AI, marketing and<br />
           support all under one roof.

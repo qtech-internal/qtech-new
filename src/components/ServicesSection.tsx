@@ -109,10 +109,10 @@ export default function ServicesSection() {
           <span className="text-[#615FFF] text-xs sm:text-sm font-semibold tracking-wider uppercase mb-4 block -mt-7">OUR SERVICES</span>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-2  items-start">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-start">
           {/* Left side - Card */}
-          <div className="flex justify-center xl:justify-start">
-            <div className="bg-gradient-to-br from-[#7B68EE] via-[#9370DB] to-[#BA55D3] rounded-[2rem] lg:rounded-[2.5rem] p-0 relative overflow-hidden w-full max-w-[800px] lg:max-w-[800px] xl:max-w-[450px] h-[250px] lg:h-[450px] xl:h-[650px]">
+          <div className="flex justify-center xl:justify-start mb-8 xl:mb-0">
+            <div className="bg-gradient-to-br from-[#7B68EE] via-[#9370DB] to-[#BA55D3] rounded-[2rem] lg:rounded-[2.5rem] p-0 relative overflow-hidden w-full max-w-[500px] xl:max-w-[450px] h-[400px] sm:h-[500px] lg:h-[550px] xl:h-[650px]">
               <div className="relative h-full">
                 {/* Image container */}
                 <div className="relative h-full">
@@ -154,8 +154,8 @@ export default function ServicesSection() {
                   </div>
                   
                   {/* Text content at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 lg:p-10 z-10">
-                    <p className="text-white text-lg sm:text-xl lg:text-2xl leading-tight font-normal">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 xl:p-10 z-10">
+                    <p className="text-white text-base sm:text-lg lg:text-xl xl:text-2xl leading-tight font-normal">
                       {selectedService.description.split('.')[0]}.
                     </p>
                   </div>
@@ -180,12 +180,12 @@ export default function ServicesSection() {
                   <div className="flex items-center justify-between py-4 sm:py-5 lg:py-6">
                     <div className="pr-4 flex-shrink-0">
                       {service.titleLine1 && selectedService.title === service.title ? (
-                        <h3 className={`text-[32px] font-medium transition-colors leading-tight text-[#615FFF]`}>
+                        <h3 className={`text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-medium transition-colors leading-tight text-[#615FFF]`}>
                           <span className="block">{service.titleLine1}</span>
                           <span className="block">{service.titleLine2}</span>
                         </h3>
                       ) : (
-                        <h3 className={`text-[32px] font-medium transition-colors leading-tight ${
+                        <h3 className={`text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-medium transition-colors leading-tight ${
                           selectedService.title === service.title 
                             ? 'text-[#615FFF]' 
                             : 'text-[#141414] hover:text-[#615FFF]'
@@ -203,7 +203,7 @@ export default function ServicesSection() {
                         </p>
                       </div>
                     ) : (
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
+                      <div className={`w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
                         hoveredService === service.title
                           ? 'bg-gray-200' 
                           : 'bg-transparent'
@@ -217,8 +217,8 @@ export default function ServicesSection() {
                   
                   {/* Description below title for mobile only when selected */}
                   {selectedService.title === service.title && (
-                    <div className="lg:hidden pb-4 px-4">
-                      <p className="text-gray-600 text-base font-normal leading-relaxed">
+                    <div className="lg:hidden pb-4 px-2">
+                      <p className="text-gray-600 text-sm sm:text-base font-normal leading-relaxed">
                         {service.description}
                       </p>
                     </div>

@@ -166,7 +166,7 @@ export default function ServicesGrid() {
 
           {/* Header */}
           <div className="relative text-left space-y-4 z-10 px-4 sm:px-0 sm:ml-6">
-            <h1 className="text-[36px] sm:text-[48px] lg:text-[60px] font-medium text-black">
+            <h1 className="text-[36px] sm:text-[48px] lg:text-[80px] font-medium text-black">
               OUR SERVICES
             </h1>
           </div>
@@ -247,10 +247,10 @@ export default function ServicesGrid() {
 
         {/* Header */}
         <div className="relative text-left space-y-4 z-10 px-4 sm:px-0 lg:ml-5 mt-10">
-          <h1 className="text-[36px] sm:text-[48px] lg:text-[60px] font-medium text-black">
+          <h1 className="text-[36px] sm:text-[48px] lg:text-[80px] font-medium text-black">
             OUR SERVICES
           </h1>
-          <p className="text-black text-[14px] sm:text-[16px] lg:text-[18px] max-w-xl font-medium leading-relaxed ml-1">
+          <p className="text-black text-[14px] sm:text-[16px] lg:text-[20px] max-w-xl font-bold leading-relaxed ml-1">
             From concept to launch — design,<br />
             development, AI, marketing and<br />
             support all under one roof.
@@ -298,11 +298,11 @@ export default function ServicesGrid() {
                   </p>
 
                   <button
-                    className="inline-flex items-center gap-1.5 xs:gap-2 px-4 xs:px-5 sm:px-6 lg:px-7 py-2 xs:py-2.5 sm:py-3 lg:py-3.5 bg-transparent border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 text-xs xs:text-sm sm:text-sm lg:text-lg font-medium self-start mt-auto"
+                    className="inline-flex items-center gap-2 px-4 sm:px-6 lg:px-7 py-2 sm:py-3 lg:py-3.5 bg-transparent border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 text-sm lg:text-base font-medium self-start mt-auto"
                     aria-label={`Learn more about ${service.title} ${service.subtitle}`}
                   >
-                    View {service.title} details
-                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform xs:w-4 xs:h-4 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+                    View details
+                    <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </div>
@@ -315,7 +315,7 @@ export default function ServicesGrid() {
           <div className="flex justify-center mt-6 xs:mt-8 sm:mt-10 lg:mt-16 mb-1">
             <button
               onClick={() => setShowAllServices(!showAllServices)}
-              className="px-6 xs:px-7 sm:px-8 py-2.5 xs:py-3 sm:py-3 lg:py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-sm xs:text-base sm:text-base lg:text-lg shadow-lg hover:shadow-xl"
+              className="px-6 sm:px-8 py-2.5 sm:py-3 lg:py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl mb-5"
             >
               {showAllServices ? 'View less' : 'View more'}
             </button>

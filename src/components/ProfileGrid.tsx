@@ -502,9 +502,10 @@ export default function ProfileGrid() {
         <div className="flex justify-center pt-8 relative z-10">
           <button 
             onClick={handleToggleShowAll}
-            className="px-8 py-3 bg-transparent border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-sm"
+            className="px-8 py-3 bg-transparent border-2 border-[#615FFF] text-[#615FFF] rounded-full hover:bg-[#615FFF] hover:text-white transition-all duration-300 font-medium text-base flex items-center gap-2"
           >
             {showAllProjects ? 'View less' : 'View more'}
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       )}

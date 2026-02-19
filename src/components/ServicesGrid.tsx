@@ -275,10 +275,10 @@ export default function ServicesGrid() {
                 {/* Header with Title and Icon */}
                 <div className="flex items-start justify-between mb-4 xs:mb-5 sm:mb-6">
                   <div className="flex-1">
-                    <h3 className="text-[24px] sm:text-[28px] lg:text-[32px] font-medium text-black leading-tight mb-1">
+                    <h3 className="text-[32px] font-medium text-[#141414] leading-tight mb-1">
                       {service.title}
                     </h3>
-                    <h4 className="text-[24px] sm:text-[28px] lg:text-[32px] font-medium text-black leading-tight">
+                    <h4 className="text-[32px] font-medium text-[#141414] leading-tight">
                       {service.subtitle}
                     </h4>
                   </div>
@@ -293,7 +293,7 @@ export default function ServicesGrid() {
 
                 {/* Content */}
                 <div className="space-y-3 xs:space-y-4 sm:space-y-6 flex-1 flex flex-col">
-                  <p className="text-gray-700 text-[14px] sm:text-[16px] lg:text-[18px] font-normal leading-relaxed flex-1">
+                  <p className="text-gray-700 text-base font-normal leading-relaxed flex-1">
                     {service.description}
                   </p>
 

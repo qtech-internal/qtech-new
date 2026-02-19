@@ -162,20 +162,20 @@ export default function ServicesSection() {
                 >
                   {/* Title and Icon Row */}
                   <div className="flex items-center justify-between py-4 sm:py-5 lg:py-6">
-                    <div className={`pr-4 ${selectedService.title === service.title ? 'flex-shrink-0 lg:w-1/3' : 'flex-1'}`}>
-                      <h3 className={`text-lg sm:text-xl lg:text-2xl font-medium transition-colors ${
+                    <div className="pr-4 flex-shrink-0">
+                      <h3 className={`text-[32px] font-medium transition-colors leading-tight ${
                         selectedService.title === service.title 
-                          ? 'text-[#615FFF] font-semibold' 
-                          : 'text-black hover:text-[#615FFF]'
+                          ? 'text-[#615FFF]' 
+                          : 'text-[#141414] hover:text-[#615FFF]'
                       }`}>
                         {service.title}
                       </h3>
                     </div>
                     
-                    {/* Show description on right for desktop, icon for non-selected */}
+                    {/* Show description on right for desktop when selected, otherwise show icon */}
                     {selectedService.title === service.title ? (
-                      <div className="hidden lg:flex flex-1 w-2/3 pl-4">
-                        <p className="text-gray-600 text-sm leading-relaxed">
+                      <div className="hidden lg:flex flex-1 pl-8">
+                        <p className="text-gray-600 text-base font-normal leading-relaxed">
                           {service.description}
                         </p>
                       </div>
@@ -192,10 +192,10 @@ export default function ServicesSection() {
                     )}
                   </div>
                   
-                  {/* Description below title for mobile */}
+                  {/* Description below title for mobile only when selected */}
                   {selectedService.title === service.title && (
                     <div className="lg:hidden pb-4 px-4">
-                      <p className="text-gray-600 text-sm leading-relaxed">
+                      <p className="text-gray-600 text-base font-normal leading-relaxed">
                         {service.description}
                       </p>
                     </div>

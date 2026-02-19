@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         'neue': ['Neue Montreal', 'sans-serif'],
         'sans': ['Neue Montreal', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
       },
       fontSize: {
         '60': '60px',

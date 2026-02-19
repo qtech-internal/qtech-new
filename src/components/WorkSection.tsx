@@ -175,8 +175,8 @@ const web3Projects = [
 
                   {/* Project Content */}
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{project.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <h3 className="text-2xl font-medium text-gray-900 mb-3 leading-[24px] tracking-[-0.01em]">{project.title}</h3>
+                    <p className="text-gray-600 text-base font-normal leading-[24px] tracking-[0px] font-inter">
                       {project.description}
                     </p>
                   </div>

@@ -4,9 +4,21 @@ import { useState } from 'react'
 import Image from 'next/image'
 
 export default function ServicesSection() {
-  const services = [
+  type Service = {
+    title: string
+    titleLine1?: string
+    titleLine2?: string
+    description: string
+    image: string
+    desktopImage: string
+    icon: JSX.Element
+  }
+
+  const services: Service[] = [
     {
       title: "Mobile App Development",
+      titleLine1: "Mobile App",
+      titleLine2: "Development",
       description: "Bring your ideas to life with high-performance, user-centric mobile applications designed for iOS, Android, and cross-platform ecosystems. At QuadB Tech, we combine cutting-edge technologies with intuitive design to create apps that engage users, drive growth, and deliver measurable results.",
       image: "/mobileapp.png",
       desktopImage: "/appdesktop.jpg",
@@ -101,16 +113,16 @@ export default function ServicesSection() {
           {/* Left side - Card */}
           <div className="flex justify-center xl:justify-start">
             <div className="bg-gradient-to-br from-[#7B68EE] via-[#9370DB] to-[#BA55D3] rounded-[2rem] lg:rounded-[2.5rem] p-0 relative overflow-hidden w-full max-w-[800px] lg:max-w-[800px] xl:max-w-[450px] h-[250px] lg:h-[450px] xl:h-[650px]">
-              <div className="relative h-full flex flex-col">
+              <div className="relative h-full">
                 {/* Image container */}
-                <div className="flex-1 relative select-none">
+                <div className="relative h-full">
                   {/* Desktop Image - hidden on mobile */}
                   <Image
                     src={selectedService.desktopImage}
                     alt={selectedService.title}
                     fill
                     draggable={false}
-                    className="hidden xl:block object-cover pointer-events-none"
+                    className="hidden xl:block object-cover pointer-events-none rounded-[2rem] lg:rounded-[2.5rem]"
                     sizes="450px"
                     quality={85}
                   />
@@ -120,29 +132,33 @@ export default function ServicesSection() {
                     alt={selectedService.title}
                     fill
                     draggable={false}
-                    className="xl:hidden object-cover pointer-events-none"
+                    className="xl:hidden object-cover pointer-events-none rounded-[2rem] lg:rounded-[2.5rem]"
                     sizes="(max-width: 1280px) 100vw, 450px"
                     quality={85}
                   />
+                  
+                  {/* Gradient overlay at bottom - subtle blur effect */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[35%] backdrop-blur-xl bg-gradient-to-t from-white/30 via-white/20 to-transparent rounded-b-[2rem] lg:rounded-b-[2.5rem]"></div>
+                  
                   {/* Learn more button */}
-                  <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+                  <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10">
                     <button 
-                      className="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm transition-all border border-white/30 font-medium flex items-center space-x-2"
+                      className="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm transition-all border border-white/30 font-normal flex items-center space-x-2"
                       aria-label={`Learn more about ${selectedService.title}`}
                     >
-                      <span>View details</span>
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <span>Learn more</span>
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                         <path d="M7 17L17 7M17 7H7M17 7V17" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </button>
                   </div>
-                </div>
-                
-                {/* Text content at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 bg-white/10 backdrop-blur-md border-t border-white/20 shadow-lg">
-                  <p className="text-white text-lg sm:text-xl lg:text-2xl leading-relaxed font-semibold">
-                    {selectedService.title}
-                  </p>
+                  
+                  {/* Text content at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 lg:p-10 z-10">
+                    <p className="text-white text-lg sm:text-xl lg:text-2xl leading-tight font-normal">
+                      {selectedService.description.split('.')[0]}.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -163,13 +179,20 @@ export default function ServicesSection() {
                   {/* Title and Icon Row */}
                   <div className="flex items-center justify-between py-4 sm:py-5 lg:py-6">
                     <div className="pr-4 flex-shrink-0">
-                      <h3 className={`text-[32px] font-medium transition-colors leading-tight ${
-                        selectedService.title === service.title 
-                          ? 'text-[#615FFF]' 
-                          : 'text-[#141414] hover:text-[#615FFF]'
-                      }`}>
-                        {service.title}
-                      </h3>
+                      {service.titleLine1 && selectedService.title === service.title ? (
+                        <h3 className={`text-[32px] font-medium transition-colors leading-tight text-[#615FFF]`}>
+                          <span className="block">{service.titleLine1}</span>
+                          <span className="block">{service.titleLine2}</span>
+                        </h3>
+                      ) : (
+                        <h3 className={`text-[32px] font-medium transition-colors leading-tight ${
+                          selectedService.title === service.title 
+                            ? 'text-[#615FFF]' 
+                            : 'text-[#141414] hover:text-[#615FFF]'
+                        }`}>
+                          {service.title}
+                        </h3>
+                      )}
                     </div>
                     
                     {/* Show description on right for desktop when selected, otherwise show icon */}

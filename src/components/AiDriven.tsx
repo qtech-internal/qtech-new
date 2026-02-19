@@ -1,14 +1,14 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 export default function AiDriven() {
   const metrics = [
     {
       metric: "AI adoption rate",
-      benefit: "83% teams using AI tools",
+      benefit: "83% teams using AI tools"
     },
     {
       metric: "Task efficiency",
-      benefit: "48% faster execution",
+      benefit: "48% faster execution"
     },
     {
       metric: "AI-trained employees",

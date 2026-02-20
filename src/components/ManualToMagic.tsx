@@ -6,7 +6,7 @@ export default function ManualToMagic() {
     "Manual peer checks",
     "Typed notes post-call",
     "Written from scratch",
-    "Manually drafted, time-consuming",
+    "Manually drafted, time-consuming"
   ];
 
   const afterItems = [
@@ -14,7 +14,7 @@ export default function ManualToMagic() {
     "AI-powered suggestions + bug detection",
     "Automated summaries + action items",
     "Drafted with AI, refined by experts",
-    "AI-assisted, customized in seconds",
+    "AI-assisted, customized in seconds"
   ];
 
   return (
@@ -27,9 +27,8 @@ export default function ManualToMagic() {
             <br />
             How AI Transforms Work
           </h2>
-          <p className="text-[#000000] opacity-60 text-[14px] sm:text-[16px] max-w-3xl mx-auto leading-relaxed">
-            AI is no longer a future concept—it&apos;s part of our daily
-            execution. Here&apos;s how core tasks have evolved across our teams.
+          <p className="text-[#000000] opacity-64 text-[16px] max-w-3xl mx-auto leading-[24px] tracking-[-0.01em] font-normal">
+            AI is no longer a future concept—it&apos;s part of our daily execution. Here&apos;s how core tasks have evolved across our teams.
           </p>
         </div>
 
@@ -41,10 +40,7 @@ export default function ManualToMagic() {
               BEFORE AI
             </h3>
             {beforeItems.map((item, index) => (
-              <div
-                key={index}
-                className="text-[#000000] opacity-60 text-[16px] leading-[24px] font-normal"
-              >
+              <div key={index} className="text-[#141414] opacity-80 text-[24px] leading-[32px] tracking-[-0.01em] font-medium">
                 {item}
               </div>
             ))}
@@ -52,12 +48,12 @@ export default function ManualToMagic() {
 
           {/* Center Image */}
           <div className="flex justify-center items-center">
-            <div className="relative w-full max-w-[350px] h-[450px] aspect-square">
+            <div className="relative w-full max-w-[350px] h-[450px]">
               <Image
                 src="/images/alien.png"
                 alt="AI Transformation"
                 fill
-                className="object-cover mix-blend-hard-light opacity-20"
+                className="object-cover mix-blend-hard-light opacity-10"
               />
             </div>
           </div>
@@ -68,10 +64,7 @@ export default function ManualToMagic() {
               AI AT QUADB TECH
             </h3>
             {afterItems.map((item, index) => (
-              <div
-                key={index}
-                className="text-[#000000] opacity-60 text-[16px] leading-[24px] font-normal"
-              >
+              <div key={index} className="text-[#141414] opacity-80 text-[24px] leading-[32px] tracking-[-0.01em] font-medium">
                 {item}
               </div>
             ))}

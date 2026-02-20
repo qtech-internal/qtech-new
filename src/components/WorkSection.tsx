@@ -134,7 +134,7 @@ const web3Projects = [
 
           <button 
             onClick={handleViewMore}
-            className="bg-transparent border-2 border-[#615FFF] text-[#615FFF] hover:bg-[#615FFF] hover:text-white transition-all duration-300 font-medium text-base flex items-center gap-2 px-8 py-3 rounded-full"
+            className="bg-transparent border-2 border-[#615FFF] text-[#615FFF] hover:bg-[#615FFF] hover:text-white transition-all duration-300 font-medium text-base flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full"
           >
             <span>View more</span>
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -199,7 +199,7 @@ const web3Projects = [
               </p>
               <button 
                 onClick={() => setActiveTab(activeTab === 'Web2' ? 'Web3' : 'Web2')}
-                className="mt-6 px-6 py-2 bg-[#615FFF] text-white rounded-full hover:bg-[#615FFF]/90 transition-colors font-medium text-sm"
+                className="mt-6 px-6 sm:px-8 py-2.5 sm:py-3 bg-[#615FFF] text-white rounded-full hover:bg-[#615FFF]/90 transition-colors font-medium text-sm"
               >
                 View {activeTab === 'Web2' ? 'Web3' : 'Web2'} Projects
               </button>

@@ -253,7 +253,7 @@ export default function ProfileGrid() {
           <div className="flex justify-end mb-12">
             <button 
               onClick={() => handleVisitProject(selectedProject.link || '#')}
-              className="px-6 py-2 bg-transparent border border-white text-white rounded-full hover:bg-gray-800 transition-colors font-medium text-sm flex items-center gap-2"
+              className="px-6 sm:px-8 py-2.5 sm:py-3 bg-transparent border border-white text-white rounded-full hover:bg-gray-800 transition-colors font-medium text-sm flex items-center gap-2"
             >
               Visit
               <ExternalLink size={16} />
@@ -323,7 +323,7 @@ export default function ProfileGrid() {
             <div className="flex justify-center">
               <button 
                 onClick={() => handleVisitProject(selectedProject.link || '#')}
-                className="px-8 py-3 bg-transparent border border-gray-300 text-gray-600 rounded-full hover:bg-gray-50 transition-colors font-medium text-sm flex items-center gap-2"
+                className="px-6 sm:px-8 py-2.5 sm:py-3 bg-transparent border border-gray-300 text-gray-600 rounded-full hover:bg-gray-50 transition-colors font-medium text-sm flex items-center gap-2"
               >
                 Visit
                 <ExternalLink size={16} />
@@ -502,7 +502,7 @@ export default function ProfileGrid() {
         <div className="flex justify-center pt-8 relative z-10">
           <button 
             onClick={handleToggleShowAll}
-            className="px-8 py-3 bg-transparent border-2 border-[#615FFF] text-[#615FFF] rounded-full hover:bg-[#615FFF] hover:text-white transition-all duration-300 font-medium text-base flex items-center gap-2"
+            className="px-6 sm:px-8 py-2.5 sm:py-3 bg-transparent border-2 border-[#615FFF] text-[#615FFF] rounded-full hover:bg-[#615FFF] hover:text-white transition-all duration-300 font-medium text-base flex items-center gap-2"
           >
             {showAllProjects ? 'View less' : 'View more'}
             <ArrowRight className="w-4 h-4" />

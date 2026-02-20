@@ -93,7 +93,7 @@ export default function Header() {
           >
             How we work
           </Link>
-          <Link href="/contact" className="bg-white text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white transition-all duration-300 font-semibold text-sm shadow-md hover:shadow-lg transform hover:scale-105">
+          <Link href="/contact" className="bg-white text-gray-900 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-gray-900 hover:text-white transition-all duration-300 font-semibold text-sm shadow-md hover:shadow-lg transform hover:scale-105">
             Start a Project
             <Image src="/arrow.png" alt="arrow" width={16} height={16} loading="lazy" draggable={false} className="inline-block ml-2" />
           </Link>

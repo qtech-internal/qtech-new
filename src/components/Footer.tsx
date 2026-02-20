@@ -28,7 +28,7 @@ export default function Footer() {
               
               <Link 
                 href="/contact"
-                className="bg-transparent border border-white/30 text-white px-5 sm:px-6 py-2 sm:py-2.5 rounded-full hover:bg-white/10 transition-all text-sm flex items-center space-x-2 w-full sm:w-auto justify-center sm:justify-start"
+                className="bg-transparent border border-white/30 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-white/10 transition-all text-sm flex items-center space-x-2 w-full sm:w-auto justify-center sm:justify-start"
               >
                 <span>Learn more</span>
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">

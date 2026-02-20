@@ -298,7 +298,7 @@ export default function ServicesGrid() {
                   </p>
 
                   <button
-                    className="inline-flex items-center gap-2 px-4 sm:px-6 lg:px-7 py-2 sm:py-3 lg:py-3.5 bg-transparent border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 text-sm lg:text-base font-medium self-start mt-auto"
+                    className="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 lg:py-3.5 bg-transparent border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 text-sm lg:text-base font-medium self-start mt-auto"
                     aria-label={`Learn more about ${service.title} ${service.subtitle}`}
                   >
                     View details
@@ -315,7 +315,7 @@ export default function ServicesGrid() {
           <div className="flex justify-center mt-6 xs:mt-8 sm:mt-10 lg:mt-16 mb-1">
             <button
               onClick={() => setShowAllServices(!showAllServices)}
-              className="px-6 sm:px-8 py-2.5 sm:py-3 lg:py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl mb-5"
+              className="px-6 sm:px-8 py-2.5 sm:py-3 lg:py-3 bg-white border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl mb-5"
             >
               {showAllServices ? 'View less' : 'View more'}
             </button>

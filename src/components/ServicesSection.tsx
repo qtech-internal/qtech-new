@@ -143,7 +143,7 @@ export default function ServicesSection() {
                   {/* Learn more button */}
                   <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10">
                     <button 
-                      className="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm transition-all border border-white/30 font-normal flex items-center space-x-2"
+                      className="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm transition-all border border-white/30 font-normal flex items-center space-x-2"
                       aria-label={`Learn more about ${selectedService.title}`}
                     >
                       <span>Learn more</span>

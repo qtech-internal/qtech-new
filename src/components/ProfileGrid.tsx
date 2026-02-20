@@ -262,7 +262,7 @@ export default function ProfileGrid() {
 
           {/* Project Title */}
           <div className="mb-12 -mt-20 -ml-0.5">
-            <h1 className="text-lg lg:text-7xl font-bold text-black mb-6 uppercase tracking-wide">
+            <h1 className="font-neue text-[60px] sm:text-[70px] lg:text-[80px] font-medium text-black mb-6 uppercase leading-[1.05] tracking-tight">
               {selectedProject.title.split('|')[0].trim()}
             </h1>
             
@@ -278,8 +278,8 @@ export default function ProfileGrid() {
 
           {/* About Section */}
           <div className="mb-12">
-            <h2 className="text-xl font-semibold text-black mb-4">About {selectedProject.title.split('|')[0].trim()}</h2>
-            <p className="text-gray-700 leading-relaxed text-base max-w-4xl">
+            <h2 className="font-neue text-[18px] font-bold text-black mb-4 leading-[32px] tracking-[-0.01em]">About {selectedProject.title.split('|')[0].trim()}</h2>
+            <p className="font-neue text-[18px] font-normal text-black leading-[32px] tracking-[-0.01em] max-w-4xl">
               {selectedProject.description}
             </p>
           </div>
@@ -302,12 +302,12 @@ export default function ProfileGrid() {
 
           {/* Problem Statement */}
           <div className="mb-12">
-            <h2 className="text-xl font-semibold text-black mb-6">Problem Statement</h2>
-            <ul className="space-y-4 text-gray-700">
+            <h2 className="font-neue text-[18px] font-bold text-black mb-6 leading-[32px] tracking-[-0.01em]">Problem Statement</h2>
+            <ul className="space-y-4">
               {selectedProject.problems.map((problem, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                  <span>{problem}</span>
+                  <span className="font-neue text-[18px] font-normal text-black leading-[32px] tracking-[-0.01em]">{problem}</span>
                 </li>
               ))}
             </ul>
@@ -315,8 +315,8 @@ export default function ProfileGrid() {
 
           {/* Solution */}
           <div className="mb-12">
-            <h2 className="text-xl font-semibold text-black mb-6">Solution</h2>
-            <p className="text-gray-700 leading-relaxed text-base max-w-4xl mb-8">
+            <h2 className="font-neue text-[18px] font-bold text-black mb-6 leading-[32px] tracking-[-0.01em]">Solution</h2>
+            <p className="font-neue text-[18px] font-normal text-black leading-[32px] tracking-[-0.01em] max-w-4xl mb-8">
               {selectedProject.solution}
             </p>
 

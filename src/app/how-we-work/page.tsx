@@ -13,7 +13,7 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main className="px-4 sm:px-6 py-2 sm:py-4 lg:py-6">
+      <main className="px-2 sm:px-6 pt-20 sm:pt-16 lg:pt-16 pb-0">
         <div className="max-w-7xl mx-auto">
           <ProfileGrid />
         </div>

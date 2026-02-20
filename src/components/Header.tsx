@@ -7,7 +7,22 @@ import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Close menu when route changes
   useEffect(() => {
@@ -45,10 +60,24 @@ export default function Header() {
   }, [isMenuOpen])
 
   return (
-    <header className="relative overflow-hidden bg-hero bg-cover bg-center bg-no-repeat">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/20 backdrop-blur-xl shadow-2xl border-b border-white/30' 
+          : 'bg-transparent'
+      }`}
+      style={!isScrolled ? {
+        backgroundImage: 'url(/images/header-bg.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      } : undefined}
+    >
       {/* Navigation */}
-      <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 py-6 relative z-50">
-        <Link href="/" className="text-white text-2xl font-bold hover:text-gray-200 transition-colors duration-300">
+      <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 py-4 relative z-50">
+        <Link href="/" className={`text-2xl font-bold transition-colors duration-300 ${
+          isScrolled ? 'text-gray-900' : 'text-white hover:text-gray-200'
+        }`}>
           QuadB Tech
         </Link>
         
@@ -57,8 +86,8 @@ export default function Header() {
             href="/" 
             className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
               pathname === '/' 
-                ? 'text-white bg-[#141415]' 
-                : 'text-gray-300 hover:text-white hover:bg-white/10'
+                ? isScrolled ? 'text-white bg-gray-900' : 'text-white bg-[#141415]'
+                : isScrolled ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-200' : 'text-gray-300 hover:text-white hover:bg-white/10'
             }`}
           >
             Home
@@ -67,40 +96,34 @@ export default function Header() {
             href="/services" 
             className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
               pathname === '/services' 
-                ? 'text-white bg-[#141415]' 
-                : 'text-gray-300 hover:text-white hover:bg-white/10'
+                ? isScrolled ? 'text-white bg-gray-900' : 'text-white bg-[#141415]'
+                : isScrolled ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-200' : 'text-gray-300 hover:text-white hover:bg-white/10'
             }`}
           >
             Services
           </Link>
           <Link 
-            href="/ai" 
-            className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
-              pathname === '/ai' 
-                ? 'text-white bg-[#141415]' 
-                : 'text-gray-300 hover:text-white hover:bg-white/10'
-            }`}
-          >
-            AI
-          </Link>
-          <Link 
             href="/how-we-work" 
             className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
               pathname === '/how-we-work' 
-                ? 'text-white bg-[#141415]' 
-                : 'text-gray-300 hover:text-white hover:bg-white/10'
+                ? isScrolled ? 'text-white bg-gray-900' : 'text-white bg-[#141415]'
+                : isScrolled ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-200' : 'text-gray-300 hover:text-white hover:bg-white/10'
             }`}
           >
             How we work
           </Link>
-          <Link href="/contact" className="bg-white text-gray-900 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-gray-900 hover:text-white transition-all duration-300 font-semibold text-sm shadow-md hover:shadow-lg transform hover:scale-105">
+          <Link href="/contact" className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 font-semibold text-sm shadow-md hover:shadow-lg transform hover:scale-105 ${
+            isScrolled ? 'bg-gray-900 text-white hover:bg-gray-800' : 'bg-white text-gray-900 hover:bg-gray-900 hover:text-white'
+          }`}>
             Start a Project
             <Image src="/arrow.png" alt="arrow" width={16} height={16} loading="lazy" draggable={false} className="inline-block ml-2" />
           </Link>
         </div>
 
         <button 
-          className="md:hidden text-white z-50 relative hover:text-gray-300 transition-colors duration-300"
+          className={`md:hidden z-50 relative transition-colors duration-300 ${
+            isScrolled ? 'text-gray-900 hover:text-gray-700' : 'text-white hover:text-gray-300'
+          }`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >

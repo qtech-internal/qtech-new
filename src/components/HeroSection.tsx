@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-hero bg-cover bg-center bg-no-repeat pb-6 sm:pb-10">
+    <section className="relative overflow-hidden bg-hero bg-cover bg-center bg-no-repeat pb-6 sm:pb-10 pt-20 sm:pt-24">
       {/* Globe positioned to start below "PEOPLE LOVE" text */}
       <div className="absolute inset-0 flex items-center justify-center top-[60%] sm:top-[75%] -mt-6 sm:-mt-12 ml-6 sm:ml-12">
         <video

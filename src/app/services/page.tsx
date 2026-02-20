@@ -13,7 +13,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
-      <main className=" px-2 sm:px-6   lg:pt-0 pb-0 ">
+      <main className="px-2 sm:px-6 pt-20 sm:pt-16 lg:pt-16 pb-0">
         <div className="max-w-7xl mx-auto ">
           <ServicesGrid />
         </div>

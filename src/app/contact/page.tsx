@@ -23,7 +23,7 @@ export default function ContactPage() {
     >
       <Header />
       
-      <main className="px-4 sm:px-6 py-8 sm:py-12 lg:py-16">
+      <main className="px-4 sm:px-6 pt-20 sm:pt-24 py-8 sm:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto">
           <ContactForm />
         </div>

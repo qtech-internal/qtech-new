@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
+import ImageWithSkeleton from './ImageWithSkeleton'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
@@ -172,7 +173,12 @@ export default function ProfileGrid() {
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [showAllProjects, setShowAllProjects] = useState(false)
+  const [imageLoadingStates, setImageLoadingStates] = useState<Record<string, boolean>>({})
   const router = useRouter()
+
+  const handleImageLoad = (projectId: string) => {
+    setImageLoadingStates(prev => ({ ...prev, [projectId]: true }))
+  }
 
   const filteredProjects = selectedCategory === 'All'
     ? projects
@@ -286,15 +292,25 @@ export default function ProfileGrid() {
 
           {/* Project Image */}
           <div className="mb-12">
-            <div className="relative w-full h-96 overflow-hidden select-none">
+            <div className="relative w-full h-96 overflow-hidden select-none bg-gray-200 rounded-2xl">
+              {!imageLoadingStates[selectedProject.id] && (
+                <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 border-4 border-gray-300 border-t-gray-400 rounded-full animate-spin"></div>
+                  </div>
+                </div>
+              )}
               <Image
                 src={selectedProject.image}
                 alt={`${selectedProject.title} project preview`}
                 width={800}
                 height={400}
                 draggable={false}
-                className="w-full h-full object-cover pointer-events-none"
-                loading="lazy"
+                className={`w-full h-full object-cover pointer-events-none transition-opacity duration-300 ${
+                  imageLoadingStates[selectedProject.id] ? 'opacity-100' : 'opacity-0'
+                }`}
+                onLoad={() => handleImageLoad(selectedProject.id)}
+                priority
                 sizes="(max-width: 768px) 100vw, 85vw"
               />
             </div>
@@ -408,14 +424,24 @@ export default function ProfileGrid() {
                 onClick={() => setSelectedProject(project)}
                 className="group bg-white rounded-2xl border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-blue-500/30 flex flex-col min-h-[450px]"
               >
-                <div className="relative w-full h-72 overflow-hidden rounded-t-2xl select-none">
+                <div className="relative w-full h-72 overflow-hidden rounded-t-2xl select-none bg-gray-200">
+                  {!imageLoadingStates[project.id] && (
+                    <div className="absolute inset-0 z-10 animate-pulse bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-12 h-12 border-4 border-gray-300 border-t-gray-400 rounded-full animate-spin"></div>
+                      </div>
+                    </div>
+                  )}
                   <Image
                     src={project.image}
                     alt={`${project.title} preview`}
                     width={600}
                     height={400}
                     draggable={false}
-                    className="w-full h-full object-cover pointer-events-none"
+                    className={`w-full h-full object-cover pointer-events-none transition-opacity duration-300 ${
+                      imageLoadingStates[project.id] ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    onLoad={() => handleImageLoad(project.id)}
                     sizes="100vw"
                     priority={index < 2}
                     quality={85}
@@ -467,14 +493,24 @@ export default function ProfileGrid() {
             className="group bg-white rounded-2xl lg:rounded-3xl border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-blue-500/30 flex flex-col min-h-[450px] hover:transform hover:scale-105 m-4"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <div className="relative w-full h-72 overflow-hidden rounded-t-2xl lg:rounded-t-3xl select-none">
+            <div className="relative w-full h-72 overflow-hidden rounded-t-2xl lg:rounded-t-3xl select-none bg-gray-200">
+              {!imageLoadingStates[project.id] && (
+                <div className="absolute inset-0 z-10 animate-pulse bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 border-4 border-gray-300 border-t-gray-400 rounded-full animate-spin"></div>
+                  </div>
+                </div>
+              )}
               <Image
                 src={project.image}
                 alt={`${project.title} preview`}
                 width={600}
                 height={400}
                 draggable={false}
-                className="w-full h-full object-cover pointer-events-none"
+                className={`w-full h-full object-cover pointer-events-none transition-opacity duration-300 ${
+                  imageLoadingStates[project.id] ? 'opacity-100' : 'opacity-0'
+                }`}
+                onLoad={() => handleImageLoad(project.id)}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 priority={index < 2}
                 quality={85}

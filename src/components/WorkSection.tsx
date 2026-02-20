@@ -3,12 +3,23 @@
 import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import WorkSectionSkeleton from './WorkSectionSkeleton'
 
 export default function WorkSection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [activeTab, setActiveTab] = useState('Web2')
+  const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
+
+  // Simulate loading state
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000) // 1 second loading time
+
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleViewMore = () => {
     router.push('/how-we-work')
@@ -99,6 +110,11 @@ const web3Projects = [
     })
   }
 
+  // Show skeleton loader while loading
+  if (isLoading) {
+    return <WorkSectionSkeleton />
+  }
+
   return (
     <section className="px-6 py-12 -mt-10">
       <div className="max-w-7xl mx-auto">
@@ -112,7 +128,7 @@ const web3Projects = [
           <div className="flex items-center space-x-3">
             <button 
               onClick={() => setActiveTab('Web2')}
-              className={`px-8 py-3 rounded-full font-medium text-base transition-all select-none outline-none focus:outline-none ${
+              className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium text-base transition-all select-none outline-none focus:outline-none ${
                 activeTab === 'Web2' 
                   ? 'bg-[#615FFF] text-white shadow-lg' 
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -122,7 +138,7 @@ const web3Projects = [
             </button>
             <button 
               onClick={() => setActiveTab('Web3')}
-              className={`px-8 py-3 rounded-full font-medium text-base transition-all select-none outline-none focus:outline-none ${
+              className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium text-base transition-all select-none outline-none focus:outline-none ${
                 activeTab === 'Web3' 
                   ? 'bg-[#615FFF] text-white shadow-lg' 
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'

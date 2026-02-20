@@ -535,7 +535,7 @@ export default function ProfileGrid() {
 
       {/* View More / View Less Button */}
       {hasMoreProjects && (
-        <div className="flex justify-center pt-8 relative z-10">
+        <div className="flex justify-center pt-8 relative z-10 pb-5">
           <button 
             onClick={handleToggleShowAll}
             className="px-6 sm:px-8 py-2.5 sm:py-3 bg-transparent border-2 border-[#615FFF] text-[#615FFF] rounded-full hover:bg-[#615FFF] hover:text-white transition-all duration-300 font-medium text-base flex items-center gap-2"

@@ -2,13 +2,10 @@ import { generateSEO } from '@/lib/seo'
 import JsonLd, { organizationSchema, websiteSchema } from '@/components/JsonLd'
 import Header from '@/components/Header'
 import AiHeroSection from '@/components/AiHeroSection'
-import ProcessSection from '@/components/ProcessSection'
-import ServicesSection from '@/components/ServicesSection'
-import WorkSection from '@/components/WorkSection'
-import StatsSection from '@/components/StatsSection'
-import AboutSection from '@/components/AboutSection'
+import OurAiCulture from '@/components/OurAiCulture'
 import Footer from '@/components/Footer'
 import AiDriven from '@/components/AiDriven'
+import ManualToMagic from '@/components/ManualToMagic'
 
 export const metadata = generateSEO({
   title: 'QuadB Tech - Innovation Studio',
@@ -30,9 +27,8 @@ export default function AI() {
         <main>
           <AiHeroSection />
           <AiDriven />
-          <ServicesSection />
-          <WorkSection />
-          <ProcessSection />
+          <OurAiCulture />
+          <ManualToMagic />
         </main>
         <Footer />
       </div>

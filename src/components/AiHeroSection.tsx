@@ -17,7 +17,7 @@ export default function AiHeroSection() {
   ]
 
   return (
-    <section className="relative overflow-hidden bg-hero bg-cover bg-center bg-no-repeat pb-6 sm:pb-10 lg:pb-1">
+    <section className="relative overflow-hidden bg-hero bg-cover bg-center bg-no-repeat pb-6 sm:pb-10 lg:pb-1 pt-20 sm:pt-24">
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 lg:pt-32 pb-4 sm:pb-6 lg:pb-0">
         <div className="text-center">

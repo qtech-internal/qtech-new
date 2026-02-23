@@ -85,13 +85,13 @@ export default function HeroSection() {
            
             <div className="overflow-hidden flex-1 w-full">
               <div className="flex items-center gap-24 sm:gap-24 opacity-70 animate-scroll whitespace-nowrap">
-                <Image src="/images/com-1.png" alt="Niscala.io" width={89} height={18} loading="lazy" draggable={false} className="h-18 sm:h-18 lg:h-18 w-auto object-contain" />
+                <Image src="/images/com-1.png" alt="Niscala.io" width={128} height={93} loading="lazy" draggable={false} className="w-[128px] h-[93px] object-contain" />
                 <Image src="/images/com-2.png" alt="SAMTIV" width={88} height={16} loading="lazy" draggable={false} className="h-16 sm:h-16 lg:h-16 w-auto object-contain" style={{filter:"invert(1)"}} />
                 <Image src="/images/com-3.png" alt="IEA" width={89} height={16} loading="lazy" draggable={false} className="h-14 sm:h-14 lg:h-14 w-auto object-contain" />
                 <Image src="/images/com-4.png" alt="SLAVA" width={60} height={16} loading="lazy" draggable={false} className="h-20 sm:h-20 lg:h-20 w-auto object-contain" />
                 <Image src="/images/com-5.png" alt="UNICA" width={89} height={16} loading="lazy" draggable={false} className="h-16 sm:h-16 lg:h-16 w-auto object-contain" />
                 <Image src="/images/com-6.png" alt="BOXING" width={89} height={16} loading="lazy" draggable={false} className="h-36 sm:h-36 lg:h-36 w-auto object-contain mt-2" />
-                <Image src="/images/com-1.png" alt="Niscala.io" width={89} height={18} loading="lazy" draggable={false} className="h-18 sm:h-18 lg:h-18 w-auto object-contain" />
+                <Image src="/images/com-1.png" alt="Niscala.io" width={128} height={93} loading="lazy" draggable={false} className="w-[128px] h-[93px] object-contain" />
                 <Image src="/images/com-2.png" alt="SAMTIV" width={88} height={16} loading="lazy" draggable={false} className="h-16 sm:h-16 lg:h-16 w-auto object-contain" style={{filter:"invert(1)"}} />
                 <Image src="/images/com-3.png" alt="IEA" width={89} height={16} loading="lazy" draggable={false} className="h-14 sm:h-14 lg:h-14 w-auto object-contain" />
                 <Image src="/images/com-4.png" alt="SLAVA" width={60} height={16} loading="lazy" draggable={false} className="h-20 sm:h-20 lg:h-20 w-auto object-contain" />

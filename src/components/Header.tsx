@@ -113,6 +113,16 @@ export default function Header() {
             AI
           </Link>
           <Link 
+            href="/partners" 
+            className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
+              pathname === '/partners' 
+                ? isScrolled ? 'text-white bg-gray-900' : 'text-white bg-[#141415]'
+                : isScrolled ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-200' : 'text-gray-300 hover:text-white hover:bg-white/10'
+            }`}
+          >
+            Parteners
+          </Link>
+          <Link 
             href="/how-we-work" 
             className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
               pathname === '/how-we-work' 

@@ -48,54 +48,54 @@ export default function PartnersHeroSection() {
               TRUSTED BY
             </p>
           </div>
-          <div className="flex items-center justify-center gap-12 sm:gap-16 lg:gap-20 xl:gap-24">
-            <div className="relative h-full">
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-20">
+            <div className="relative h-10 sm:h-12 md:h-14">
               <Image
                 src="/images/partners-1.png"
                 alt="Partner 1"
                 width={48}
                 height={48}
-                className="h-full object-contain"
+                className="h-full w-auto object-contain"
                 loading="lazy"
               />
             </div>
-            <div className="relative h-full">
+            <div className="relative h-10 sm:h-12 md:h-14">
               <Image
                 src="/images/partners-2.png"
                 alt="Partner 2"
                 width={102}
                 height={37}
-                className="h-full object-contain"
+                className="h-full w-auto object-contain"
                 loading="lazy"
               />
             </div>
-            <div className="relative h-full">
+            <div className="relative h-10 sm:h-12 md:h-14">
               <Image
                 src="/images/partners-3.png"
                 alt="Partner 3"
                 width={306}
                 height={36}
-                className="h-full object-contain"
+                className="h-full w-auto object-contain"
                 loading="lazy"
               />
             </div>
-            <div className="relative h-12 sm:h-12 lg:h-14">
+            <div className="relative h-10 sm:h-12 md:h-14">
               <Image
                 src="/images/partners-4.png"
                 alt="Partner 4"
                 width={240}
                 height={34}
-                className="h-full object-contain"
+                className="h-full w-auto object-contain"
                 loading="lazy"
               />
             </div>
-            <div className="relative h-12 sm:h-12 lg:h-14">
+            <div className="relative h-10 sm:h-12 md:h-14">
               <Image
                 src="/images/partners-5.png"
                 alt="Partner 5"
                 width={116}
                 height={57}
-                className="h-full object-contain"
+                className="h-full w-auto object-contain"
                 loading="lazy"
               />
             </div>

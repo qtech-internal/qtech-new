@@ -65,10 +65,10 @@ export default function StatsSection() {
   return (
     <>
       {/* Stats Card - positioned to overlap hero and gradient */}
-      <section ref={sectionRef} className="relative -mt-6 px-6 z-30">
+      <section ref={sectionRef} className="relative -mt-6 px-4 sm:px-6 z-30">
         <div className="max-w-[77rem] mx-auto">
-          <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {stats.map((stat, index) => (
                 <StatCard 
                   key={index} 
@@ -120,24 +120,24 @@ function StatCard({ stat, isVisible, delay }: { stat: any, isVisible: boolean, d
 
   return (
     <div className="text-left">
-      <div className="flex items-center space-x-4 mb-3">
-        <span className="text-[64px] lg:text-[80px] font-normal text-gray-900 leading-none">
+      <div className="flex items-center space-x-3 sm:space-x-4 mb-3">
+        <span className="text-[48px] sm:text-[64px] lg:text-[80px] font-normal text-gray-900 leading-none">
           {count}{stat.suffix}
         </span>
-        <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
           <Image
             src={stat.icon}
             alt={`${stat.label} icon`}
             width={20}
             height={20}
             draggable={false}
-            className="object-contain w-8 h-8"
+            className="object-contain w-6 h-6 sm:w-8 sm:h-8"
             quality={100}
           />
         </div>
       </div>
-      <div className="text-gray-900 font-medium text-[24px] mb-2">{stat.label}</div>
-      <div className="text-gray-600 text-xl font-normal leading-relaxed">{stat.description}</div>
+      <div className="text-gray-900 font-medium text-[18px] sm:text-[20px] lg:text-[24px] mb-2">{stat.label}</div>
+      <div className="text-gray-600 text-base sm:text-lg lg:text-xl font-normal leading-relaxed">{stat.description}</div>
     </div>
   )
 }

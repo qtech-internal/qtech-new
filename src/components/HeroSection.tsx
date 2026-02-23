@@ -75,28 +75,28 @@ export default function HeroSection() {
         {/* Company logos section */}
         <div className="mt-8 sm:mt-16 pt-4 sm:pt-8">
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-            <div className="text-white text-base sm:text-lg text-center sm:text-left">
+            <div className="text-white text-sm sm:text-base lg:text-lg text-center sm:text-left">
               <div className="font-medium opacity-80">We help many</div>
               <div className="font-semibold flex items-center justify-center sm:justify-start">
                 Companies 
-                <Image src="/chevron.png" alt="Arrow" width={24} height={24} loading="lazy" draggable={false} className="h-5 w-5 sm:h-6 sm:w-6 ml-1 mt-0.5" />
+                <Image src="/chevron.png" alt="Arrow" width={24} height={24} loading="lazy" draggable={false} className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 ml-1 mt-0.5" />
               </div>
             </div>
            
             <div className="overflow-hidden flex-1 w-full">
-              <div className="flex items-center gap-24 sm:gap-24 opacity-70 animate-scroll whitespace-nowrap">
-                <Image src="/images/com-1.png" alt="Niscala.io" width={128} height={93} loading="lazy" draggable={false} className="w-[128px] h-[93px] object-contain" />
-                <Image src="/images/com-2.png" alt="SAMTIV" width={88} height={16} loading="lazy" draggable={false} className="h-16 sm:h-16 lg:h-16 w-auto object-contain" style={{filter:"invert(1)"}} />
-                <Image src="/images/com-3.png" alt="IEA" width={89} height={16} loading="lazy" draggable={false} className="h-14 sm:h-14 lg:h-14 w-auto object-contain" />
-                <Image src="/images/com-4.png" alt="SLAVA" width={60} height={16} loading="lazy" draggable={false} className="h-20 sm:h-20 lg:h-20 w-auto object-contain" />
-                <Image src="/images/com-5.png" alt="UNICA" width={89} height={16} loading="lazy" draggable={false} className="h-16 sm:h-16 lg:h-16 w-auto object-contain" />
-                <Image src="/images/com-6.png" alt="BOXING" width={89} height={16} loading="lazy" draggable={false} className="h-36 sm:h-36 lg:h-36 w-auto object-contain mt-2" />
-                <Image src="/images/com-1.png" alt="Niscala.io" width={128} height={93} loading="lazy" draggable={false} className="w-[128px] h-[93px] object-contain" />
-                <Image src="/images/com-2.png" alt="SAMTIV" width={88} height={16} loading="lazy" draggable={false} className="h-16 sm:h-16 lg:h-16 w-auto object-contain" style={{filter:"invert(1)"}} />
-                <Image src="/images/com-3.png" alt="IEA" width={89} height={16} loading="lazy" draggable={false} className="h-14 sm:h-14 lg:h-14 w-auto object-contain" />
-                <Image src="/images/com-4.png" alt="SLAVA" width={60} height={16} loading="lazy" draggable={false} className="h-20 sm:h-20 lg:h-20 w-auto object-contain" />
-                <Image src="/images/com-5.png" alt="UNICA" width={89} height={16} loading="lazy" draggable={false} className="h-16 sm:h-16 lg:h-16 w-auto object-contain" />
-                <Image src="/images/com-6.png" alt="BOXING" width={89} height={16} loading="lazy" draggable={false} className="h-36 sm:h-36 lg:h-36 w-auto object-contain mt-2" />
+              <div className="flex items-center gap-12 sm:gap-16 lg:gap-24 opacity-70 animate-scroll whitespace-nowrap">
+                <Image src="/images/com-1.png" alt="Niscala.io" width={128} height={93} loading="lazy" draggable={false} className="w-[80px] h-[58px] sm:w-[100px] sm:h-[73px] lg:w-[128px] lg:h-[93px] object-contain" />
+                <Image src="/images/com-2.png" alt="SAMTIV" width={88} height={16} loading="lazy" draggable={false} className="h-10 sm:h-12 lg:h-16 w-auto object-contain" style={{filter:"invert(1)"}} />
+                <Image src="/images/com-3.png" alt="IEA" width={89} height={16} loading="lazy" draggable={false} className="h-9 sm:h-11 lg:h-14 w-auto object-contain" />
+                <Image src="/images/com-4.png" alt="SLAVA" width={60} height={16} loading="lazy" draggable={false} className="h-12 sm:h-16 lg:h-20 w-auto object-contain" />
+                <Image src="/images/com-5.png" alt="UNICA" width={89} height={16} loading="lazy" draggable={false} className="h-10 sm:h-12 lg:h-16 w-auto object-contain" />
+                <Image src="/images/com-6.png" alt="BOXING" width={89} height={16} loading="lazy" draggable={false} className="h-20 sm:h-28 lg:h-36 w-auto object-contain mt-2" />
+                <Image src="/images/com-1.png" alt="Niscala.io" width={128} height={93} loading="lazy" draggable={false} className="w-[80px] h-[58px] sm:w-[100px] sm:h-[73px] lg:w-[128px] lg:h-[93px] object-contain" />
+                <Image src="/images/com-2.png" alt="SAMTIV" width={88} height={16} loading="lazy" draggable={false} className="h-10 sm:h-12 lg:h-16 w-auto object-contain" style={{filter:"invert(1)"}} />
+                <Image src="/images/com-3.png" alt="IEA" width={89} height={16} loading="lazy" draggable={false} className="h-9 sm:h-11 lg:h-14 w-auto object-contain" />
+                <Image src="/images/com-4.png" alt="SLAVA" width={60} height={16} loading="lazy" draggable={false} className="h-12 sm:h-16 lg:h-20 w-auto object-contain" />
+                <Image src="/images/com-5.png" alt="UNICA" width={89} height={16} loading="lazy" draggable={false} className="h-10 sm:h-12 lg:h-16 w-auto object-contain" />
+                <Image src="/images/com-6.png" alt="BOXING" width={89} height={16} loading="lazy" draggable={false} className="h-20 sm:h-28 lg:h-36 w-auto object-contain mt-2" />
               </div>
             </div>
           </div>

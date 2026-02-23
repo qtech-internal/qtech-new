@@ -244,7 +244,7 @@ export default function ProfileGrid() {
 
   if (selectedProject) {
     return (
-      <div className="animate-fade-in min-h-screen bg-white relative ml-6">
+      <div className="animate-fade-in min-h-screen bg-white relative px-4 sm:px-0 sm:ml-6">
         <div
           className="absolute -top-[8px] lg:-top-[24px] -left-[50vw] ml-[46.12%] lg:ml-[49%] w-screen h-44 pointer-events-none z-0"
           style={{
@@ -256,47 +256,47 @@ export default function ProfileGrid() {
         />
 
         <div className="relative z-10">
-          <div className="flex justify-end mb-12">
+          <div className="flex justify-end mb-8 sm:mb-12">
             <button 
               onClick={() => handleVisitProject(selectedProject.link || '#')}
-              className="px-6 sm:px-8 py-2.5 sm:py-3 bg-transparent border border-white text-white rounded-full hover:bg-gray-800 transition-colors font-medium text-sm flex items-center gap-2"
+              className="px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 lg:py-3 bg-transparent border border-white text-white rounded-full hover:bg-gray-800 transition-colors font-medium text-xs sm:text-sm flex items-center gap-2"
             >
               Visit
-              <ExternalLink size={16} />
+              <ExternalLink size={14} className="sm:w-4 sm:h-4" />
             </button>
           </div>
 
           {/* Project Title */}
-          <div className="mb-12 -mt-20 -ml-0.5">
-            <h1 className="font-neue text-[60px] sm:text-[70px] lg:text-[80px] font-medium text-black mb-6 uppercase leading-[1.05] tracking-tight">
+          <div className="mb-8 sm:mb-12 -mt-16 sm:-mt-20">
+            <h1 className="font-neue text-[36px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-medium text-black mb-4 sm:mb-6 uppercase leading-[1.05] tracking-tight">
               {selectedProject.title.split('|')[0].trim()}
             </h1>
             
             {/* Back button positioned below the project name */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="flex items-center gap-2 text-gray-800 hover:text-blue-600 transition-colors"
+              className="flex items-center gap-2 text-gray-800 hover:text-blue-600 transition-colors text-sm sm:text-base"
             >
-              <ArrowRight className="rotate-180" size={20} />
+              <ArrowRight className="rotate-180" size={18} />
               Back to Profile
             </button>
           </div>
 
           {/* About Section */}
-          <div className="mb-12">
-            <h2 className="font-neue text-[18px] font-bold text-black mb-4 leading-[32px] tracking-[-0.01em]">About {selectedProject.title.split('|')[0].trim()}</h2>
-            <p className="font-neue text-[18px] font-normal text-black leading-[32px] tracking-[-0.01em] max-w-4xl">
+          <div className="mb-8 sm:mb-12">
+            <h2 className="font-neue text-[16px] sm:text-[18px] font-bold text-black mb-3 sm:mb-4 leading-[1.5] tracking-[-0.01em]">About {selectedProject.title.split('|')[0].trim()}</h2>
+            <p className="font-neue text-[15px] sm:text-[16px] lg:text-[18px] font-normal text-black leading-[1.6] sm:leading-[1.8] tracking-[-0.01em] max-w-4xl">
               {selectedProject.description}
             </p>
           </div>
 
           {/* Project Image */}
-          <div className="mb-12">
-            <div className="relative w-full h-96 overflow-hidden select-none bg-gray-200 rounded-2xl">
+          <div className="mb-8 sm:mb-12">
+            <div className="relative w-full h-64 sm:h-80 lg:h-96 overflow-hidden select-none bg-gray-200 rounded-xl sm:rounded-2xl">
               {!imageLoadingStates[selectedProject.id] && (
                 <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 border-4 border-gray-300 border-t-gray-400 rounded-full animate-spin"></div>
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 border-4 border-gray-300 border-t-gray-400 rounded-full animate-spin"></div>
                   </div>
                 </div>
               )}
@@ -317,32 +317,32 @@ export default function ProfileGrid() {
           </div>
 
           {/* Problem Statement */}
-          <div className="mb-12">
-            <h2 className="font-neue text-[18px] font-bold text-black mb-6 leading-[32px] tracking-[-0.01em]">Problem Statement</h2>
-            <ul className="space-y-4">
+          <div className="mb-8 sm:mb-12">
+            <h2 className="font-neue text-[16px] sm:text-[18px] font-bold text-black mb-4 sm:mb-6 leading-[1.5] tracking-[-0.01em]">Problem Statement</h2>
+            <ul className="space-y-3 sm:space-y-4">
               {selectedProject.problems.map((problem, index) => (
-                <li key={index} className="flex items-start gap-3">
+                <li key={index} className="flex items-start gap-2 sm:gap-3">
                   <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                  <span className="font-neue text-[18px] font-normal text-black leading-[32px] tracking-[-0.01em]">{problem}</span>
+                  <span className="font-neue text-[15px] sm:text-[16px] lg:text-[18px] font-normal text-black leading-[1.6] sm:leading-[1.8] tracking-[-0.01em]">{problem}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Solution */}
-          <div className="mb-12">
-            <h2 className="font-neue text-[18px] font-bold text-black mb-6 leading-[32px] tracking-[-0.01em]">Solution</h2>
-            <p className="font-neue text-[18px] font-normal text-black leading-[32px] tracking-[-0.01em] max-w-4xl mb-8">
+          <div className="mb-8 sm:mb-12">
+            <h2 className="font-neue text-[16px] sm:text-[18px] font-bold text-black mb-4 sm:mb-6 leading-[1.5] tracking-[-0.01em]">Solution</h2>
+            <p className="font-neue text-[15px] sm:text-[16px] lg:text-[18px] font-normal text-black leading-[1.6] sm:leading-[1.8] tracking-[-0.01em] max-w-4xl mb-6 sm:mb-8">
               {selectedProject.solution}
             </p>
 
             <div className="flex justify-center">
               <button 
                 onClick={() => handleVisitProject(selectedProject.link || '#')}
-                className="px-6 sm:px-8 py-2.5 sm:py-3 bg-transparent border border-gray-300 text-gray-600 rounded-full hover:bg-gray-50 transition-colors font-medium text-sm flex items-center gap-2"
+                className="px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 lg:py-3 bg-transparent border border-gray-300 text-gray-600 rounded-full hover:bg-gray-50 transition-colors font-medium text-xs sm:text-sm flex items-center gap-2"
               >
                 Visit
-                <ExternalLink size={16} />
+                <ExternalLink size={14} className="sm:w-4 sm:h-4" />
               </button>
             </div>
           </div>
@@ -354,7 +354,7 @@ export default function ProfileGrid() {
   }
 
   return (
-    <div className="animate-fade-in space-y-12 relative ml-[10px]">
+    <div className="animate-fade-in space-y-12 relative px-4 sm:px-0 sm:ml-[10px]">
       {/* Large Globe overlay - positioned to show full gradient including bluish tones */}
       <div className="relative">
           {/* Service background overlay - positioned top right */}
@@ -377,23 +377,23 @@ export default function ProfileGrid() {
           
         </div>
 
-      <div className="relative text-left space-y-4 z-10 ml-[10px]">
-        <h1 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-medium text-black leading-[84px] uppercase tracking-tight">
+      <div className="relative text-left space-y-4 z-10 px-4 sm:px-0 sm:ml-[10px]">
+        <h1 className="text-[36px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-medium text-black leading-[1.1] uppercase tracking-tight">
           OUR PROFILE
         </h1>
-        <p className="text-black text-sm sm:text-base lg:text-lg xl:text-[20px] max-w-xl font-medium leading-relaxed ml-[4px]">
+        <p className="text-black text-sm sm:text-base lg:text-lg xl:text-[20px] max-w-xl font-medium leading-relaxed">
           From concept to launch — design,<br />
           development, AI, marketing and<br />
           support all under one roof.
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-3 relative z-10 ml-[14px]">
+      <div className="flex flex-wrap gap-3 relative z-10 px-4 sm:px-0 sm:ml-[14px]">
         {categories.map((category) => (
           <button
             key={category}
             onClick={() => handleCategoryChange(category)}
-            className={`px-8 py-3 rounded-full text-base font-medium transition-all duration-300 select-none outline-none focus:outline-none ${
+            className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-300 select-none outline-none focus:outline-none ${
               selectedCategory === category
                 ? 'bg-[#615FFF] text-white shadow-lg'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'

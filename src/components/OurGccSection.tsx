@@ -78,7 +78,7 @@ const OurGccSection = () => {
 
   return (
     <section 
-      className="relative py-20 px-6 overflow-hidden"
+      className="relative py-12 sm:py-16 lg:py-20 px-4 sm:px-6 overflow-hidden"
       style={{
         backgroundImage: 'url(/hero.webp)',
         backgroundSize: 'cover',
@@ -91,54 +91,64 @@ const OurGccSection = () => {
       
       <div className="relative z-10 max-w-[1400px] mx-auto">
         {/* Header */}
-        <h2 className="text-[48px] leading-[55px] font-medium text-white text-center mb-4">
+        <h2 className="text-[28px] sm:text-[36px] lg:text-[48px] leading-tight font-medium text-white text-center mb-3 sm:mb-4 px-2">
           Our GCC Framework
         </h2>
         
-        <p className="text-white/80 text-center max-w-3xl mx-auto mb-10 text-base leading-6 font-normal">
+        <p className="text-white/80 text-center max-w-3xl mx-auto mb-8 sm:mb-10 text-sm sm:text-base leading-5 sm:leading-6 font-normal px-2">
           To fully grasp the potential of Global Capability Centers, delve into our diverse models, key aspects, implementation approaches, and comprehensive capabilities.
         </p>
 
-        {/* Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse min-w-[1200px]">
-            <thead>
-              <tr className="border-b border-white/10">
-                <th className="text-left px-3 py-4 text-[#ffffffc4] font-medium text-sm uppercase tracking-wide align-top w-[12%]">
-                  ASPECT
-                </th>
-                <th className="text-left px-3 py-4 text-[#ffffffc4] font-medium text-sm uppercase tracking-wide align-top w-[29%]">
-                  BUILD YOUR TEAM (BYT) WITH QUADB TECH
-                </th>
-                <th className="text-left px-3 py-4 text-[#ffffffc4] font-medium text-sm uppercase tracking-wide align-top w-[29%]">
-                  BUILD OPERATE TRANSFER (BOT) MODEL
-                </th>
-                <th className="text-left px-3 py-4 text-[#ffffffc4] font-medium text-sm uppercase tracking-wide align-top w-[29%]">
-                  GCC ACCELERATOR MODEL
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {frameworkData.map((row, index) => (
-                <tr 
-                  key={index} 
-                >
-                  <td className="px-3 py-6 text-white font-medium text-base align-top leading-8">
-                    {row.aspect}
-                  </td>
-                  <td className="px-3 py-6 text-white/90 text-base align-top leading-7">
-                    {row.byt}
-                  </td>
-                  <td className="px-3 py-6 text-white/90 text-base align-top leading-7">
-                    {row.bot}
-                  </td>
-                  <td className="px-3 py-6 text-white/90 text-base align-top leading-7">
-                    {row.gcc}
-                  </td>
+        {/* Table Container with Horizontal Scroll */}
+        <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:mx-0">
+          <div className="inline-block min-w-full align-middle px-4 sm:px-6 lg:px-0">
+            <table className="w-full border-collapse min-w-[900px] lg:min-w-full">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="text-left px-2 sm:px-3 lg:px-4 py-3 sm:py-4 text-[#ffffffc4] font-medium text-[10px] sm:text-xs lg:text-sm uppercase tracking-wide align-top w-[15%]">
+                    ASPECT
+                  </th>
+                  <th className="text-left px-2 sm:px-3 lg:px-4 py-3 sm:py-4 text-[#ffffffc4] font-medium text-[10px] sm:text-xs lg:text-sm uppercase tracking-wide align-top w-[28%]">
+                    BUILD YOUR TEAM (BYT)
+                  </th>
+                  <th className="text-left px-2 sm:px-3 lg:px-4 py-3 sm:py-4 text-[#ffffffc4] font-medium text-[10px] sm:text-xs lg:text-sm uppercase tracking-wide align-top w-[28%]">
+                    BUILD OPERATE TRANSFER (BOT)
+                  </th>
+                  <th className="text-left px-2 sm:px-3 lg:px-4 py-3 sm:py-4 text-[#ffffffc4] font-medium text-[10px] sm:text-xs lg:text-sm uppercase tracking-wide align-top w-[28%]">
+                    GCC ACCELERATOR
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {frameworkData.map((row, index) => (
+                  <tr 
+                    key={index}
+                    className="border-b border-white/5 last:border-b-0"
+                  >
+                    <td className="px-2 sm:px-3 lg:px-4 py-4 sm:py-5 lg:py-6 text-white font-medium text-xs sm:text-sm lg:text-base align-top leading-5 sm:leading-6 lg:leading-8">
+                      {row.aspect}
+                    </td>
+                    <td className="px-2 sm:px-3 lg:px-4 py-4 sm:py-5 lg:py-6 text-white/90 text-[11px] sm:text-xs lg:text-sm xl:text-base align-top leading-[1.5] sm:leading-[1.6] lg:leading-7">
+                      {row.byt}
+                    </td>
+                    <td className="px-2 sm:px-3 lg:px-4 py-4 sm:py-5 lg:py-6 text-white/90 text-[11px] sm:text-xs lg:text-sm xl:text-base align-top leading-[1.5] sm:leading-[1.6] lg:leading-7">
+                      {row.bot}
+                    </td>
+                    <td className="px-2 sm:px-3 lg:px-4 py-4 sm:py-5 lg:py-6 text-white/90 text-[11px] sm:text-xs lg:text-sm xl:text-base align-top leading-[1.5] sm:leading-[1.6] lg:leading-7">
+                      {row.gcc}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Mobile Scroll Hint */}
+        <div className="lg:hidden text-center mt-4">
+          <p className="text-white/60 text-xs">
+            ← Scroll horizontally to view all columns →
+          </p>
         </div>
       </div>
     </section>

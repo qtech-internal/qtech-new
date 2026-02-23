@@ -61,43 +61,43 @@ export default function WhyQuadb() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header Section */}
-        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-          <h2 className="font-neue font-medium text-[36px] sm:text-[44px] lg:text-[48px] text-[#1D1D1F] mb-6 sm:mb-8 leading-[1.15]">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-16">
+          <h2 className="font-neue font-medium text-[32px] sm:text-[40px] lg:text-[48px] text-[#1D1D1F] mb-4 sm:mb-6 lg:mb-8 leading-[1.15]">
             Why Quadb Tech is the Ideal
             <br />
             Partner for Your GCC
           </h2>
-          <p className="text-[#6E6E73] text-[14px] sm:text-[15px] lg:text-[16px] max-w-4xl mx-auto leading-[1.5] tracking-[-0.01em] mb-10 sm:mb-12">
+          <p className="text-[#6E6E73] text-[14px] sm:text-[15px] lg:text-[16px] max-w-4xl mx-auto leading-[1.5] tracking-[-0.01em] mb-8 sm:mb-10 lg:mb-12 px-4">
             Managing over 2 million SQFT globally and serving 70+ clients, we offer integrated PropTech, optimized workflows, and access to top-tier talent-transforming your GCC into a future-ready innovation engine through smart tech integration and risk mitigation.
           </p>
 
           {/* Certification Logos */}
-          <div className="flex items-center justify-center gap-6 sm:gap-10 lg:gap-12 mb-10 sm:mb-12">
-            <div className="relative">
+          <div className="flex items-center justify-center gap-4 sm:gap-6 lg:gap-12 mb-8 sm:mb-10 lg:mb-12 px-4">
+            <div className="relative w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[450px]">
               <Image
                 src="/images/multi-why.png"
                 alt="ISO 9001:2015"
                 width={450}
                 height={100}
-                className="object-contain"
+                className="object-contain w-full h-auto"
               />
             </div>
           </div>
 
-          <p className="text-[#6E6E73] text-[14px] sm:text-[15px] lg:text-[16px] max-w-4xl mx-auto leading-[1.5]">
+          <p className="text-[#6E6E73] text-[14px] sm:text-[15px] lg:text-[16px] max-w-4xl mx-auto leading-[1.5] px-4">
             With 25+ years of expertise and for strategic GCCs, Quadb Tech helps enterprises build high-performing, sustainable global hubs. Our centers are PLATINUM LEED and WELL certified, backed by $100M+ in infrastructure investment, and designed for secure, efficient operations—supported by ISO 9001, ISO 27001, and CMMI Level 3 standards.
           </p>
         </div>
 
         {/* Stats Section */}
-        <div className="bg-white rounded-3xl shadow-sm py-10 sm:py-12 lg:py-14 px-8 sm:px-16 mb-16 sm:mb-20 lg:mb-24">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
+        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-sm py-8 sm:py-10 lg:py-14 px-6 sm:px-12 lg:px-16 mb-12 sm:mb-16 lg:mb-24">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
             {stats.map((stat, index) => (
               <div key={index} className="text-left">
-                <div className="text-[32px] sm:text-[36px] lg:text-[40px] font-normal text-[#141414] mb-2 leading-none">
+                <div className="text-[28px] sm:text-[32px] lg:text-[40px] font-normal text-[#141414] mb-2 leading-none">
                   {stat.value}
                 </div>
-                <div className="text-[#141414] text-[16px] sm:text-[18px] lg:text-[20px] font-medium leading-[1.2]">
+                <div className="text-[#141414] text-[14px] sm:text-[16px] lg:text-[20px] font-medium leading-[1.2]">
                   {stat.label}
                 </div>
               </div>
@@ -124,15 +124,15 @@ export default function WhyQuadb() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-4 lg:gap-12 py-6 sm:py-7 lg:py-8"
+              className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-3 sm:gap-4 lg:gap-12 py-5 sm:py-6 lg:py-8 border-b border-gray-200 last:border-b-0"
             >
               <div>
-                <h4 className="text-[#615FFF] text-[18px] sm:text-[20px] lg:text-[24px] font-medium leading-[1.33] tracking-[-0.01em]">
+                <h4 className="text-[#615FFF] text-[16px] sm:text-[18px] lg:text-[24px] font-medium leading-[1.33] tracking-[-0.01em]">
                   {service.title}
                 </h4>
               </div>
               <div>
-                <p className="text-[#646467] text-[16px] sm:text-[16px] lg:text-[16px] leading-[1.5] font-[400]">
+                <p className="text-[#646467] text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.5] font-[400]">
                   {service.description}
                 </p>
               </div>

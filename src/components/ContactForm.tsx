@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 interface FormData {
   name: string
+  email: string
   companyName: string
   phoneNumber: string
   city: string
@@ -13,6 +14,7 @@ interface FormData {
 
 const INITIAL_FORM_DATA: FormData = {
   name: '',
+  email: '',
   companyName: '',
   phoneNumber: '',
   city: '',
@@ -36,7 +38,7 @@ export default function ContactForm() {
     e.preventDefault()
     
     // Only check if fields are not empty strings
-    if (!formData.name.trim() || !formData.message.trim()) {
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       return
     }
 
@@ -45,18 +47,15 @@ export default function ContactForm() {
 
     try {
      
-      const serviceId = 'service_38pd38l'
-      const templateId = 'template_ps76yo5'
-      const publicKey = '543dCM6EejEi_ZpAm'
+      const serviceId = 'service_hu2d6f3'
+      const templateId = 'template_mi73vdx'
+      const publicKey = 'kWn41KH4KPb5etCPj'
 
-      // Prepare template parameters
+      // Prepare template parameters to match EmailJS template
       const templateParams = {
-        from_name: formData.name,
-        from_email: formData.companyName, 
-        phone_number: formData.phoneNumber || 'Not provided',
-        city: formData.city || 'Not provided',
-        message: formData.message,
-        to_name: 'QuadB Tech',
+        name: formData.name,
+        email: formData.email,
+        message: `${formData.message}\n\nCompany: ${formData.companyName || 'Not provided'}\nPhone: ${formData.phoneNumber || 'Not provided'}\nCity: ${formData.city || 'Not provided'}`,
       }
 
       // Send email using EmailJS API
@@ -85,7 +84,7 @@ export default function ContactForm() {
     } catch (error) {
       console.error('Email send error:', error)
       // Fallback to mailto
-      const mailtoLink = `mailto:contact@quadbtech.com?subject=Message from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}%0D%0A%0D%0AFrom: ${encodeURIComponent(formData.name)}%0D%0ACompany: ${encodeURIComponent(formData.companyName)}%0D%0APhone: ${encodeURIComponent(formData.phoneNumber)}%0D%0ACity: ${encodeURIComponent(formData.city)}`
+      const mailtoLink = `mailto:sbitosbi@gmail.com?subject=Message from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}%0D%0A%0D%0AFrom: ${encodeURIComponent(formData.name)}%0D%0AEmail: ${encodeURIComponent(formData.email)}%0D%0ACompany: ${encodeURIComponent(formData.companyName)}%0D%0APhone: ${encodeURIComponent(formData.phoneNumber)}%0D%0ACity: ${encodeURIComponent(formData.city)}`
       window.location.href = mailtoLink
       setSubmitStatus('error')
     }
@@ -152,11 +151,24 @@ export default function ContactForm() {
               placeholder="Name"
               value={formData.name}
               onChange={handleInputChange}
+              required
               className="w-full px-4 lg:px-6 py-3 lg:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 text-sm lg:text-base"
             />
           </div>
 
           <div className="animate-fade-in" style={{ animationDelay: '0.7s' }}>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 lg:px-6 py-3 lg:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 text-sm lg:text-base"
+            />
+          </div>
+
+          <div className="animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <input
               type="text"
               name="companyName"
@@ -167,7 +179,7 @@ export default function ContactForm() {
             />
           </div>
 
-          <div className="animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <div className="animate-fade-in" style={{ animationDelay: '0.9s' }}>
             <input
               type="tel"
               name="phoneNumber"
@@ -178,7 +190,7 @@ export default function ContactForm() {
             />
           </div>
 
-          <div className="animate-fade-in" style={{ animationDelay: '0.9s' }}>
+          <div className="animate-fade-in" style={{ animationDelay: '1.0s' }}>
             <input
               type="text"
               name="city"
@@ -189,18 +201,19 @@ export default function ContactForm() {
             />
           </div>
 
-          <div className="animate-fade-in" style={{ animationDelay: '1.0s' }}>
+          <div className="animate-fade-in" style={{ animationDelay: '1.1s' }}>
             <textarea
               name="message"
               placeholder="Tell us about your project..."
               value={formData.message}
               onChange={handleInputChange}
               rows={4}
+              required
               className="w-full px-4 lg:px-6 py-3 lg:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 resize-none text-sm lg:text-base"
             />
           </div>
 
-          <div className="animate-fade-in" style={{ animationDelay: '1.1s' }}>
+          <div className="animate-fade-in" style={{ animationDelay: '1.2s' }}>
             <button
               type="submit"
               disabled={isSubmitting}

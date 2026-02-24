@@ -1,6 +1,7 @@
 import { generateSEO } from '@/lib/seo'
 import JsonLd, { organizationSchema, websiteSchema } from '@/components/JsonLd'
 import Header from '@/components/Header'
+import AnnouncementBar from '@/components/AnnouncementBar'
 import HeroSection from '@/components/HeroSection'
 import ProcessSection from '@/components/ProcessSection'
 import ServicesSection from '@/components/ServicesSection'
@@ -26,6 +27,7 @@ export default function Home() {
         }}
       >
         <Header />
+        <AnnouncementBar />
         <main>
           <HeroSection />
           <StatsSection />

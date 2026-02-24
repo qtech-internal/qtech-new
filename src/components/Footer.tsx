@@ -9,10 +9,10 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-8 mb-6">
             {/* Left - Company Info */}
             <div className="w-full lg:max-w-sm">
-              <h2 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">
+              <h2 className="text-2xl font-semibold text-white mb-2 sm:mb-3">
                 QuadB Tech
               </h2>
-              <p className="text-white/70 leading-relaxed text-xs sm:text-sm">
+              <p className="text-white/70 leading-relaxed text-base" style={{lineHeight:"inherit"}}>
                 QuadB Tech is a boutique innovation studio crafting
                 next-generation digital solutions powered by Blockchain, AI,
                 Web3, and the Metaverse. We partner with visionary startups and
@@ -75,14 +75,14 @@ export default function Footer() {
                       href="tel:+911234567890"
                       className="text-[#f59e0b] hover:text-[#fbbf24] transition-colors text-sm font-medium block mb-1"
                     >
-                      +91-1234567890
+                      +1-6469213047
                     </a>
 
                     <a
-                      href="mailto:info@quadbtech.com"
+                      href="mailto:andrew@quadbtech.com"
                       className="text-[#f59e0b] hover:text-[#fbbf24] transition-colors text-xs block mb-2"
                     >
-                      info@quadbtech.com
+                      andrew@quadbtech.com
                     </a>
 
                     <address className="text-white/70 not-italic text-xs leading-relaxed">
@@ -97,17 +97,17 @@ export default function Footer() {
                   {/* First Address */}
                   <div>
                     <a
-                      href="tel:+918360543857"
+                      href="tel:+917206246045"
                       className="text-[#f59e0b] hover:text-[#fbbf24] transition-colors text-sm font-medium block mb-1"
                     >
-                      +91-8360543857
+                      +91-7206246045
                     </a>
 
                     <a
-                      href="mailto:sales@quadbtech.com"
+                      href="mailto:nishant.chawla@quadbtech.com"
                       className="text-[#f59e0b] hover:text-[#fbbf24] transition-colors text-xs block mb-2"
                     >
-                      sales@quadbtech.com
+                      nishant.chawla@quadbtech.com
                     </a>
 
                     <address className="text-white/70 not-italic text-xs leading-relaxed">

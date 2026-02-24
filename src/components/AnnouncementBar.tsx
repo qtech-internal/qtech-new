@@ -77,7 +77,7 @@ export default function AnnouncementBar() {
 
           {/* Email - Hidden on mobile */}
           <a 
-            href="mailto:sales@netsmartz.com" 
+            href="mailto:nishant.chawla@quadbtech.com" 
             className="hidden sm:flex items-center gap-1.5 sm:gap-2 hover:scale-105 transition-transform group"
           >
             <div className="bg-white/20 p-1.5 rounded-full group-hover:bg-white/30 transition-colors">
@@ -85,7 +85,7 @@ export default function AnnouncementBar() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            <span className="text-white font-medium text-xs sm:text-sm whitespace-nowrap">sales@quadbtech.com</span>
+            <span className="text-white font-medium text-xs sm:text-sm whitespace-nowrap">nishant.chawla@quadbtech.com</span>
           </a>
         </>
       )

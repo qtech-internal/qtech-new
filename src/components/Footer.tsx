@@ -72,7 +72,7 @@ export default function Footer() {
                   {/* Second Address */}
                   <div className="relative left-[4rem]">
                     <a
-                      href="tel:+911234567890"
+                      href="tel:+16469213047"
                       className="text-[#f59e0b] hover:text-[#fbbf24] transition-colors text-sm font-medium block mb-1"
                     >
                       +1-6469213047
@@ -147,17 +147,17 @@ export default function Footer() {
               {/* First Address */}
               <div>
                 <a
-                  href="tel:+918360543857"
+                  href="tel:+917206246045"
                   className="text-[#f59e0b] hover:text-[#fbbf24] transition-colors text-xs sm:text-sm font-medium block mb-1"
                 >
-                  +91-8360543857
+                  +91-7206246045
                 </a>
 
                 <a
-                  href="mailto:sales@quadbtech.com"
+                  href="mailto:nishant.chawla@quadbtech.com"
                   className="text-[#f59e0b] hover:text-[#fbbf24] transition-colors text-[10px] sm:text-xs block mb-2"
                 >
-                  sales@quadbtech.com
+                  nishant.chawla@quadbtech.com
                 </a>
 
                 <address className="text-white/70 not-italic text-[10px] sm:text-xs leading-relaxed">
@@ -174,17 +174,17 @@ export default function Footer() {
               {/* Second Address */}
               <div>
                 <a
-                  href="tel:+911234567890"
+                  href="tel:+16469213047"
                   className="text-[#f59e0b] hover:text-[#fbbf24] transition-colors text-xs sm:text-sm font-medium block mb-1"
                 >
-                  +91-1234567890
+                  +1-6469213047
                 </a>
 
                 <a
-                  href="mailto:info@quadbtech.com"
+                  href="mailto:andrew@quadbtech.com"
                   className="text-[#f59e0b] hover:text-[#fbbf24] transition-colors text-[10px] sm:text-xs block mb-2"
                 >
-                  info@quadbtech.com
+                  andrew@quadbtech.com
                 </a>
 
                 <address className="text-white/70 not-italic text-[10px] sm:text-xs leading-relaxed">

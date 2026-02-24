@@ -48,7 +48,7 @@ export default function PartnersHeroSection() {
               TRUSTED BY
             </p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-20">
+          <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-20">
             <div className="relative h-10 sm:h-12 md:h-14">
               <Image
                 src="/images/partners-1.png"

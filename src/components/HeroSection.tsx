@@ -58,7 +58,7 @@ export default function HeroSection() {
                 />
               </Link>
               <Link
-                href="/services"
+                href="/ai"
                 className="group bg-transparent border-2 border-white text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-white hover:text-blue-900 transition-all duration-300 font-medium text-sm sm:text-base cursor-pointer inline-flex items-center justify-center w-full sm:w-[15rem]"
                 aria-label="Learn more about our services"
               >

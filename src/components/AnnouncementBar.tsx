@@ -225,7 +225,7 @@ export default function AnnouncementBar() {
 
                 {/* Line 2: Phone */}
                 <a 
-                  href="tel:+18886618967" 
+                  href="tel:+917206246045" 
                   className="flex items-center gap-1.5 hover:scale-105 transition-transform group w-full justify-center py-0.5"
                 >
                   <div className="bg-white/25 p-1 rounded-full group-hover:bg-white/35 transition-colors">
@@ -233,12 +233,12 @@ export default function AnnouncementBar() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
-                  <span className="text-white font-medium text-xs">+1-888-661-8967</span>
+                  <span className="text-white font-medium text-xs">+91-7206246045</span>
                 </a>
 
                 {/* Line 3: Email */}
                 <a 
-                  href="mailto:sales@netsmartz.com" 
+                  href="mailto:nishant.chawla@quadbtech.com" 
                   className="flex items-center gap-1.5 hover:scale-105 transition-transform group w-full justify-center py-0.5"
                 >
                   <div className="bg-white/25 p-1 rounded-full group-hover:bg-white/35 transition-colors">
@@ -246,7 +246,7 @@ export default function AnnouncementBar() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <span className="text-white font-medium text-xs">sales@netsmartz.com</span>
+                  <span className="text-white font-medium text-xs">nishant.chawla@quadbtech.com</span>
                 </a>
               </>
             ) : (

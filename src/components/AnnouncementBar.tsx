@@ -40,7 +40,7 @@ export default function AnnouncementBar() {
 
   const bars = [
     {
-      gradient: 'from-[#f59e0b] via-[#fb923c] to-[#f59e0b]',
+      gradient: 'from-[#4f46e5] via-[#6366f1] to-[#4f46e5]',
       content: (
         <>
           {/* AI-First Culture */}
@@ -61,7 +61,7 @@ export default function AnnouncementBar() {
 
           {/* Phone */}
           <a 
-            href="tel:+917206246045" 
+            href="tel:+16469213047" 
             className="flex items-center gap-1.5 sm:gap-2 hover:scale-105 transition-transform group"
           >
             <div className="bg-white/20 p-1.5 rounded-full group-hover:bg-white/30 transition-colors">
@@ -69,7 +69,7 @@ export default function AnnouncementBar() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
             </div>
-            <span className="text-white font-medium text-xs sm:text-sm whitespace-nowrap">+91-7206246045</span>
+            <span className="text-white font-medium text-xs sm:text-sm whitespace-nowrap">+1-6469213047</span>
           </a>
 
           {/* Vertical Divider - Hidden on mobile */}
@@ -77,7 +77,7 @@ export default function AnnouncementBar() {
 
           {/* Email - Hidden on mobile */}
           <a 
-            href="mailto:nishant.chawla@quadbtech.com" 
+            href="mailto:andrew@quadbtech.com" 
             className="hidden sm:flex items-center gap-1.5 sm:gap-2 hover:scale-105 transition-transform group"
           >
             <div className="bg-white/20 p-1.5 rounded-full group-hover:bg-white/30 transition-colors">
@@ -85,7 +85,7 @@ export default function AnnouncementBar() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            <span className="text-white font-medium text-xs sm:text-sm whitespace-nowrap">nishant.chawla@quadbtech.com</span>
+            <span className="text-white font-medium text-xs sm:text-sm whitespace-nowrap">andrew@quadbtech.com</span>
           </a>
         </>
       )
@@ -225,7 +225,7 @@ export default function AnnouncementBar() {
 
                 {/* Line 2: Phone */}
                 <a 
-                  href="tel:+917206246045" 
+                  href="tel:+16469213047" 
                   className="flex items-center gap-1.5 hover:scale-105 transition-transform group w-full justify-center py-0.5"
                 >
                   <div className="bg-white/25 p-1 rounded-full group-hover:bg-white/35 transition-colors">
@@ -233,12 +233,12 @@ export default function AnnouncementBar() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
-                  <span className="text-white font-medium text-xs">+91-7206246045</span>
+                  <span className="text-white font-medium text-xs">+1-6469213047</span>
                 </a>
 
                 {/* Line 3: Email */}
                 <a 
-                  href="mailto:nishant.chawla@quadbtech.com" 
+                  href="mailto:andrew@quadbtech.com" 
                   className="flex items-center gap-1.5 hover:scale-105 transition-transform group w-full justify-center py-0.5"
                 >
                   <div className="bg-white/25 p-1 rounded-full group-hover:bg-white/35 transition-colors">
@@ -246,7 +246,7 @@ export default function AnnouncementBar() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <span className="text-white font-medium text-xs">nishant.chawla@quadbtech.com</span>
+                  <span className="text-white font-medium text-xs">andrew@quadbtech.com</span>
                 </a>
               </>
             ) : (

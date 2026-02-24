@@ -4,7 +4,7 @@ export default function WhyQuadb() {
   const stats = [
     { value: "5+", label: "GCC Centers" },
     { value: "70+", label: "Customers" },
-    { value: "50+", label: "Years of experience" },
+    { value: "10+", label: "Years of experience" },
     { value: "2,000,000+", label: "SQFT Across" },
   ];
 

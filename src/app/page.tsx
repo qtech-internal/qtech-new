@@ -8,6 +8,7 @@ import ServicesSection from '@/components/ServicesSection'
 import WorkSection from '@/components/WorkSection'
 import StatsSection from '@/components/StatsSection'
 import AboutSection from '@/components/AboutSection'
+import OurTeam from '@/components/OurTeam'
 import Footer from '@/components/Footer'
 
 export const metadata = generateSEO({
@@ -35,6 +36,7 @@ export default function Home() {
           <ServicesSection />
           <WorkSection />
           <ProcessSection />
+          <OurTeam />
         </main>
         <Footer />
       </div>

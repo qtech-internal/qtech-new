@@ -7,7 +7,7 @@ const teamMembers = [
   {
     name: "Vinayak Kalra",
     designation:
-      "Co-Founder, QuadB Technologies Technology Architecture, Engineering Excellence & Product Innovation",
+      "Co-Founder, QuadB Technologies\nTechnology Architecture, Engineering Excellence & Product Innovation",
     image: "/images/vinayak-kalara.jpg",
     description: `Vinayak Kalra is the Co-Founder and technical backbone of QuadB Technologies, responsible for driving the company's engineering excellence, system architecture, and product innovation since 2016. As a deeply experienced technology leader, Vinayak has architected and overseen the development of hundreds of scalable software platforms, ranging from enterprise SaaS systems to complex distributed and blockchain-based applications.
 
@@ -34,10 +34,8 @@ const teamMembers = [
 
 function TeamMember({
   member,
-  index,
 }: {
   member: (typeof teamMembers)[0];
-  index: number;
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -47,19 +45,19 @@ function TeamMember({
   };
 
   return (
-    <div className="flex flex-col items-start md:items-center px-4 md:px-0">
+    <div className="flex flex-col items-start px-2 sm:px-4 md:px-0">
       {/* Profile Image and Info - Horizontal Layout */}
-      <div className="flex items-center gap-3 sm:gap-5 mb-4 sm:mb-6 w-full md:max-w-md">
+      <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6 w-full">
         {/* Profile Image with Purple Border */}
         <div className="relative flex-shrink-0">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-purple-400 to-blue-500 p-1">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-gradient-to-br from-purple-400 to-blue-500 p-1">
             <div className="w-full h-full rounded-full overflow-hidden bg-gray-200">
               <Image
                 src={member.image}
                 alt={member.name}
                 width={128}
                 height={128}
-                className="w-full h-full object-cover scale-[1.5] relative top-4 lg:top-6"
+                className="w-full h-full object-cover scale-[1.5] relative top-3 sm:top-4 lg:top-6"
                 style={{ objectPosition: "center 30%" }}
                 loading="lazy"
               />
@@ -68,32 +66,32 @@ function TeamMember({
         </div>
 
         {/* Member Info */}
-        <div className="flex flex-col justify-center">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-900 mb-0.5 sm:mb-1">
+        <div className="flex flex-col justify-center flex-1 min-w-0">
+          <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-gray-900 mb-1 sm:mb-1.5">
             {member.name}
           </h3>
-          <p className="text-gray-500 text-xs sm:text-sm md:text-base whitespace-pre-line">
+          <p className="text-gray-500 text-[10px] sm:text-xs md:text-sm lg:text-base whitespace-pre-line leading-tight sm:leading-normal">
             {member.designation}
           </p>
         </div>
       </div>
 
       {/* Description */}
-      <div className="w-full md:max-w-md">
-        <p className="text-gray-600 text-[14px] sm:text-sm md:text-base leading-relaxed text-justify whitespace-pre-line">
+      <div className="w-full">
+        <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed text-justify whitespace-pre-line">
           {isExpanded ? member.description : truncateText(member.description)}
         </p>
 
         {member.description.length > 400 && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-3 text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors duration-200 flex items-center gap-1"
+            className="mt-3 text-blue-600 hover:text-blue-800 text-xs sm:text-sm font-medium transition-colors duration-200 flex items-center gap-1"
           >
             {isExpanded ? (
               <>
                 Show Less
                 <svg
-                  className="w-4 h-4"
+                  className="w-3 h-3 sm:w-4 sm:h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -110,7 +108,7 @@ function TeamMember({
               <>
                 Read More
                 <svg
-                  className="w-4 h-4"
+                  className="w-3 h-3 sm:w-4 sm:h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -147,9 +145,9 @@ export default function OurTeam() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
           {teamMembers.map((member, index) => (
-            <TeamMember key={index} member={member} index={index} />
+            <TeamMember key={index} member={member} />
           ))}
         </div>
       </div>

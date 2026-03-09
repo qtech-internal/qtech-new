@@ -120,7 +120,7 @@ export default function Header() {
                 : isScrolled ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-200' : 'text-gray-300 hover:text-white hover:bg-white/10'
             }`}
           >
-            Parteners
+            Partners
           </Link>
           <Link 
             href="/how-we-work" 

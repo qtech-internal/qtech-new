@@ -18,13 +18,13 @@ const teamMembers = [
     His leadership ensures that QuadB Technologies consistently delivers world-class engineering outcomes, combining technical precision with execution reliability. Vinayak's commitment to engineering excellence and innovation continues to strengthen QuadB's position as a trusted global technology partner.`,
   },
   {
-    name: "Nishant Chawla",
+    name: "Nishant Singh Chawla",
     designation:
       "Co-Founder, QuadB Technologies\nBusiness Strategy, Global Partnerships & Engineering Expansion",
-    image: "/images/nishant-chwla.jpeg",
-    description: `Nishant Chawla is the Co-Founder of QuadB Technologies and the strategic force behind the company's global growth, partnerships, and engineering expansion. Known for his exceptional problem-solving ability and execution-driven mindset, Nishant specializes in helping startups and enterprises navigate complex technology and scaling challenges by designing practical, high-impact solutions that align with long-term business goals.
+    image: "/images/NishantSinghChawlaCrop.jpeg",
+    description: `Nishant Singh Chawla is the Co-Founder of QuadB Technologies and the strategic force behind the company's global growth, partnerships, and engineering expansion. Known for his exceptional problem-solving ability and execution-driven mindset, Nishant specializes in helping startups and enterprises navigate complex technology and scaling challenges by designing practical, high-impact solutions that align with long-term business goals.
 
-    He has played a pivotal role in building QuadB Technologies into a trusted global engineering partner, working closely with founders, CTOs, and enterprise leaders across North America, Europe, and the Middle East. Nishant has successfully led initiatives enabling companies to scale their engineering capacity, accelerate product timelines, and establish Global Capability Centers (GCCs) in India, allowing them to operate with greater efficiency, flexibility, and cost optimization.
+    He has played a pivotal role in building QuadB Technologies into a trusted global engineering partner, working closely with founders, CTOs, and enterprise leaders across North America, Europe, and the Middle East. Nishant Singh Chawla has successfully led initiatives enabling companies to scale their engineering capacity, accelerate product timelines, and establish Global Capability Centers (GCCs) in India, allowing them to operate with greater efficiency, flexibility, and cost optimization.
 
     His strength lies in identifying structural bottlenecks—whether in product development, engineering scalability, or operational efficiency—and designing frameworks that unlock sustainable growth. Nishant focuses on building long-term, outcome-driven partnerships, ensuring that QuadB operates not just as a service provider, but as a strategic technology partner deeply aligned with client success.
 

@@ -1,7 +1,5 @@
-const { existsSync } = require('node:fs')
-
 const productionNode = process.env.QUADB_NODE_INTERPRETER
-  || (existsSync('/opt/node22/bin/node') ? '/opt/node22/bin/node' : 'node')
+  || '/opt/node22/bin/node'
 
 module.exports = {
   apps: [

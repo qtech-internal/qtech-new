@@ -1,41 +1,29 @@
-// Google Analytics 4
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID
+export const CONSENT_STORAGE_KEY = 'quadb-analytics-consent'
 
-export const pageview = (url: string) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', GA_TRACKING_ID!, {
-      page_path: url,
-    })
-  }
+export type AnalyticsEvent =
+  | 'cta_book_call'
+  | 'cta_view_work'
+  | 'contact_form_start'
+  | 'contact_form_submit'
+  | 'service_view'
+  | 'case_study_view'
+  | 'outbound_link'
+
+export function trackEvent(
+  eventName: AnalyticsEvent,
+  parameters: Record<string, string | number | boolean> = {},
+) {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return
+  window.gtag('event', eventName, parameters)
 }
 
-export const event = ({
-  action,
-  category,
-  label,
-  value,
-}: {
-  action: string
-  category: string
-  label?: string
-  value?: number
-}) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', action, {
-      event_category: category,
-      event_label: label,
-      value: value,
-    })
-  }
-}
-
-// Type declaration for gtag
 declare global {
   interface Window {
-    gtag: (
-      command: 'config' | 'event',
-      targetId: string,
-      config?: Record<string, any>
-    ) => void
+    dataLayer: unknown[]
+    gtag: (...args: unknown[]) => void
+    turnstile?: {
+      reset: () => void
+    }
   }
 }

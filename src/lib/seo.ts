@@ -1,74 +1,80 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
+import { siteConfig } from './site'
 
-interface SEOProps {
-  title?: string
-  description?: string
-  keywords?: string[]
-  image?: string
-  url?: string
+interface MetadataInput {
+  title: string
+  description: string
+  path?: string
   type?: 'website' | 'article'
-  noIndex?: boolean
+  keywords?: string[]
+  image?: {
+    url: string
+    width: number
+    height: number
+    alt: string
+    type?: string
+  } | null
 }
 
-const defaultSEO = {
-  title: 'QuadB Tech',
-  description: 'QuadB Tech is a boutique innovation studio crafting next-generation digital solutions powered by Blockchain, AI, Web3, and the Metaverse. We partner with visionary startups and forward-thinking enterprises.',
-  keywords: ['Blockchain', 'AI', 'Web3', 'DApp Development', 'Smart Contracts', 'Mobile App Development', 'Web Development', 'Cloud Solutions', 'Metaverse'],
-  image: '/og-image.jpg',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://qtech-new.vercel.app',
-  type: 'website' as const,
-}
-
-export function generateSEO({
+export function createMetadata({
   title,
   description,
-  keywords,
-  image,
-  url,
+  path = '/',
   type = 'website',
-  noIndex = false,
-}: SEOProps = {}): Metadata {
-  const seo = {
-    title: title ? `${title} | ${defaultSEO.title}` : defaultSEO.title,
-    description: description || defaultSEO.description,
-    keywords: keywords || defaultSEO.keywords,
-    image: image || defaultSEO.image,
-    url: url || defaultSEO.url,
-    type,
-  }
+  keywords = [],
+  image,
+}: MetadataInput): Metadata {
+  const canonical = new URL(path, siteConfig.url).toString()
+  const fullTitle = title === siteConfig.name ? title : `${title} | ${siteConfig.name}`
+  const socialImage = image === undefined
+    ? {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'QuadB Technologies — founder-led AI product engineering',
+        type: 'image/png',
+      }
+    : image
+  const resolvedSocialImage = socialImage
+    ? {
+        ...socialImage,
+        url: new URL(socialImage.url, siteConfig.url).toString(),
+      }
+    : null
 
   return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords.join(', '),
-    authors: [{ name: 'QuadB Tech' }],
-    creator: 'QuadB Tech',
-    publisher: 'QuadB Tech',
-    robots: noIndex ? 'noindex, nofollow' : 'index, follow',
+    title: fullTitle,
+    description,
+    keywords,
+    authors: [{ name: siteConfig.founder.name, url: siteConfig.linkedinUrl }],
+    creator: siteConfig.founder.name,
+    publisher: siteConfig.name,
+    alternates: { canonical },
     openGraph: {
-      type: seo.type,
-      title: seo.title,
-      description: seo.description,
-      url: seo.url,
-      images: [
-        {
-          url: seo.image,
-          width: 1200,
-          height: 630,
-          alt: seo.title,
-        },
-      ],
-      siteName: defaultSEO.title,
+      type,
+      title: fullTitle,
+      description,
+      url: canonical,
+      siteName: siteConfig.name,
+      locale: 'en_IN',
+      images: resolvedSocialImage ? [resolvedSocialImage] : [],
     },
     twitter: {
       card: 'summary_large_image',
-      title: seo.title,
-      description: seo.description,
-      images: [seo.image],
-      creator: '@QuadBTech',
+      title: fullTitle,
+      description,
+      images: resolvedSocialImage ? [resolvedSocialImage] : [],
     },
-    alternates: {
-      canonical: seo.url,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
+      },
     },
   }
 }

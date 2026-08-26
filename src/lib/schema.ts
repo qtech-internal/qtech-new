@@ -1,98 +1,149 @@
-// Schema.org structured data generators for SEO
+import type { CaseStudy, Service } from './content'
+import { siteConfig } from './site'
+
+const absolute = (path: string) => new URL(path, siteConfig.url).toString()
+const expertise = [
+  'Fractional CTO leadership',
+  'AI product engineering',
+  'AI agents and workflow automation',
+  'SaaS product engineering',
+  'Fintech product engineering',
+  'Web and mobile product engineering',
+]
 
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'QuadB Tech',
-  description: 'A boutique innovation studio crafting next-generation digital solutions powered by Blockchain, AI, Web3, and the Metaverse.',
-  url: 'https://qtech-new.vercel.app',
-  logo: 'https://qtech-new.vercel.app/logo.png',
-  sameAs: [
-    'https://twitter.com/QuadBTech',
-    'https://linkedin.com/company/quadbtech',
-    'https://github.com/qtech-internal',
-  ],
-  contact: {
-    '@type': 'ContactPoint',
-    telephone: '+1-XXX-XXX-XXXX',
-    contactType: 'Sales',
-    email: 'support@quadbtech.com',
-  },
-  location: {
-    '@type': 'Place',
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'US',
-    },
-  },
-}
-
-export const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'QuadB Tech',
-  description: 'Digital Solutions Provider - Web3, Blockchain, AI Development',
-  url: 'https://qtech-new.vercel.app',
-  telephone: '+1-XXX-XXX-XXXX',
-  email: 'support@quadbtech.com',
+  '@id': `${siteConfig.url}/#organization`,
+  name: siteConfig.name,
+  legalName: siteConfig.legalName,
+  url: siteConfig.url,
+  email: siteConfig.email,
+  taxID: siteConfig.gstin,
+  foundingDate: '2016',
+  description: siteConfig.description,
+  knowsAbout: expertise,
+  logo: absolute('/icon-512.png'),
   address: {
     '@type': 'PostalAddress',
-    addressCountry: 'US',
+    addressLocality: 'Ludhiana',
+    addressRegion: 'Punjab',
+    addressCountry: 'IN',
   },
-  areaServed: {
-    '@type': 'Country',
-    name: 'US',
+  founder: {
+    '@id': `${siteConfig.url}/#vinayak-kalra`,
   },
-  priceRange: '$$',
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '09:00',
-    closes: '18:00',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    email: siteConfig.email,
+    availableLanguage: ['English', 'Hindi'],
   },
+  sameAs: [siteConfig.linkedinUrl],
 }
 
-export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({
+export const personSchema = {
   '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: items.map((item, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    name: item.name,
-    item: item.url,
-  })),
-})
+  '@type': 'Person',
+  '@id': `${siteConfig.url}/#vinayak-kalra`,
+  name: siteConfig.founder.name,
+  jobTitle: siteConfig.founder.title,
+  image: absolute(siteConfig.founder.image),
+  url: absolute('/about'),
+  sameAs: [siteConfig.linkedinUrl],
+  worksFor: { '@id': `${siteConfig.url}/#organization` },
+  knowsAbout: expertise,
+}
 
-export const serviceSchema = (service: {
+export const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteConfig.url}/#website`,
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.description,
+  inLanguage: 'en-IN',
+  publisher: { '@id': `${siteConfig.url}/#organization` },
+}
+
+export function serviceSchema(service: Service) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.title,
+    description: service.description,
+    url: absolute(`/services/${service.slug}`),
+    provider: { '@id': `${siteConfig.url}/#organization` },
+    areaServed: 'Worldwide',
+    serviceType: service.shortTitle,
+  }
+}
+
+export function webPageSchema({
+  name,
+  description,
+  path,
+  about,
+}: {
   name: string
   description: string
-  image?: string
-}) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: service.name,
-  description: service.description,
-  image: service.image,
-  provider: {
-    '@type': 'Organization',
-    name: 'QuadB Tech',
-    url: 'https://qtech-new.vercel.app',
-  },
-  areaServed: {
-    '@type': 'Country',
-    name: 'US',
-  },
-})
+  path: string
+  about?: string[]
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${absolute(path)}#webpage`,
+    name,
+    description,
+    url: absolute(path),
+    inLanguage: 'en-IN',
+    isPartOf: { '@id': `${siteConfig.url}/#website` },
+    about: about ?? expertise,
+    primaryImageOfPage: { '@type': 'ImageObject', url: absolute('/og.png') },
+  }
+}
 
-export const faqSchema = (questions: { question: string; answer: string }[]) => ({
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: questions.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-})
+export function faqSchema(items: Array<{ question: string; answer: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
+}
+
+export function caseStudySchema(caseStudy: CaseStudy) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `${caseStudy.title} case study`,
+    description: caseStudy.summary,
+    url: absolute(`/work/${caseStudy.slug}`),
+    image: absolute(caseStudy.image),
+    genre: 'Case study',
+    mainEntityOfPage: absolute(`/work/${caseStudy.slug}`),
+    author: { '@id': `${siteConfig.url}/#vinayak-kalra` },
+    publisher: { '@id': `${siteConfig.url}/#organization` },
+    about: caseStudy.service,
+  }
+}
+
+export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: absolute(item.path),
+    })),
+  }
+}

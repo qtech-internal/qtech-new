@@ -1,310 +1,115 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { Menu, X } from 'lucide-react'
+import { BookingLink } from './TrackedLinks'
+import { navigation } from '@/lib/site'
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
   const pathname = usePathname()
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const firstLinkRef = useRef<HTMLAnchorElement>(null)
 
-  // Handle scroll effect
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
+    if (!open) return
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    firstLinkRef.current?.focus()
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpen(false)
+        toggleRef.current?.focus()
+      }
+      if (event.key === 'Tab') {
+        const menu = document.getElementById('mobile-navigation')
+        const focusable = menu?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        )
+        if (!focusable?.length) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault()
+          last.focus()
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault()
+          first.focus()
+        }
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Close menu when route changes
-  useEffect(() => {
-    setIsMenuOpen(false)
-    // Reset body scroll style on navigation
-    document.body.style.overflow = 'unset'
-    document.documentElement.style.overflow = 'unset'
-    document.body.style.position = 'static'
-    document.body.style.width = 'auto'
-  }, [pathname])
-
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (isMenuOpen) {
-      // Prevent scrolling on both body and html
-      document.body.style.overflow = 'hidden'
-      document.documentElement.style.overflow = 'hidden'
-      // Prevent scroll on mobile devices
-      document.body.style.position = 'fixed'
-      document.body.style.width = '100%'
-    } else {
-      document.body.style.overflow = 'unset'
-      document.documentElement.style.overflow = 'unset'
-      document.body.style.position = 'static'
-      document.body.style.width = 'auto'
-    }
-    
-    // Cleanup on unmount
+    document.addEventListener('keydown', handleKeyDown)
     return () => {
-      document.body.style.overflow = 'unset'
-      document.documentElement.style.overflow = 'unset'
-      document.body.style.position = 'static'
-      document.body.style.width = 'auto'
+      document.body.style.overflow = originalOverflow
+      document.removeEventListener('keydown', handleKeyDown)
     }
-  }, [isMenuOpen])
+  }, [open])
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/20 backdrop-blur-xl shadow-2xl border-b border-white/30' 
-          : 'bg-transparent'
-      }`}
-      style={!isScrolled ? {
-        backgroundImage: 'url(/images/header-bg.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      } : undefined}
-    >
-      {/* Navigation */}
-      <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 py-4 relative z-50">
-        <Link href="/" className={`text-2xl font-bold transition-colors duration-300 ${
-          isScrolled ? 'text-gray-900' : 'text-white hover:text-gray-200'
-        }`}>
-          QuadB Tech
+    <header className="site-header">
+      <nav className="site-container flex h-20 items-center justify-between" aria-label="Primary navigation">
+        <Link href="/" className="logo" aria-label="QuadB Technologies home">
+          <span className="logo-mark" aria-hidden="true">QB</span>
+          <span>QuadB Technologies</span>
         </Link>
-        
-        <div className="hidden md:flex items-center space-x-8">
-          <Link 
-            href="/" 
-            className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
-              pathname === '/' 
-                ? isScrolled ? 'text-white bg-gray-900' : 'text-white bg-[#141415]'
-                : isScrolled ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-200' : 'text-gray-300 hover:text-white hover:bg-white/10'
-            }`}
-          >
-            Home
-          </Link>
-          <Link 
-            href="/services" 
-            className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
-              pathname === '/services' 
-                ? isScrolled ? 'text-white bg-gray-900' : 'text-white bg-[#141415]'
-                : isScrolled ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-200' : 'text-gray-300 hover:text-white hover:bg-white/10'
-            }`}
-          >
-            Services
-          </Link>
-          <Link 
-            href="/ai" 
-            className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
-              pathname === '/ai' 
-                ? isScrolled ? 'text-white bg-gray-900' : 'text-white bg-[#141415]'
-                : isScrolled ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-200' : 'text-gray-300 hover:text-white hover:bg-white/10'
-            }`}
-          >
-            AI-First Culture
-          </Link>
-          <Link 
-            href="/partners" 
-            className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
-              pathname === '/partners' 
-                ? isScrolled ? 'text-white bg-gray-900' : 'text-white bg-[#141415]'
-                : isScrolled ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-200' : 'text-gray-300 hover:text-white hover:bg-white/10'
-            }`}
-          >
-            Partners
-          </Link>
-          <Link 
-            href="/how-we-work" 
-            className={`transition-all duration-300 font-medium px-4 py-2 rounded-full ${
-              pathname === '/how-we-work' 
-                ? isScrolled ? 'text-white bg-gray-900' : 'text-white bg-[#141415]'
-                : isScrolled ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-200' : 'text-gray-300 hover:text-white hover:bg-white/10'
-            }`}
-          >
-            How we work
-          </Link>
-          <Link href="/contact" className={`px-6 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 font-semibold text-sm shadow-md hover:shadow-lg transform hover:scale-105 ${
-            isScrolled ? 'bg-gray-900 text-white hover:bg-gray-800' : 'bg-white text-gray-900 hover:bg-gray-900 hover:text-white'
-          }`}>
-            Start a Project
-            <Image src="/arrow.png" alt="arrow" width={16} height={16} loading="lazy" draggable={false} className="inline-block ml-2" />
-          </Link>
+
+        <div className="hidden items-center gap-1 lg:flex">
+          {navigation.map((item) => {
+            const active = pathname === item.href || pathname.startsWith(`${item.href}/`)
+            return (
+              <Link key={item.href} href={item.href} className="nav-link" aria-current={active ? 'page' : undefined}>
+                {item.label}
+              </Link>
+            )
+          })}
+          <BookingLink className="button button-primary ml-3" location="header" />
         </div>
 
-        <button 
-          className={`md:hidden z-50 relative transition-colors duration-300 ${
-            isScrolled ? 'text-gray-900 hover:text-gray-700' : 'text-white hover:text-gray-300'
-          }`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
+        <button
+          ref={toggleRef}
+          type="button"
+          className="icon-button lg:hidden"
+          aria-label={open ? 'Close navigation' : 'Open navigation'}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          onClick={() => setOpen((value) => !value)}
         >
-          <svg 
-            className={`w-6 h-6 transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`} 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            {isMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
+          {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
       </nav>
 
-      {/* Mobile Sidebar Overlay */}
-      {isMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
-          onClick={() => setIsMenuOpen(false)}
-        />
-      )}
-
-      {/* Mobile Sidebar */}
-      <div className={`fixed top-0 right-0 h-full w-80 bg-hero bg-cover bg-center bg-no-repeat transform transition-transform duration-300 ease-in-out z-50 md:hidden ${
-        isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}>
-        {/* Optional: Add a semi-transparent overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
-        
-        <div className="flex flex-col h-full relative z-10">
-          {/* Sidebar Header */}
-          <div className="flex items-center justify-between p-6 border-b border-white/20">
-            <Link href="/" className="text-white text-xl font-bold hover:text-gray-200 transition-colors duration-300">
-              QuadB Tech
-            </Link>
-            <button 
-              onClick={() => setIsMenuOpen(false)}
-              className="text-white hover:text-red-400 transition-colors duration-300 p-1 hover:bg-white/10 rounded-lg"
-              aria-label="Close menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Navigation Links */}
-          <div className="flex flex-col flex-1 px-6 py-8 space-y-4">
-            <Link 
-              href="/" 
-              className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200 ${
-                pathname === '/' 
-                  ? 'text-white bg-white/20 shadow-lg backdrop-blur-sm' 
-                  : 'text-gray-200 hover:text-white hover:bg-white/10 hover:shadow-md hover:translate-x-1'
-              }`}
-            >
-              <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-              </svg>
-              Home
-            </Link>
-            
-            <Link 
-              href="/services" 
-              className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200 ${
-                pathname === '/services' 
-                  ? 'text-white bg-white/20 shadow-lg backdrop-blur-sm' 
-                  : 'text-gray-200 hover:text-white hover:bg-white/10 hover:shadow-md hover:translate-x-1'
-              }`}
-            >
-              <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-              </svg>
-              Services
-            </Link>
-            
-            <Link 
-              href="/ai" 
-              className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200 ${
-                pathname === '/ai' 
-                  ? 'text-white bg-white/20 shadow-lg backdrop-blur-sm' 
-                  : 'text-gray-200 hover:text-white hover:bg-white/10 hover:shadow-md hover:translate-x-1'
-              }`}
-            >
-              <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-              AI-First Culture
-            </Link>
-            
-            <Link 
-              href="/partners" 
-              className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200 ${
-                pathname === '/partners' 
-                  ? 'text-white bg-white/20 shadow-lg backdrop-blur-sm' 
-                  : 'text-gray-200 hover:text-white hover:bg-white/10 hover:shadow-md hover:translate-x-1'
-              }`}
-            >
-              <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-              Partners
-            </Link>
-            
-            <Link 
-              href="/how-we-work" 
-              className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200 ${
-                pathname === '/how-we-work' 
-                  ? 'text-white bg-white/20 shadow-lg backdrop-blur-sm' 
-                  : 'text-gray-200 hover:text-white hover:bg-white/10 hover:shadow-md hover:translate-x-1'
-              }`}
-            >
-              <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
-              </svg>
-              How we work
-            </Link>
-
-            {/* Divider */}
-            <div className="border-t border-white/20 my-4"></div>
-
-            {/* Additional Links */}
-            <Link 
-              href="/privacy" 
-              className="flex items-center px-4 py-3 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-200 hover:shadow-md hover:translate-x-1"
-            >
-              <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-              Privacy Policy
-            </Link>
-
-            <Link 
-              href="/terms" 
-              className="flex items-center px-4 py-3 rounded-xl text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-200 hover:shadow-md hover:translate-x-1"
-            >
-              <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Terms & Conditions
-            </Link>
-          </div>
-
-          {/* CTA Button */}
-          <div className="p-6 border-t border-white/20">
-            <Link 
-              href="/contact" 
-              className="flex items-center justify-center w-full bg-gradient-to-r from-white to-gray-100 text-blue-900 px-6 py-3 rounded-xl hover:from-blue-600 hover:to-blue-700 hover:text-white transition-all duration-300 font-semibold shadow-lg hover:shadow-2xl transform hover:scale-105"
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-              Start a Project
-            </Link>
+      {open ? (
+        <div className="mobile-menu-backdrop lg:hidden" onMouseDown={() => setOpen(false)}>
+          <div
+            id="mobile-navigation"
+            className="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
+            onMouseDown={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-slate-200 pb-6">
+              <span className="font-semibold text-slate-950">Navigate</span>
+              <button className="icon-button" type="button" aria-label="Close navigation" onClick={() => setOpen(false)}>
+                <X aria-hidden="true" />
+              </button>
+            </div>
+            <div className="flex flex-1 flex-col gap-2 py-8">
+              <Link ref={firstLinkRef} href="/" className="mobile-nav-link" onClick={() => setOpen(false)}>Home</Link>
+              {navigation.map((item) => (
+                <Link key={item.href} href={item.href} className="mobile-nav-link" onClick={() => setOpen(false)}>
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+            <BookingLink className="button button-primary w-full justify-center" location="mobile_header" />
           </div>
         </div>
-      </div>
+      ) : null}
     </header>
   )
 }

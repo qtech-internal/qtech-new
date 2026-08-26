@@ -1,44 +1,32 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
+import { caseStudies, services } from '@/lib/content'
+import { siteConfig } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://qtech-new.vercel.app'
-  
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/how-we-work`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+  const pages = [
+    { path: '', priority: 1, changeFrequency: 'weekly' as const },
+    { path: '/services', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/work', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/about', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/contact', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/privacy', priority: 0.2, changeFrequency: 'yearly' as const },
+    { path: '/terms', priority: 0.2, changeFrequency: 'yearly' as const },
+    ...services.map((service) => ({
+      path: `/services/${service.slug}`,
+      priority: 0.85,
+      changeFrequency: 'monthly' as const,
+    })),
+    ...caseStudies.map((caseStudy) => ({
+      path: `/work/${caseStudy.slug}`,
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
+      changeFrequency: 'monthly' as const,
+    })),
   ]
+
+  return pages.map((page) => ({
+    url: `${siteConfig.url}${page.path}`,
+    lastModified: new Date('2026-08-12'),
+    changeFrequency: page.changeFrequency,
+    priority: page.priority,
+  }))
 }

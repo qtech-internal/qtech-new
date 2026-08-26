@@ -1,26 +1,18 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { generateSEO } from '@/lib/seo'
 
-export const metadata = generateSEO({
-  title: '404 - Page Not Found',
-  description: 'The page you are looking for does not exist.',
-  noIndex: true,
-})
+export const metadata: Metadata = {
+  title: 'Page not found | QuadB Technologies',
+  robots: { index: false, follow: false },
+}
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
-      <h1 className="text-6xl font-bold text-gray-900 mb-4">404</h1>
-      <h2 className="text-2xl font-semibold text-gray-700 mb-4">Page Not Found</h2>
-      <p className="text-gray-600 mb-8 text-center max-w-md">
-        The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
-      </p>
-      <Link
-        href="/"
-        className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-      >
-        Go back home
-      </Link>
-    </div>
+    <section className="site-container flex min-h-[65vh] flex-col items-start justify-center py-20">
+      <p className="eyebrow">404</p>
+      <h1 className="mt-4 text-5xl font-semibold tracking-[-0.055em] text-slate-950 sm:text-7xl">That page is not here.</h1>
+      <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">The address may have changed during the website overhaul. The current services and case studies are available from the home page.</p>
+      <Link href="/" className="button button-primary mt-8">Return home</Link>
+    </section>
   )
 }

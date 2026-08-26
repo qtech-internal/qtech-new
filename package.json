@@ -15,7 +15,7 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
-    "check": "npm run lint && npm run type-check && npm run test && npm run build"
+    "check": "npm run lint && npm run test && npm run build && npm run type-check"
   },
   "dependencies": {
     "@upstash/ratelimit": "^2.0.8",

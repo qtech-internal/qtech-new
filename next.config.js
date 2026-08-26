@@ -28,7 +28,6 @@ const securityHeaders = [
 
 const nextConfig = {
   agentRules: false,
-  output: 'standalone',
   poweredByHeader: false,
   compress: true,
   images: {

@@ -4,7 +4,9 @@ This project runs as one Next.js Node.js process on `127.0.0.1:3001`. PM2 keeps 
 
 ## Server prerequisites
 
-- Ubuntu with Node.js 22 and npm
+- Ubuntu with Node.js 22 and npm. On a shared server, install the QuadB runtime
+  at `/opt/node22` so PM2 can use it without changing the Node.js version used
+  by unrelated applications.
 - Git
 - PM2 installed globally
 - Nginx
@@ -32,6 +34,10 @@ Do not expose port `3001` in the DigitalOcean firewall or UFW. Allow only SSH, H
    pm2 save
    pm2 startup systemd
    ```
+
+   The PM2 configuration automatically uses `/opt/node22/bin/node` when it is
+   present. Set `QUADB_NODE_INTERPRETER` only when Node.js 22 is installed at a
+   different absolute path.
 
 6. Run the `sudo ... pm2 startup systemd ...` command printed by PM2, then run `pm2 save` again.
 7. Confirm the local application responds:

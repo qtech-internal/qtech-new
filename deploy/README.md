@@ -1,6 +1,6 @@
 # DigitalOcean Droplet deployment
 
-This project runs as one Next.js Node.js process on `127.0.0.1:3000`. PM2 keeps it alive, systemd restores PM2 after a reboot, and Nginx is the only public entry point.
+This project runs as one Next.js Node.js process on `127.0.0.1:3001`. PM2 keeps it alive, systemd restores PM2 after a reboot, and Nginx is the only public entry point.
 
 ## Server prerequisites
 
@@ -10,7 +10,7 @@ This project runs as one Next.js Node.js process on `127.0.0.1:3000`. PM2 keeps 
 - Nginx
 - Certbot with the Nginx plugin
 
-Do not expose port `3000` in the DigitalOcean firewall or UFW. Allow only SSH, HTTP and HTTPS.
+Do not expose port `3001` in the DigitalOcean firewall or UFW. Allow only SSH, HTTP and HTTPS.
 
 ## First deployment
 
@@ -37,7 +37,7 @@ Do not expose port `3000` in the DigitalOcean firewall or UFW. Allow only SSH, H
 7. Confirm the local application responds:
 
    ```bash
-   curl --fail --head http://127.0.0.1:3000/
+   curl --fail --head http://127.0.0.1:3001/
    pm2 status
    ```
 

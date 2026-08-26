@@ -26,7 +26,7 @@ The contact API fails closed in production when security or mail credentials are
 
 ## DigitalOcean deployment
 
-The production process definition and Droplet deployment checklist are in [`ecosystem.config.cjs`](./ecosystem.config.cjs) and [`deploy/README.md`](./deploy/README.md). The app binds only to `127.0.0.1:3000`; Nginx terminates public HTTP/HTTPS traffic.
+The production process definition and Droplet deployment checklist are in [`ecosystem.config.cjs`](./ecosystem.config.cjs) and [`deploy/README.md`](./deploy/README.md). The app binds only to `127.0.0.1:3001`; Nginx terminates public HTTP/HTTPS traffic.
 
 ## Verification
 
